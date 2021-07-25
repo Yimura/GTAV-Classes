@@ -1,3 +1,6 @@
+// #include "CPed.h" // not included to prevent circular inclusion
+
+class CPed; // make the compiler happy
 class CPlayerInfo
 {
 public:
@@ -24,14 +27,12 @@ public:
 	char pad_01A8[11]; //0x01A8
 	bool m_is_online; //0x01B3
 	char pad_01B4[20]; //0x01B4
-	class CPed* m_ped; //0x01C8
+	class CPed *m_ped; //0x01C8
 	char pad_01D0[40]; //0x01D0
 	uint32_t m_frame_flags; //0x01F8
 	char pad_01FC[28]; //0x01FC
 	uint32_t m_player_controls; //0x0218
-	char pad_021C[1588]; //0x021C
-	uint32_t m_npc_ignore; //0x0850
-	char pad_0854[12]; //0x0854
+	char pad_021C[1604]; //0x021C
 	bool m_is_wanted; //0x0860
 	char pad_0861[3]; //0x0861
 	int8_t m_wanted_level_display; //0x0864
