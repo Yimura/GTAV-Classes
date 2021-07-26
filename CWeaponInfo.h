@@ -1,3 +1,5 @@
+#include "CAmmoInfo.h"
+
 class CWeaponInfo
 {
 public:
