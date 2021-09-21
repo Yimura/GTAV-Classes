@@ -1,45 +1,41 @@
 class CPlayerInfo
 {
 public:
-	char pad_0000[84]; //0x0000
-	uint32_t m_internal_ip; //0x0054
-	uint16_t m_internal_port; //0x0058
-	char pad_005A[2]; //0x005A
-	uint32_t m_relay_ip; //0x005C
-	uint16_t m_relay_port; //0x0060
-	char pad_0062[2]; //0x0062
-	uint32_t m_external_ip; //0x0064
-	uint16_t m_external_port; //0x0068
-	char pad_006A[38]; //0x006A
-	uint64_t m_rockstar_id; //0x0090
+	char pad_0000[32]; //0x0000
+	uint32_t m_internal_ip; //0x0020
+	uint16_t m_internal_port; //0x0024
+	char pad_0026[2]; //0x0026
+	uint64_t m_rockstar_id; //0x0028
+	char pad_0030[68]; //0x0030
+	uint32_t m_external_ip; //0x0074
+	uint16_t m_external_port; //0x0078
+	char pad_007A[22]; //0x007A
+	uint64_t m_rockstar_id2; //0x0090
 	char pad_0098[12]; //0x0098
 	char m_name[20]; //0x00A4
 	char pad_00B8[184]; //0x00B8
 	float m_swim_speed; //0x0170
 	char pad_0174[20]; //0x0174
 	uint32_t m_water_proof; //0x0188
-	char pad_018C[57]; //0x018C
-	bool m_is_rockstar_dev; //0x01C5
-	char pad_01C6[1]; //0x01C6
-	bool m_is_cheater; //0x01C7
-	char pad_01C8[11]; //0x01C8
-	bool m_is_online; //0x01D3
-	char pad_01D4[20]; //0x01D4
+	char pad_018C[92]; //0x018C
 	class CPed *m_ped; //0x01E8
-	char pad_01F0[41]; //0x01F0
-	uint32_t m_frame_flags; //0x0219
-	char pad_021D[28]; //0x021D
-	uint32_t m_player_controls; //0x0239
-	char pad_023D[1279]; //0x023D
+	char pad_01F0[40]; //0x01F0
+	uint32_t m_frame_flags; //0x0218
+	char pad_021C[52]; //0x021C
+	uint32_t m_player_controls; //0x0250
+	char pad_0254[1256]; //0x0254
 	float m_wanted_can_change; //0x073C
 	char pad_0740[304]; //0x0740
 	uint32_t m_npc_ignore; //0x0870
-	char pad_0874[20]; //0x0874
+	char pad_0874[12]; //0x0874
+	bool m_is_wanted; //0x0880
+	char pad_0881[7]; //0x0881
 	uint32_t m_wanted_level; //0x0888
-	char pad_088C[1124]; //0x088C
+	uint32_t m_wanted_level_display; //0x088C
+	char pad_0890[1120]; //0x0890
 	float m_run_speed; //0x0CF0
 	float m_stamina; //0x0CF4
-	float m_stamina_max; //0x0CF8
+	float m_stamina_regen; //0x0CF8
 	char pad_0CFC[16]; //0x0CFC
 	float m_weapon_damage_mult; //0x0D0C
 	float m_weapon_defence_mult; //0x0D10
