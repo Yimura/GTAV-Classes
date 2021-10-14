@@ -1,10 +1,16 @@
 #include "CHandlingData.h"
 #include "CVehicleDrawHandler.h"
+#include "CVehicleModelInfo.h"
+#include "pgBase.h"
 
 class CAutomobile
 {
 public:
-	char pad_0000[72]; //0x0000
+	char pad_0000[32]; //0x0000
+	class CVehicleModelInfo *m_vehicle_model; //0x0020
+	char pad_0028[8]; //0x0028
+	class pgBase *m_posbase; //0x0030
+	char pad_0038[16]; //0x0038
 	class CVehicleDrawHandler *m_mods; //0x0048
 	char pad_0050[313]; //0x0050
 	uint8_t m_godmode; //0x0189
