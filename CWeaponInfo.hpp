@@ -1,4 +1,5 @@
-#include "CAmmoInfo.h"
+#pragma once
+#include "CAmmoInfo.hpp"
 
 class CWeaponInfo
 {
@@ -9,7 +10,7 @@ public:
 	char pad_0018[12]; //0x0018
 	uint32_t m_impact_explosion; //0x0024
 	char pad_0028[56]; //0x0028
-	class CAmmoInfo *m_ammo_info; //0x0060
+	class CAmmoInfo* m_ammo_info; //0x0060
 	char pad_0068[20]; //0x0068
 	float m_spread; //0x007C
 	char pad_0080[60]; //0x0080

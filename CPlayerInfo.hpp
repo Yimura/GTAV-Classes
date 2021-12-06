@@ -1,16 +1,34 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable : 4201) // nonstandard extension used: nameless struct/union
+union netAddress
+{
+	std::uint32_t m_raw;
+	struct
+	{
+		std::uint8_t m_field4;
+		std::uint8_t m_field3;
+		std::uint8_t m_field2;
+		std::uint8_t m_field1;
+	};
+};
+#pragma warning(pop)
+
+#pragma pack(push, 1)
 class CPlayerInfo
 {
 public:
 	char pad_0000[40]; //0x0000
 	uint64_t m_rockstar_id; //0x0028
 	char pad_0030[52]; //0x0030
-	uint32_t m_relay_ip; //0x0064
+	netAddress m_relay_ip; //0x0064
 	uint16_t m_relay_port; //0x0068
 	char pad_006A[2]; //0x006A
-	uint32_t m_external_ip; //0x006C
+	netAddress m_external_ip; //0x006C
 	uint16_t m_external_port; //0x0070
 	char pad_0072[2]; //0x0072
-	uint32_t m_internal_ip; //0x0074
+	netAddress m_internal_ip; //0x0074
 	uint16_t m_internal_port; //0x0078
 	char pad_007A[22]; //0x007A
 	uint64_t m_rockstar_id2; //0x0090
@@ -21,7 +39,7 @@ public:
 	char pad_0174[20]; //0x0174
 	uint32_t m_water_proof; //0x0188
 	char pad_018C[92]; //0x018C
-	class CPed *m_ped; //0x01E8
+	class CPed* m_ped; //0x01E8
 	char pad_01F0[40]; //0x01F0
 	uint32_t m_frame_flags; //0x0218
 	char pad_021C[52]; //0x021C
@@ -50,3 +68,5 @@ public:
 	float m_melee_weapon_defence_mult; //0x0D2C
 }; //Size: 0x0D30
 static_assert(sizeof(CPlayerInfo) == 0xD30);
+
+#pragma pack(pop)
