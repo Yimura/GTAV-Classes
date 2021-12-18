@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma warning(push)
-#pragma warning(disable : 4201) // nonstandard extension used: nameless struct/union
 class netAddress
 {
 public:
@@ -35,6 +33,7 @@ public:
 }; //Size: 0x0098
 static_assert(sizeof(netPlayerData) == 0x98);
 
+#pragma pack(push, 1)
 class CPlayerInfo
 {
 public:
