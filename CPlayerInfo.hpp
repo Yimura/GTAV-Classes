@@ -26,7 +26,7 @@ public:
 	uint16_t m_internal_port; //0x0058
 	char pad_005A[6]; //0x005A
 	uint64_t m_host_token; //0x0060
-	char pad_0068[8]; //0x0068
+	uint64_t m_peer_id; //0x0068
 	uint64_t m_rockstar_id2; //0x0070
 	char pad_0078[12]; //0x0078
 	char m_name[20]; //0x0084
