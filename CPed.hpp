@@ -38,7 +38,7 @@ public:
 	char pad_10D0[8]; //0x10D0
 	class CPedWeaponManager *m_weapon_manager; //0x10D8
 	char pad_10E0[907]; //0x10E0
-	uint8_t m_in_vehicle; //0x146B
+	uint8_t m_ped_task_flag; //0x146B
 	char pad_146C[196]; //0x146C
 	float m_armor; //0x1530
 }; //Size: 0x1534
