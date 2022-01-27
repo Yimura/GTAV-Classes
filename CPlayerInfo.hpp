@@ -1,7 +1,19 @@
 #pragma once
 #include "netPlayerData.hpp"
 
-#pragma pack(push, 1)
+enum eGameState : int32_t
+{
+	Invalid = -1,
+	Playing,
+	Died,
+	Arrested,
+	FailedMission,
+	LeftGame,
+	Respawn,
+	InMPCutscene
+};
+
+#pragma pack(push, 4)
 class CPlayerInfo
 {
 public:
@@ -43,5 +55,4 @@ public:
 	float m_melee_weapon_defence_mult; //0x0D2C
 }; //Size: 0x0D30
 static_assert(sizeof(CPlayerInfo) == 0xD30);
-
 #pragma pack(pop)
