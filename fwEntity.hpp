@@ -6,6 +6,7 @@
 
 namespace rage
 {
+#pragma pack(push, 4)
     class fwEntity
     {
     public:
@@ -25,4 +26,5 @@ namespace rage
         uint32_t m_damage_bits; //0x0188
     }; //Size: 0x018C
     static_assert(sizeof(fwEntity) == 0x18C);
+#pragma pack(pop)
 }
