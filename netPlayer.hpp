@@ -6,7 +6,7 @@ namespace rage
     class netPlayer
     {
     public:
-        virtual void ~netPlayer();
+        virtual ~netPlayer();
         virtual void reset();
         virtual bool is_valid();
         virtual const char* get_name();
