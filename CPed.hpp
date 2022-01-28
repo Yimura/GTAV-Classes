@@ -4,6 +4,7 @@
 #include "CPedWeaponManager.hpp"
 #include "CPlayerInfo.hpp"
 #include "fwEntity.hpp"
+#include "vector.hpp"
 
 #pragma pack(push, 1)
 
@@ -16,7 +17,7 @@ public:
 	char pad_0284[28]; //0x0284
 	float m_maxhealth; //0x02A0
 	char pad_02A4[124]; //0x02A4
-	rage::vector3 m_velocity; //0x0320
+	rage::fvector3 m_velocity; //0x0320
 	char pad_032C[2564]; //0x032C
 	class CAutomobile *m_vehicle; //0x0D30
 	char pad_0D38[912]; //0x0D38

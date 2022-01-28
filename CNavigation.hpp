@@ -1,4 +1,5 @@
 #pragma once
+#include "vector.hpp"
 
 class CNavigation
 {
@@ -7,8 +8,8 @@ public:
 	float m_heading; //0x0020
 	float m_heading2; //0x0024
 	char pad_0028[8]; //0x0028
-	rage::vector3 m_rotation; //0x0030
+	rage::fvector3 m_rotation; //0x0030
 	char pad_003C[24]; //0x003C
-	rage::vector3 m_position; //0x0054
+	rage::fvector3 m_position; //0x0054
 }; //Size: 0x0060
 static_assert(sizeof(CNavigation) == 0x60);

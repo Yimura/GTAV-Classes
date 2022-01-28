@@ -1,4 +1,5 @@
 #pragma once
+#include "vector.hpp"
 
 class CHandlingData
 {
@@ -10,9 +11,9 @@ public:
 	float m_downforce_multiplier; //0x0014
 	float m_popup_light_rotation; //0x0018
 	char pad_001C[4]; //0x001C
-	rage::vector3 m_centre_of_mass; //0x0020
+	rage::fvector3 m_centre_of_mass; //0x0020
 	char pad_002C[4]; //0x002C
-	rage::vector3 m_inertia_mult; //0x0030
+	rage::fvector3 m_inertia_mult; //0x0030
 	char pad_003C[4]; //0x003C
 	float m_buoyancy; //0x0040
 	float m_drive_bias_rear; //0x0044
@@ -66,7 +67,7 @@ public:
 	float m_petrol_tank_volume; //0x0100
 	float m_oil_volume; //0x0104
 	char pad_0108[4]; //0x0108
-	rage::vector3 m_seat_offset_dist; //0x010C
+	rage::fvector3 m_seat_offset_dist; //0x010C
 	uint32_t m_monetary_value; //0x0118
 	char pad_011C[8]; //0x011C
 	uint32_t m_model_flags; //0x0124
