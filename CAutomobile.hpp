@@ -44,4 +44,4 @@ public:
 	class CPed *m_last_driver; //0x0CE4
 }; //Size: 0x0CEC
 static_assert(sizeof(CAutomobile) == 0xCEC);
-#pragma pack(push, 4)
+#pragma pack(pop)
