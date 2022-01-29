@@ -6,7 +6,7 @@ namespace rage
     union vector3
     {
         T data[3];
-        struct {T x, y, z};
+        struct { T x, y, z; };
     };
 
     typedef vector3<float> fvector3;
