@@ -19,6 +19,7 @@ namespace rage
     static_assert(sizeof(netPlayerMgrBase) == 0x8);
 }
 
+#pragma pack(push, 2)
 class CNetworkPlayerMgr : public rage::netPlayerMgrBase
 {
 public:
@@ -31,3 +32,4 @@ public:
 	uint16_t m_player_count; //0x028C
 }; //Size: 0x028E
 static_assert(sizeof(CNetworkPlayerMgr) == 0x28E);
+#pragma pack(pop)
