@@ -2,7 +2,7 @@
 #include "CAmmoInfo.hpp"
 #include "CItemInfo.hpp"
 
-enum eDamageType : int32_t
+enum class eDamageType : int32_t
 {
 	Unknown,
 	None,
@@ -22,7 +22,7 @@ enum eDamageType : int32_t
 	_0x1C8E59AE
 };
 
-enum eFireType : int32_t
+enum class eFireType : int32_t
 {
 	None,
 	Melee,
@@ -32,7 +32,7 @@ enum eFireType : int32_t
 	VolumetricParticle
 };
 
-enum eWheelSlot : int32_t
+enum class eWheelSlot : int32_t
 {
 	Pistol,
 	SMG,
