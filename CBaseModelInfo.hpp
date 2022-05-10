@@ -1,6 +1,6 @@
 #pragma once
 
-enum class eModelType
+enum class eModelType : std::uint8_t
 {
     UNK_0,
     UNK_1,
