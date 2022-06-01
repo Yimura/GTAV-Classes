@@ -1,8 +1,12 @@
 #pragma once
+
 #include "CHandlingData.hpp"
 #include "CVehicleDrawHandler.hpp"
 #include "CVehicleModelInfo.hpp"
+
 #include "fwEntity.hpp"
+
+#include <cstdint>
 
 #pragma pack(push, 4)
 class CAutomobile : public rage::fwEntity

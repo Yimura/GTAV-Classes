@@ -1,5 +1,8 @@
 #pragma once
+
 #include "vector.hpp"
+
+#include <cstdint>
 
 class CHandlingData
 {

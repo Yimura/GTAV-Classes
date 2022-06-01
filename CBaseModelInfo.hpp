@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 enum class eModelType : std::uint8_t
 {
     UNK_0,
