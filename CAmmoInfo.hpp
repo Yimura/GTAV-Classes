@@ -1,5 +1,8 @@
 #pragma once
+
 #include "CItemInfo.hpp"
+
+#include <cstdint>
 
 enum class eAmmoSpecialType : int32_t
 {

@@ -1,7 +1,11 @@
 #pragma once
+
 #include "CPlayerInfo.hpp"
 #include "CNonPhysicalPlayerData.hpp"
+
 #include "netPlayer.hpp"
+
+#include <cstdint>
 
 #pragma pack(push, 1)
 

@@ -1,10 +1,14 @@
 #pragma once
+
 #include "CAutomobile.hpp"
 #include "CPedModelInfo.hpp"
 #include "CPedWeaponManager.hpp"
 #include "CPlayerInfo.hpp"
+
 #include "fwEntity.hpp"
 #include "vector.hpp"
+
+#include <cstdint>
 
 #pragma pack(push, 1)
 

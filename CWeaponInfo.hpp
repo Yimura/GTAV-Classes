@@ -1,6 +1,9 @@
 #pragma once
+
 #include "CAmmoInfo.hpp"
 #include "CItemInfo.hpp"
+
+#include <cstdint>
 
 enum class eDamageType : int32_t
 {

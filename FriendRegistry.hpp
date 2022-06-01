@@ -1,5 +1,8 @@
 #pragma once
+
 #include "FriendInfo.hpp"
+
+#include <cstdint>
 
 class FriendList
 {

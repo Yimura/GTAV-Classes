@@ -1,5 +1,8 @@
 #pragma once
+
 #include "CWeaponInfo.hpp"
+
+#include <cstdint>
 
 class CPedWeaponManager
 {

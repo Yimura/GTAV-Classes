@@ -1,8 +1,12 @@
 #pragma once
+
 #include "CBaseModelInfo.hpp"
 #include "CNavigation.hpp"
+
 #include "fwDrawData.hpp"
 #include "netObject.hpp"
+
+#include <cstdint>
 
 namespace rage
 {

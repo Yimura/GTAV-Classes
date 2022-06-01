@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 class CVehicleDrawHandler
 {
 public:

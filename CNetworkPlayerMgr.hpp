@@ -1,6 +1,9 @@
 #pragma once
+
 #include "CNetGamePlayer.hpp"
 #include "CNonPhysicalPlayerData.hpp"
+
+#include <cstdint>
 
 namespace rage
 {

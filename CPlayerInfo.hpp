@@ -1,5 +1,8 @@
 #pragma once
+
 #include "netPlayerData.hpp"
+
+#include <cstdint>
 
 enum class eGameState : int32_t
 {
