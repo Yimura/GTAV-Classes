@@ -25,13 +25,13 @@ namespace rage
         char pad_0038[16]; //0x0038
         class rage::fwDrawData *m_draw_data; //0x0048
         char pad_0050[16]; //0x0050
-        class rage::fvector3 m_right; //0x0060
+        rage::fvector3 m_right; //0x0060
         char pad_006C[4]; //0x006C
-        class rage::fvector3 m_forward; //0x0070
+        rage::fvector3 m_forward; //0x0070
         char pad_007C[4]; //0x007C
-        class rage::fvector3 m_up; //0x0080
+        rage::fvector3 m_up; //0x0080
         char pad_008C[4]; //0x008C
-        class rage::fvector3 m_position; //0x0090
+        rage::fvector3 m_position; //0x0090
         char pad_009C[52]; //0x009C
         class rage::netObject *m_net_object; //0x00D0
         char pad_00D8[176]; //0x00D8
