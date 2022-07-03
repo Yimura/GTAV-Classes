@@ -4,14 +4,25 @@
 
 enum class eModelType : std::uint8_t
 {
-    UNK_0,
+    Invalid,
     Object,
-    UNK_2,
-    UNK_3,
+    Interior,
+    Window,
     Weapon,
     Vehicle,
     Ped,
-    Plant = 129
+    Destructable,
+    WorldObject = 33,
+    Sprinkler = 35,
+    Unk65 = 65,
+    EmissiveLOD = 67,
+    Plant = 129,
+    LOD = 131,
+    Unk132 = 132,
+    Unk133 = 133,
+    OnlineOnlyPed = 134,
+    Building = 161,
+    Unk193 = 193
 };
 
 #pragma pack(push, 2)
