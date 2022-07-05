@@ -16,7 +16,7 @@ template<typename T>
 class HashTable
 {
 public:
-	T** m_data; //0x0000
+	T* m_data; //0x0000
 	uint16_t m_size; //0x0008
 	char pad_000A[14]; //0x000A
 	uint64_t m_item_size; //0x0018
