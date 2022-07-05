@@ -27,7 +27,7 @@ enum class eModelType : std::uint8_t
     Unk193 = 193
 };
 
-#pragma pack(push, 2)
+#pragma pack(push, 1)
 class CBaseModelInfo
 {
 public:
@@ -38,7 +38,7 @@ public:
 	char pad_003C[4]; //0x003C
 	rage::fvector3 m_max_dimensions; //0x0040
 	char pad_004C[81]; //0x004C
-	uint8_t m_model_type; //0x009D
+	eModelType m_model_type; //0x009D
 	char pad_009E[6]; //0x009E
 }; //Size: 0x00A4
 static_assert(sizeof(CBaseModelInfo) == 0xA4);
