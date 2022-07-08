@@ -32,5 +32,5 @@ public:
 	bool unk_0x1E0; //0x01E0
 	uint8_t unk_0x1E1; //0x01E1
 };
-static_assert(sizeof(CPedAppearanceDataNode) == 0x1E2);
+static_assert(sizeof(CPedAppearanceDataNode) == 0x1E4);
 #pragma(pop)
