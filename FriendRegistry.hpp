@@ -8,8 +8,8 @@ class FriendList
 {
 public:
 	class FriendInfo m_data[250]; //0x0000
-}; //Size: 0x1F400
-static_assert(sizeof(FriendList) == 0x1F400);
+}; //Size: 0x17700
+static_assert(sizeof(FriendList) == 0x17700);
 
 #pragma pack(push, 4)
 class FriendRegistry
