@@ -6,16 +6,15 @@
 class FriendInfo
 {
 public:
-	char pad_0000[128]; //0x0000
-	char m_name[20]; //0x0080
-	char pad_0094[36]; //0x0094
-	uint64_t m_rockstar_id; //0x00B8
-	uint8_t unk_0xC0; //0x00C0
-	char pad_00C1[3]; //0x00C1
-	uint32_t m_friend_state; //0x00C4
-	char pad_00C8[304]; //0x00C8
-	uint32_t m_is_joinable; //0x01F8
-	char pad_01FC[4]; //0x01FC
-}; //Size: 0x0200
-static_assert(sizeof(FriendInfo) == 0x200);
+	char m_name[20]; //0x0000
+	char pad_0014[36]; //0x0014
+	uint64_t m_rockstar_id; //0x0038
+	uint8_t unk_0xC0; //0x0040
+	char pad_0041[3]; //0x0041
+	uint32_t m_friend_state; //0x0044
+	char pad_0048[304]; //0x0048
+	uint32_t m_is_joinable; //0x0178
+	char pad_017C[4]; //0x017C
+}; //Size: 0x0180
+static_assert(sizeof(FriendInfo) == 0x180);
 #pragma pack(pop)
