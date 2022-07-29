@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CBaseModelInfo.hpp"
+#include "base/CBaseModelInfo.hpp"
 
 #include <cstdint>
 
