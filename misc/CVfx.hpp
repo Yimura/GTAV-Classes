@@ -10,7 +10,7 @@
     car.dashlight
     car.doorlight
 */
-class vfx_car
+class CVFXCar
 {
 public:
     float intensity; //0x0000
@@ -30,7 +30,7 @@ public:
     float useDynamicShadows; //0x0040
 }; //Size: 0x0044
 
-class vfx_train
+class CVFXTrain
 {
   public:
     float red;              // 0x0000
@@ -47,7 +47,7 @@ class vfx_train
     char pad_29CC[13952]; // 0x29CC
 }; // Size: 0x604C
 
-class vfx_ped_light
+class CVFXPedLight
 {
 public:
     float intensity; //0x0000
@@ -67,7 +67,7 @@ public:
     float useDynamicShadows; //0x0040
 }; //Size: 0x0044
 
-class vfx_trafic_light_near
+class CVFXTraficLightNear
 {
 public:
     float intensity; //0x0000
@@ -87,7 +87,7 @@ public:
     float useDynamicShadows; //0x0040
 }; //Size: 0x0044
 
-class vfx_traffic_light_color
+class CVFXTrafficLightColor
 {
 public:
     float red; //0x0000
