@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CPedComponents.hpp"
+#include "ped/CPedComponents.hpp"
 
 #include <cstdint>
 

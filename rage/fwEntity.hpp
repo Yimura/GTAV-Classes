@@ -1,10 +1,10 @@
 #pragma once
 
-#include "CBaseModelInfo.hpp"
-#include "CNavigation.hpp"
+#include "base/CBaseModelInfo.hpp"
+#include "base/CNavigation.hpp"
 
-#include "fwDrawData.hpp"
-#include "netObject.hpp"
+#include "rage/fwDrawData.hpp"
+#include "network/netObject.hpp"
 
 #include <cstdint>
 

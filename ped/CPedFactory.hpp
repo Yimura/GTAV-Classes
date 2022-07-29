@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CPed.hpp"
+#include "ped/CPed.hpp"
 
 class CPedFactory
 {

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "CAutomobile.hpp"
-#include "CPedModelInfo.hpp"
-#include "CPedWeaponManager.hpp"
-#include "CPlayerInfo.hpp"
+#include "vehicle/CAutomobile.hpp"
+#include "ped/CPedModelInfo.hpp"
+#include "ped/CPedWeaponManager.hpp"
+#include "player/CPlayerInfo.hpp"
 
-#include "fwEntity.hpp"
-#include "vector.hpp"
+#include "rage/fwEntity.hpp"
+#include "rage/vector.hpp"
 
 #include <cstdint>
 

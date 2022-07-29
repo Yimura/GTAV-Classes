@@ -1,7 +1,7 @@
 #pragma once
 
-#include "CNetGamePlayer.hpp"
-#include "CNonPhysicalPlayerData.hpp"
+#include "network/CNetGamePlayer.hpp"
+#include "player/CNonPhysicalPlayerData.hpp"
 
 #include <cstdint>
 

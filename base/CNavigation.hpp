@@ -1,6 +1,6 @@
 #pragma once
 
-#include "vector.hpp"
+#include "rage/vector.hpp"
 
 class CNavigation
 {

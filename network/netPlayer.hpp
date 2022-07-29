@@ -1,6 +1,6 @@
 #pragma once
 
-#include "netPlayerData.hpp"
+#include "network/netPlayerData.hpp"
 
 namespace rage
 {
