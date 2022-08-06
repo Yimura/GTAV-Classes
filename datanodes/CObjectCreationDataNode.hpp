@@ -6,6 +6,7 @@
 #pragma pack(push,8)
 class CObjectCreationDataNode
 {
+public:
 	char pad_0000[192]; //0x0000
 	uint16_t unk_00C0; //0x00C0
 	char pad_0xC2[14]; //0x00C2
