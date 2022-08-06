@@ -14,7 +14,9 @@ namespace rage
     class fwEntity
     {
     public:
-        char pad_0000[32]; //0x0000
+        char pad_0000[25]; //0x0000
+        uint8_t m_mission_bits; // 0x0019
+        char pad_001A[6]; // 0x001A
         class CBaseModelInfo *m_model_info; //0x0020
         char pad_0028[1]; //0x0028
         int8_t m_entity_type; //0x0029
