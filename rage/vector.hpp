@@ -9,5 +9,13 @@ namespace rage
         struct { T x, y, z; };
     };
 
+    template<typename T>
+    union vector4
+    {
+        T data[4];
+        struct { T x, y, z, w; };
+    };
+
     typedef vector3<float> fvector3;
+    typedef vector4<float> fvector4;
 }
