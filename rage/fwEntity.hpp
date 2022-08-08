@@ -42,4 +42,3 @@ namespace rage
     static_assert(sizeof(fwEntity) == 0x18C);
 #pragma pack(pop)
 }
-class CObject : public rage::fwEntity {}; //Size: 0x018C
