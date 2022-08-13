@@ -1,8 +1,9 @@
 #pragma once
 
 #include <cstdint>
+#include "vector.hpp"
 
-#pragma pack(push,2)
+#pragma pack(push,4)
 class CPhysicalAttachDataNode
 {
 public:
@@ -11,17 +12,10 @@ public:
     bool unk_00C1; //0x00C1
     uint16_t m_attached_to; //0x00C2
     char pad_00C4[12]; //0x00C4
-    float m_offset_x; //0x00D0
-    float m_offset_y; //0x00D4
-    float m_offset_z; //0x00D8
+    rage::fvector3 m_offset; //0x00D0
     char pad_00DC[4]; //0x00DC
-    float m_orientation_x; //0x00E0
-    float m_orientation_y; //0x00E4
-    float m_orientation_z; //0x00E8
-    float m_orientation_w; //0x00EC
-    float m_parent_offset_x; //0x00F0
-    float m_parent_offset_y; //0x00F4
-    float m_parent_offset_z; //0x00F8
+    rage::fvector4 m_orientation; //0x00E0
+    rage::fvector3 m_parent_offset; //0x00F0
     char pad_00FC[4]; //0x00FC
     uint16_t m_other_attach_bone; //0x0100
     uint16_t m_attach_bone; //0x0102
