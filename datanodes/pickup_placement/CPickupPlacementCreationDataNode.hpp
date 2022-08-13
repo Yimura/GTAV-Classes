@@ -3,6 +3,7 @@
 #include <cstdint>
 #include "rage/vector.hpp"
 
+#pragma pack(push, 8)
 class CPickupPlacementCreationDataNode
 {
 public:
@@ -21,3 +22,4 @@ public:
     uint64_t *unk_struct_0108; //0x0108
 }; //Size: 0x0110
 static_assert(sizeof(CPickupPlacementCreationDataNode) == 0x110);
+#pragma pack(pop)

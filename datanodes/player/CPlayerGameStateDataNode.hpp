@@ -95,15 +95,9 @@ public:
 	uint32_t unk_0154; //0x0154
 	bool unk_0158; //0x0158
 	uint32_t m_decor_count; //0x015C
-	uint32_t m_decor_1_type; //0x0160
-	uint32_t m_decor_1_value; //0x0164
-	uint32_t m_decor_1_name; //0x0168
-	uint32_t m_decor_2_type; //0x016C
-	uint32_t m_decor_2_value; //0x0170
-	uint32_t m_decor_2_name; //0x0174
-	uint32_t m_decor_3_type; //0x0178
-	uint32_t m_decor_3_value; //0x017C
-	uint32_t m_decor_3_name; //0x0180
+	uint32_t m_decor_type[3]; // 0x0160
+    uint32_t m_decor_value[3]; // 0x016C
+    uint32_t m_decor_name_hash[3]; // 0x0178
 	bool m_friendly_fire_allowed; //0x0184
 	bool unk_0185; //0x0185
 	uint8_t m_current_garage_instance_index; //0x0186

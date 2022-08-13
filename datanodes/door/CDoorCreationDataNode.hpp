@@ -3,6 +3,7 @@
 #include <cstdint>
 #include "rage/vector.hpp"
 
+#pragma pack(push, 4)
 class CDoorCreationDataNode
 {
 public:
@@ -15,3 +16,4 @@ public:
   bool m_player_wants_control; //0x00E9
 }; //Size: 0x00EC
 static_assert(sizeof(CDoorCreationDataNode) == 0xEC);
+#pragma pack(pop)

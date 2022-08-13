@@ -2,6 +2,7 @@
 
 #include <cstdint>
 
+#pragma pack(push, 8)
 class CPickupCreationDataNode
 {
 public:
@@ -26,3 +27,4 @@ public:
     bool unk_0168; //0x0168
 }; //Size: 0x0170
 static_assert(sizeof(CPickupCreationDataNode) == 0x170);
+#pragma pack(pop)

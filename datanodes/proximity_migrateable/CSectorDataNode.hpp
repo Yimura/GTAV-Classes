@@ -2,6 +2,7 @@
 
 #include <cstdint>
 
+#pragma pack(push, 2)
 class CSectorDataNode
 {
 public:
@@ -11,3 +12,4 @@ public:
 	uint16_t m_pos_z; //0xC4
 };
 static_assert(sizeof(CSectorDataNode) == 0xC6);
+#pragma pack(pop)

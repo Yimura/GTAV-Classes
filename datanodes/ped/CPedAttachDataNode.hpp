@@ -1,20 +1,16 @@
 #pragma once
 
 #include <cstdint>
+#include "vector.hpp"
 
 #pragma pack(push,4)
 class CPedAttachDataNode
 {
 public:
     char pad_0000[192]; //0x0000
-    float m_offset_x; //0x00C0
-    float m_offset_y; //0x00C4
-    float m_offset_z; //0x00C8
+    rage::fvector3 m_offset; //0x00C0
     char pad_00CC[4]; //0x00CC
-    float m_orientation_x; //0x00D0
-    float m_orientation_y; //0x00D4
-    float m_orientation_z; //0x00D8
-    float m_orientation_w; //0x00DC
+    rage::fvector4 m_orientation; //0x00D0
     uint16_t m_attached_to; //0x00E0
     uint16_t m_attachment_bone; //0x00E2
     uint32_t m_attachment_flags; //0x00E4
