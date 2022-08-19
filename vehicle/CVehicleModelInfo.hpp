@@ -27,7 +27,7 @@ enum class eVehicleType : std::uint32_t
 class CVehicleModelInfo : public CBaseModelInfo
 {
 public:
-	char pad_00A4[84]; //0x00A4
+	char pad_00AC[76]; //0x00AC
 	uint8_t m_primary_color_combinations[25]; //0x00F8
 	uint8_t m_secondary_color_combinations[25]; //0x0111
 	uint8_t m_unk_color_combos1[25]; //0x012A
@@ -77,5 +77,5 @@ public:
 	uint32_t m_is_jetski; //0x0580
 	char pad_0584[28]; //0x0584
 }; //Size: 0x05A0
-static_assert(sizeof(CVehicleModelInfo) == 0x5A8);
+static_assert(sizeof(CVehicleModelInfo) == 0x5A0);
 #pragma pack(pop)

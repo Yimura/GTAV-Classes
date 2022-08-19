@@ -54,6 +54,6 @@ public:
     uint8_t m_model_type;
     char pad_009E[6];
     uint64_t unk_0xA8;
-}; //Size: 0x00B0
-static_assert(sizeof(CBaseModelInfo) == 0xB0);
+}; //Size: 0x00AC
+static_assert(sizeof(CBaseModelInfo) == 0xAC);
 #pragma pack(pop)
