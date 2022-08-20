@@ -15,16 +15,16 @@ public:
 	bool m_is_antagonistic_to_another_player; //0x00C8
 	bool m_never_target; //0x00C9
 	bool m_use_kinematic_physics; //0x00CA
-	bool unk_000CB; //0x00CB
-	bool unk_00CC; //0x00CC
+	bool m_has_tutorial_data; //0x00CB
+	bool m_pending_tutorial_change; //0x00CC
 	bool unk_00CD; //0x00CD
-	bool unk_00CE; //0x00CE
-	bool unk_00CF; //0x00CF
-	bool unk_00D0; //0x00D0
-	bool unk_00D1; //0x00D1
+	bool m_respawning; //0x00CE
+	bool m_will_jack_any_player; //0x00CF
+	bool m_will_jack_wanted_players; //0x00D0
+	bool m_dont_drag_from_car; //0x00D1
 	bool m_random_peds_flee; //0x00D2
 	bool m_every_ped_back_away; //0x00D3
-	bool unk_00D4; //0x00D4
+	bool m_has_microphone; //0x00D4
 	bool m_is_invincible; //0x00D5
 	bool unk_00D6; //0x00D6
 	bool unk_00D7; //0x00D7
@@ -70,8 +70,8 @@ public:
 	float m_air_drag_multiplier; //0x0108
 	uint32_t m_max_health; //0x010C
 	uint32_t m_max_armor; //0x0110
-	uint32_t unk_0114; //0x0114
-	uint16_t unk_0118; //0x0118
+	uint32_t m_jack_speed; //0x0114
+	uint16_t m_player_is_targetable_by_team; //0x0118
 	uint32_t m_override_receive_chat; //0x011C
 	uint32_t m_override_send_chat; //0x0120
 	bool unk_0124; //0x0124
@@ -83,8 +83,8 @@ public:
 	uint8_t m_tutorial_index; //0x012B
 	uint8_t m_tutorial_instance_id; //0x012C
 	char pad_012D[2]; //0x012D
-	uint32_t unk_0130; //0x0130
-	uint32_t unk_0134; //0x0134
+	float m_microphone_volume; //0x0130
+	uint32_t m_voice_channel; //0x0134
 	bool m_is_overriding_voice_proximity; //0x0138
 	char pad_0139[7]; //0x0139
 	float m_voice_proximity_x; //0x0140
@@ -92,8 +92,8 @@ public:
 	float m_voice_proximity_z; //0x0148
 	float m_voice_proximity_radius_maybe; //0x014C
 	uint32_t unk_0150; //0x0150
-	uint32_t unk_0154; //0x0154
-	bool unk_0158; //0x0158
+	uint32_t m_vehicle_weapon_index; //0x0154
+	bool m_has_vehicle_weapon_index; //0x0158
 	uint32_t m_decor_count; //0x015C
 	uint32_t m_decor_type[3]; // 0x0160
     uint32_t m_decor_value[3]; // 0x016C
@@ -104,8 +104,8 @@ public:
 	uint8_t m_current_property_id; //0x0187
 	uint8_t unk_0188; //0x0188
 	uint8_t unk_0189; //0x0189
-	bool unk_018A; //0x018A
-	bool unk_018B; //0x018B
+	bool m_battle_aware; //0x018A
+	bool m_vehicle_jump_down; //0x018B
 	float m_weapon_defence_modifier; //0x018C
 	float m_weapon_defence_modifier_2; //0x0190
 	bool m_is_overriding_population_control_sphere; //0x0194
@@ -140,6 +140,8 @@ public:
 	uint8_t unk_01F1; //0x01F1
 	bool unk_01F2; //0x01F2
 	uint8_t unk_01F3; //0x01F3
-}; //Size: 0x01F4
-static_assert(sizeof(CPlayerGameStateDataNode) == 0x1F4);
+	bool unk_01F4; //0x01F4
+	bool unk_01F5; //0x01F5
+}; //Size: 0x01F8
+static_assert(sizeof(CPlayerGameStateDataNode) == 0x1F8);
 #pragma pack(pop)
