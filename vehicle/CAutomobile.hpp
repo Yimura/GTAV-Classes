@@ -4,19 +4,15 @@
 #include "vehicle/CVehicleDrawHandler.hpp"
 #include "vehicle/CVehicleModelInfo.hpp"
 
-#include "rage/fwEntity.hpp"
+#include "entities/CPhysical.hpp"
 
 #include <cstdint>
 
 #pragma pack(push, 4)
-class CAutomobile : public rage::fwEntity
+class CAutomobile : public rage::CPhysical
 {
 public:
-	char pad_018C[244]; //0x018C
-	float m_health; //0x0280
-	char pad_0284[28]; //0x0284
-	float m_health_max; //0x02A0
-	char pad_02A4[116]; //0x02A4
+	char pad_030C[12]; //0x30C
 	uint8_t m_boost_state; //0x0318
 	char pad_0319[2]; //0x0319
 	uint8_t m_boost_allow_recharge; //0x031B

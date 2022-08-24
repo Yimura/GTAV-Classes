@@ -1,26 +1,20 @@
 #pragma once
 
 #include "vehicle/CAutomobile.hpp"
-#include "ped/CPedModelInfo.hpp"
 #include "ped/CPedWeaponManager.hpp"
 #include "player/CPlayerInfo.hpp"
 
-#include "rage/fwEntity.hpp"
+#include "entities/CPhysical.hpp"
 #include "rage/vector.hpp"
 
 #include <cstdint>
 
 #pragma pack(push, 1)
 
-class CPed : public rage::fwEntity
+class CPed : public CPhysical
 {
 public:
-	uint8_t m_hostility; //0x018C
-	char pad_018D[243]; //0x018D
-	float m_health; //0x0280
-	char pad_0284[28]; //0x0284
-	float m_maxhealth; //0x02A0
-	char pad_02A4[124]; //0x02A4
+	char gap30C[14];
 	rage::fvector3 m_velocity; //0x0320
 	char pad_032C[2564]; //0x032C
 	class CAutomobile *m_vehicle; //0x0D30
