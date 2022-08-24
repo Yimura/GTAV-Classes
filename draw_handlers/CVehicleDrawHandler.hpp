@@ -8,6 +8,7 @@ namespace rage
 {
     class CVehicleDrawHandler : CEntityDrawHandler
     {
+    public:
         uint64_t qword30;
         char gap38[848];
         uint8_t m_primary_color; //0x0388

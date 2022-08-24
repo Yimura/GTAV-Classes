@@ -7,7 +7,7 @@ namespace rage
 #pragma pack(push, 4)
     class fwDrawData
     {
-    private:
+    public:
         std::uint64_t qword0;
         std::uint64_t qword8;
         char gap10[8];
