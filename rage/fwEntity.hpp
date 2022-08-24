@@ -4,7 +4,7 @@
 #include "base/CNavigation.hpp"
 #include "base/fwExtensibleBase.hpp"
 
-#include "rage/fwDrawData.hpp"
+#include "draw_handlers/fwDrawData.hpp"
 #include "network/netObject.hpp"
 
 #include <cstdint>
