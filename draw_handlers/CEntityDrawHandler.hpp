@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cinttypes>
-
 #include "fwDrawData.hpp"
 
 namespace rage

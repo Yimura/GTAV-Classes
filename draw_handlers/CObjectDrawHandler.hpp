@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cinttypes>
-
 #include "CEntityDrawHandler.hpp"
 
 namespace rage
