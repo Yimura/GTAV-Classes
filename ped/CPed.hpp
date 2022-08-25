@@ -11,10 +11,10 @@
 
 #pragma pack(push, 1)
 
-class CPed : public CPhysical
+class CPed : public rage::CPhysical
 {
 public:
-	char gap30C[14];
+	char gap30C[20];
 	rage::fvector3 m_velocity; //0x0320
 	char pad_032C[2564]; //0x032C
 	class CAutomobile *m_vehicle; //0x0D30
