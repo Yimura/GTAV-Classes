@@ -1,8 +1,8 @@
 #pragma once
 
-#include "vehicle/CAutomobile.hpp"
 #include "ped/CPedWeaponManager.hpp"
 #include "player/CPlayerInfo.hpp"
+#include "vehicle/CVehicle.hpp"
 
 #include "entities/CPhysical.hpp"
 #include "rage/vector.hpp"
@@ -17,7 +17,7 @@ public:
 	char gap30C[20];
 	rage::fvector3 m_velocity; //0x0320
 	char pad_032C[2564]; //0x032C
-	class CAutomobile *m_vehicle; //0x0D30
+	class CVehicle *m_vehicle; //0x0D30
 	char pad_0D38[912]; //0x0D38
 	class CPlayerInfo *m_player_info; //0x10C8
 	char pad_10D0[8]; //0x10D0
