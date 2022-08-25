@@ -6,7 +6,7 @@
 
 enum class eVehicleType : std::uint32_t
 {
-	Unknown = -1,
+	Unknown = 4294967295,
     	Car = 0,
     	Plane = 1,
 	Trailer = 2, 
