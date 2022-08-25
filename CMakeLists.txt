@@ -16,6 +16,8 @@ file(GLOB_RECURSE HEADERS "*.hpp")
 
 message(STATUS "")
 
+# force include from the root
+include_directories(.)
 foreach(HEADER ${HEADERS})
 	get_filename_component(FILENAME ${HEADER} NAME)
 	check_include_file_cxx("${HEADER}" ${FILENAME}_OK)
