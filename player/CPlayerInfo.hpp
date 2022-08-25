@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/netPlayerData.hpp"
+#include "../network/netPlayerData.hpp"
 
 #include <cstdint>
 

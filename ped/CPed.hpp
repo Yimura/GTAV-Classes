@@ -1,11 +1,13 @@
 #pragma once
 
-#include "ped/CPedWeaponManager.hpp"
-#include "player/CPlayerInfo.hpp"
-#include "vehicle/CVehicle.hpp"
 
-#include "entities/CPhysical.hpp"
-#include "rage/vector.hpp"
+#include "../vehicle/CVehicle.hpp"
+#include "../player/CPlayerInfo.hpp"
+#include "CPedModelInfo.hpp"
+#include "CPedWeaponManager.hpp"
+
+#include "../entities/fwEntity.hpp"
+#include "../rage/vector.hpp"
 
 #include <cstdint>
 

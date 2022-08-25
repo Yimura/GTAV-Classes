@@ -1,9 +1,9 @@
 #pragma once
 
-#include "player/CPlayerInfo.hpp"
-#include "player/CNonPhysicalPlayerData.hpp"
+#include "../player/CPlayerInfo.hpp"
+#include "../player/CNonPhysicalPlayerData.hpp"
 
-#include "network/netPlayer.hpp"
+#include "netPlayer.hpp"
 
 #include <cstdint>
 

@@ -1,15 +1,14 @@
 #pragma once
 
-#include "entities/CPhysical.hpp"
-#include "vehicle/CHandlingData.hpp"
+#include "../entities/CPhysical.hpp"
+#include "CHandlingData.hpp"
 
 #include <cstdint>
 
 #pragma pack(push, 1)
-class CVehicle
+class CVehicle : public rage::CPhysical
 {
 public:
-    char pad[0x30C];
     char gap30C[4];
     uint32_t dword310;
     uint32_t dword314;

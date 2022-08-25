@@ -1,10 +1,10 @@
 #pragma once
 
-#include "base/CBaseModelInfo.hpp"
-#include "base/CNavigation.hpp"
-#include "base/fwExtensibleBase.hpp"
+#include "../base/CBaseModelInfo.hpp"
+#include "../base/CNavigation.hpp"
+#include "../base/fwExtensibleBase.hpp"
 
-#include "draw_handlers/fwDrawData.hpp"
+#include "../draw_handlers/fwDrawData.hpp"
 
 #include <cstdint>
 

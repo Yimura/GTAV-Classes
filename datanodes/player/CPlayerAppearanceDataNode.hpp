@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CPedComponents.hpp"
+#include "../CPedComponents.hpp"
 
 #pragma pack(push, 4)
 class CPlayerAppearanceDataNode

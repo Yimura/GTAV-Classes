@@ -1,6 +1,6 @@
 #pragma once
 
-#include "weapon/CWeaponInfo.hpp"
+#include "../weapon/CWeaponInfo.hpp"
 
 #include <cstdint>
 

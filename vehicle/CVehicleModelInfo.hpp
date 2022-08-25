@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base/CBaseModelInfo.hpp"
+#include "../base/CBaseModelInfo.hpp"
 
 #include <cstdint>
 
@@ -27,7 +27,7 @@ enum class eVehicleType : std::uint32_t
 class CVehicleModelInfo : public CBaseModelInfo
 {
 public:
-	char pad_00B0[76]; //0x00B0
+	char pad_00B0[72]; //0x00B0
 	uint8_t m_primary_color_combinations[25]; //0x00F8
 	uint8_t m_secondary_color_combinations[25]; //0x0111
 	uint8_t m_unk_color_combos1[25]; //0x012A

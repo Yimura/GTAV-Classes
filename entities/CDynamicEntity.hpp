@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CEntity.hpp"
-#include "network/netObject.hpp"
+#include "../network/netObject.hpp"
 
 #include <cstdint>
 

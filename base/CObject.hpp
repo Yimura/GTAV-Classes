@@ -1,5 +1,5 @@
 #pragma once
-#include "entities/CPhysical.hpp"
+#include "../entities/CPhysical.hpp"
 
 #pragma pack(push, 2)
 class CObject : public rage::CPhysical
