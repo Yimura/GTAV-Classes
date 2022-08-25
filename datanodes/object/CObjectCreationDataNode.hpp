@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "rage/vector.hpp"
+#include "../../rage/vector.hpp"
 
 #pragma pack(push,8)
 class CObjectCreationDataNode

@@ -1,11 +1,13 @@
 #pragma once
+#include <typeinfo>
 
 #include "fwRefAwareBase.hpp"
 #include "fwExtensionContainer.hpp"
 
+#include "../rage/joaat.hpp"
+
 namespace rage
 {
-
     class fwExtensibleBase : public fwRefAwareBase
 	{
 	public:

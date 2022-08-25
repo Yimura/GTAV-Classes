@@ -1,10 +1,10 @@
 #pragma once
 
-#include "vehicle/CHandlingData.hpp"
-#include "vehicle/CVehicleDrawHandler.hpp"
-#include "vehicle/CVehicleModelInfo.hpp"
+#include "CHandlingData.hpp"
+#include "CVehicleDrawHandler.hpp"
+#include "CVehicleModelInfo.hpp"
 
-#include "rage/fwEntity.hpp"
+#include "../rage/fwEntity.hpp"
 
 #include <cstdint>
 

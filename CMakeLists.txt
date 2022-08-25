@@ -16,8 +16,6 @@ file(GLOB_RECURSE HEADERS "*.hpp")
 
 message(STATUS "")
 
-# force include from the root
-set(CMAKE_REQUIRED_INCLUDES ./)
 foreach(HEADER ${HEADERS})
 	get_filename_component(FILENAME ${HEADER} NAME)
 	check_include_file_cxx("${HEADER}" ${FILENAME}_OK)
@@ -36,3 +34,4 @@ if(NOT OK)
 	file(READ "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeError.log" LOG)
 	message(STATUS ${LOG})
 endif()
+

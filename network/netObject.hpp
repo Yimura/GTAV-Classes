@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "rage/netSyncTree.hpp"
+#include "../rage/netSyncTree.hpp"
 
 class CObject;
 namespace rage

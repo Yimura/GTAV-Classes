@@ -1,4 +1,5 @@
 .vscode
+build/
 *.suo
 *.db
 *.db-shm
