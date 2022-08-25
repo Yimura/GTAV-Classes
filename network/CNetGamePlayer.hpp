@@ -3,28 +3,33 @@
 #include "../player/CPlayerInfo.hpp"
 #include "../player/CNonPhysicalPlayerData.hpp"
 
+#include "ClandData.hpp"
 #include "netPlayer.hpp"
 
 #include <cstdint>
 
-#pragma pack(push, 1)
-
+#pragma pack(push, 8)
 class CNetGamePlayer : public rage::netPlayer
 {
 public:
-    char pad_0008[8]; //0x0008
-    class CNonPhysicalPlayerData *m_non_physical_player; //0x0010
-    uint32_t m_msg_id; //0x0018
-    char pad_001C[4]; //0x001C
-    uint8_t m_active_id; //0x0020
-    uint8_t m_player_id; //0x0021
-    char pad_0022[3]; //0x0022
-    uint16_t m_complaints; //0x0025
-    char pad_0027[17]; //0x0027
-    class CNetGamePlayer *m_unk_net_player_list[10]; //0x0038
-    char pad_0088[24]; //0x0088
-    class CPlayerInfo *m_player_info; //0x00A0
-}; //Size: 0x00A8
-static_assert(sizeof(CNetGamePlayer) == 0xA8);
-
+    char pad_00A0[8]; //0x00A0
+    uint32_t m_matchmaking_group; //0x00A8
+    CPlayerInfo* m_player_info; //0x00B0
+    char pad_00B0[16]; //0x00B0
+    class ClanData m_clan_data; //0x00C8
+    char m_crew_rank_title[25]; //0x0180
+    bool m_is_rockstar_dev; //0x0199
+    bool m_is_rockstar_qa; //0x019A
+    bool m_is_cheater; //0x019B
+    char pad_019C[14]; //0x019C
+    bool m_has_started_transition; //0x01AA
+    char pad_01AB[5]; //0x01AB
+    char m_transition_info_buffer[125]; //0x01B0
+    char pad_022D[19]; //0x022D
+    uint32_t m_mute_count; //0x0240
+    uint32_t m_mute_talkers_count; //0x0244
+    char pad_0248[112]; //0x0248
+    uint32_t unk_02B8; //0x02B8
+}; //Size: 0x02C0
+static_assert(sizeof(CNetGamePlayer) == 0x2C0);
 #pragma pack(pop)

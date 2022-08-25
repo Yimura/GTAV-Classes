@@ -64,7 +64,7 @@ namespace rage
         uint8_t m_tire_design; //0x03E2
         char gap3E3[16]; //0x03E3
         uint8_t m_truck_bed; //0x03F3
-        char gap3F4[2];
+        uint16_t m_modkit; //0x03F4
         uint8_t byte3F6;
         uint8_t byte3F7;
         uint8_t byte3F8;

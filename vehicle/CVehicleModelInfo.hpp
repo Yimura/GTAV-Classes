@@ -7,9 +7,9 @@
 enum class eVehicleType : std::uint32_t
 {
 	Unknown = 4294967295,
-    	Car = 0,
-    	Plane = 1,
-	Trailer = 2, 
+    Car = 0,
+    Plane = 1,
+	Trailer = 2,
 	Quadbike = 3,
 	Draft = 4, //Unused
 	SubmarineCar = 5,
@@ -29,7 +29,7 @@ enum class eVehicleType : std::uint32_t
 class CVehicleModelInfo : public CBaseModelInfo
 {
 public:
-	char pad_00B0[72]; //0x00B0
+	char pad_00A4[72]; //0x00A4
 	uint8_t m_primary_color_combinations[25]; //0x00F8
 	uint8_t m_secondary_color_combinations[25]; //0x0111
 	uint8_t m_unk_color_combos1[25]; //0x012A
@@ -39,7 +39,7 @@ public:
 	char pad_018E[266]; //0x018E
 	char m_name[12]; //0x0298
 	char m_manufacturer[12]; //0x02A4
-	char pad_02B0[8]; //0x02B0
+	uint16_t* m_modkits; //0x02B0
 	uint16_t m_modkits_count; //0x02B8
 	char pad_02BA[30]; //0x02BA
 	uint8_t m_passenger_capacity; //0x02D8
