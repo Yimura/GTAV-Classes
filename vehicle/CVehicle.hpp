@@ -1,15 +1,12 @@
 #pragma once
 
-#include "vehicle/CHandlingData.hpp"
-#include "vehicle/CVehicleDrawHandler.hpp"
-#include "vehicle/CVehicleModelInfo.hpp"
-
 #include "entities/CPhysical.hpp"
+#include "vehicle/CHandlingData.hpp"
 
 #include <cstdint>
 
 #pragma pack(push, 4)
-class CAutomobile : public rage::CPhysical
+class CVehicle : public rage::CPhysical
 {
 public:
 	char pad_030C[12]; //0x30C
@@ -43,5 +40,5 @@ public:
 	class CPed *m_passengers[15]; //0x0C70
 	class CPed *m_last_driver; //0x0CE8
 }; //Size: 0x0CF0
-static_assert(sizeof(CAutomobile) == 0xCF0);
+static_assert(sizeof(CVehicle) == 0xCF0);
 #pragma pack(pop)
