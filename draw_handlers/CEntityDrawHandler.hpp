@@ -6,7 +6,7 @@
 
 namespace rage
 {
-    class CEntityDrawHandler : rage::fwDrawData
+    class CEntityDrawHandler : public rage::fwDrawData
     {
     public:
 

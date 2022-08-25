@@ -7,7 +7,7 @@
 namespace rage
 {
 #pragma pack(push, 4)
-    class CPedDrawHandler : CEntityDrawHandler
+    class CPedDrawHandler : public CEntityDrawHandler
     {
     public:
         uint64_t qword30;

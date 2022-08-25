@@ -6,7 +6,7 @@
 
 namespace rage
 {
-    class CObjectFragmentDrawHandler : CEntityDrawHandler
+    class CObjectFragmentDrawHandler : public CEntityDrawHandler
     {
     };
     static_assert(sizeof(CObjectFragmentDrawHandler) == 0x2C);

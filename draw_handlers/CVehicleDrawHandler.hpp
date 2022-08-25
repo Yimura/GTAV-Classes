@@ -6,7 +6,7 @@
 
 namespace rage
 {
-    class CVehicleDrawHandler : CEntityDrawHandler
+    class CVehicleDrawHandler : public CEntityDrawHandler
     {
     public:
         uint64_t qword30;

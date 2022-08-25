@@ -4,7 +4,7 @@
 
 #include <cstdint>
 
-class CPedModelInfo : CBaseModelInfo
+class CPedModelInfo : public CBaseModelInfo
 {
 public:
 	char gapB0[48];
