@@ -1,6 +1,6 @@
 #pragma once
 
-#include "socialclub/FriendInfo.hpp"
+#include "FriendInfo.hpp"
 
 #include <cstdint>
 

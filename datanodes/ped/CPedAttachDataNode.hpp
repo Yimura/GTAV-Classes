@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "vector.hpp"
+#include "../../rage/vector.hpp"
 
 #pragma pack(push,4)
 class CPedAttachDataNode

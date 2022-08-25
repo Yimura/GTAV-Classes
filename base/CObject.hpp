@@ -1,5 +1,5 @@
 #pragma once
-#include "rage/fwEntity.hpp"
+#include "../rage/fwEntity.hpp"
 
 class CObject : public rage::fwEntity
 {}; //Size: 0x018C

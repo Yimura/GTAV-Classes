@@ -12,7 +12,7 @@ set(CMAKE_REQUIRED_QUIET ON)
 
 set(OK TRUE)
 
-file(GLOB HEADERS "*.hpp")
+file(GLOB_RECURSE HEADERS "*.hpp")
 
 message(STATUS "")
 
@@ -34,3 +34,4 @@ if(NOT OK)
 	file(READ "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeError.log" LOG)
 	message(STATUS ${LOG})
 endif()
+

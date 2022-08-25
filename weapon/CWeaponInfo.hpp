@@ -1,7 +1,7 @@
 #pragma once
 
-#include "weapon/CAmmoInfo.hpp"
-#include "weapon/CItemInfo.hpp"
+#include "CAmmoInfo.hpp"
+#include "CItemInfo.hpp"
 
 #include <cstdint>
 
