@@ -6,21 +6,23 @@
 
 enum class eVehicleType : std::uint32_t
 {
-    Car,
-    Plane,
-	Unk2,
-	Quadbike,
-	Unk4,
-	Unk5,
-	AmphibiousCar,
-	AmphibiousQuadbike,
-	Heli,
-	Unk9,
-	Unk10,
-	Bike,
-	Bicycle,
-	Boat,
-	Train
+	Unknown = 4294967295,
+    	Car = 0,
+    	Plane = 1,
+	Trailer = 2, 
+	Quadbike = 3,
+	Draft = 4, //Unused
+	SubmarineCar = 5,
+	AmphibiousAutomobile = 6,
+	AmphibiousQuadbike = 7,
+	Heli = 8,
+	Blimp = 9,
+	AutoGyro = 10, //Unused
+	Bike = 11,
+	Bicycle = 12,
+	Boat = 13,
+	Train = 14,
+	Submarine = 15
 };
 
 #pragma pack(push, 1)

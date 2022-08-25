@@ -11,18 +11,18 @@ enum class eDamageType : int32_t
 	None,
 	Melee,
 	Bullet,
-	_0xC5403EC0,
+	BulletRubber,
 	Explosive,
 	Fire,
-	_0xA869C908,
+	Collision,
 	Fall,
-	_0xCAE075C0,
+	Drown,
 	Electric,
 	BarbedWire,
 	FireExtinguisher,
 	Smoke,
 	WaterCannon,
-	_0x1C8E59AE
+	Tranquilizer
 };
 
 enum class eImpactType : int32_t
