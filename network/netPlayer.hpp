@@ -1,6 +1,6 @@
 #pragma once
 
-#include "netPlayerData.hpp"
+#include "../rage/rlGamerInfo.hpp"
 #include "../player/CNonPhysicalPlayerData.hpp"
 
 namespace rage
@@ -15,7 +15,7 @@ namespace rage
         virtual const char* get_name();
         virtual void _0x20();
         virtual bool is_host();
-        virtual netPlayerData* get_net_data();
+        virtual rage::rlGamerInfo* get_net_data();
         virtual void _0x38();
 
         char pad_0008[8]; //0x0008
