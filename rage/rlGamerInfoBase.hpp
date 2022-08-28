@@ -2,7 +2,7 @@
 
 #include <cstdint>
 #include <cstddef>
-#include "../rage/rlGamerHandle.hpp"
+#include "rlGamerHandle.hpp"
 
 union netAddress {
     uint32_t m_packed; //0x0000
@@ -18,7 +18,7 @@ static_assert(sizeof(netAddress) == 0x04);
 namespace rage
 {
 #pragma pack(push,8)
-    class netPlayerDataBase
+    class rlGamerInfoBase
     {
     public:
         uint64_t m_peer_id;
@@ -35,6 +35,6 @@ namespace rage
         uint16_t m_internal_port;
         uint32_t unk_005C;
     };
-    static_assert(sizeof(netPlayerDataBase) == 0x60);
+    static_assert(sizeof(rlGamerInfoBase) == 0x60);
 #pragma pack(pop)
 }

@@ -1,12 +1,12 @@
 #pragma once
 
 #include <cstdint>
-#include "netPlayerDataBase.hpp"
+#include "rlGamerInfoBase.hpp"
 
 namespace rage
 {
 #pragma pack(push,8)
-    class netPlayerData : public netPlayerDataBase
+    class rlGamerInfo : public rlGamerInfoBase
     {
     public:
         uint64_t m_host_token;
@@ -15,6 +15,6 @@ namespace rage
         uint32_t m_ros_privilege;
         char m_name[20];
     }; //Size: 0x0098
-    static_assert(sizeof(netPlayerData) == 0x98);
+    static_assert(sizeof(rlGamerInfo) == 0x98);
 #pragma pack(pop)
 }
