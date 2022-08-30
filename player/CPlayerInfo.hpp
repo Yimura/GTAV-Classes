@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../network/netPlayerData.hpp"
+#include "../rage/rlGamerInfo.hpp"
 
 #include <cstdint>
 
@@ -21,7 +21,7 @@ class CPlayerInfo
 {
 public:
 	char pad_0000[32]; //0x0000
-	class rage::netPlayerData m_net_player_data; //0x0020
+	class rage::rlGamerInfo m_net_player_data; //0x0020
 	char pad_00B8[184]; //0x00B8
 	float m_swim_speed; //0x0170
 	char pad_0174[20]; //0x0174
