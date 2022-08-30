@@ -18,9 +18,9 @@ enum class eAmmoSpecialType : int32_t
 enum class eAmmoFlags : uint32_t
 {
 	InfiniteAmmo = 0,
-	Unk1 = 1,
-	UNk2 = 2,
-	Unk3 = 3,
+	AddSmokeOnExplosion = 1,
+	Fuse = 2,
+	FixedAfterExplosion = 3,
 };
 
 class CAmmoInfo : public CItemInfo
