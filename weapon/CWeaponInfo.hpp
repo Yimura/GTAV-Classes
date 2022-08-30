@@ -148,7 +148,7 @@ public:
 	eWheelSlot m_wheel_slot; //0x0058
 	uint32_t m_group; //0x005C
 	class CAmmoInfo *m_ammo_info; //0x0060
-	class AimingInfo *m_aiming_info; //0x0068
+	class CAimingInfo *m_aiming_info; //0x0068
 	uint32_t m_clip_size; //0x0070
 	float m_accuracy_spread; //0x0074
 	float m_accurate_mode_accuracy_modifier; //0x0078
@@ -204,6 +204,7 @@ public:
 	float m_spindown_time; //0x014C
 	float m_alternate_wait_time; //0x0150
 	char pad_0154[296]; //0x0154
+	class CWeaponInfo__sFx *Fx //0x0170
 	float m_network_player_damage_modifier; //0x027C
 	float m_network_ped_damage_modifier; //0x0280
 	float m_network_headshot_modifier; //0x0284
@@ -219,5 +220,10 @@ public:
 	float m_min_time_between_recoil_shakes; //0x02EC
 	float m_recoil_shake_amplitude; //0x02F0
 	float m_explosion_shake_amplitude; //0x02F4
-}; //Size: 0x02F8
-static_assert(sizeof(CWeaponInfo) == 0x2F8);
+	float m_camera_fov; //0x02FC
+	float m_first_person_aim_fov_min; //0x0300
+	float m_first_person_aim_fov_max; //0x0300
+	float m_first_person_scope_fov; //0x0308
+	float m_first_person_scope_attachment_fov; //0x030C
+}; //Size: 0x0310
+static_assert(sizeof(CWeaponInfo) == 0x310);
