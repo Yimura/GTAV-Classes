@@ -204,7 +204,7 @@ public:
 	float m_spindown_time; //0x014C
 	float m_alternate_wait_time; //0x0150
 	char pad_0154[296]; //0x0154
-	class CWeaponInfo__sFx *Fx //0x0170
+	class CWeaponInfo__sFx *m_fx //0x0170
 	float m_network_player_damage_modifier; //0x027C
 	float m_network_ped_damage_modifier; //0x0280
 	float m_network_headshot_modifier; //0x0284
