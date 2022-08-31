@@ -2,6 +2,7 @@
 
 #include "CAmmoInfo.hpp"
 #include "CItemInfo.hpp"
+#include "../rage/vector.hpp"
 
 #include <cstdint>
 
@@ -25,7 +26,7 @@ enum class eDamageType : int32_t
 	Tranquilizer
 };
 
-enum class eImpactType : int32_t
+enum class eExplosionTag : int32_t
 {
 	DEFAULT_BULLETS         = -1,
 	GRENADE                 = 0,
@@ -103,7 +104,7 @@ enum class eImpactType : int32_t
 	SCRIPT_MISSILE          = 72,
 	RCTANK_ROCKET           = 73,
 	BOMB_WATER              = 74,
-	BOMB_WATER_SECONDARY    = 75,
+	BOMB_WATER_SECONDARY    = 75,x3E0
 	UNK76          		= 76,
 	UNK77          		= 77,
 	FLASH_GRENADE          	= 78,
@@ -142,7 +143,7 @@ class CWeaponInfo : public CItemInfo
 {
 public:
 	eDamageType m_damage_type; //0x0020
-	eImpactType m_impact_type; //0x0024
+	eExplosionTag m_explosion_type; //0x0024
 	char pad_0028[44]; //0x0028
 	eFireType m_fire_type; //0x0054
 	eWheelSlot m_wheel_slot; //0x0058
@@ -204,17 +205,28 @@ public:
 	float m_spindown_time; //0x014C
 	float m_alternate_wait_time; //0x0150
 	char pad_0154[296]; //0x0154
-	class CWeaponInfo__sFx *m_fx //0x0170
 	float m_network_player_damage_modifier; //0x027C
 	float m_network_ped_damage_modifier; //0x0280
 	float m_network_headshot_modifier; //0x0284
 	float m_lock_on_range; //0x0288
 	float m_weapon_range; //0x028C
-	char pad_0290[8]; //0x0290
+	float m_ai_sound_range; //0x0290
+	float m_ai_potential_blast_event_range; //0x0290
 	float m_damage_fall_off_range_min; //0x0298
 	float m_damage_fall_off_range_max; //0x029C
 	float m_damage_fall_off_modifier; //0x02A0
-	char pad_02A4[64]; //0x02A4
+	uint32_t m_vehicle_weapon_hash; //0x02B4
+	uint32_t m_default_camera_hash; //0x02B8
+	uint32_t m_aim_camera_hash; //0x02BC
+	uint32_t m_fire_camera_hash; //0x02C0
+	uint32_t m_cover_camera_hash; //0x02C4
+	uint32_t m_cover_ready_to_fire_hash; //0x02C8
+	uint32_t m_run_and_gun_camera_hash; //0x02CC
+	uint32_t m_cinematic_shooting_camera_hash; //0x02D0
+	uint32_t m_alt_or_scoped_camera_hash; //0x002D4
+	uint32_t m_run_and_gun_alt_or_scoped_camera_hash; //0x02D8
+	uint32_t m_cinematic_shooting_alt_or_scoped_camera_hash; //0x2DC
+	uint32_t m_pov_turret_camera_hash; //0x2E0
 	uint32_t m_recoil_shake_hash; //0x02E4
 	uint32_t m_recoil_shake_hash_first_person; //0x02E8
 	float m_min_time_between_recoil_shakes; //0x02EC
@@ -225,5 +237,18 @@ public:
 	float m_first_person_aim_fov_max; //0x0300
 	float m_first_person_scope_fov; //0x0308
 	float m_first_person_scope_attachment_fov; //0x030C
-}; //Size: 0x0310
-static_assert(sizeof(CWeaponInfo) == 0x310);
+	char pad_00310[636]; //0x00310
+	rage::fvector2 m_reticule_hud_position; //0x0590
+	rage::fvector2 m_reticule_hud_position_pov_turret; //0x0598
+	float m_reticule_min_size_standing; //0x05A0
+	float m_reticule_min_size_crouched; //0x05A4
+	float m_reticule_scale; //0x05A8
+	uint32_t m_reticule_style_hash; //0x05AC
+	uint32_t m_first_person_reticule_style_hash; //0x05B0
+	uint32_t m_pickup_hash; //0x05B4
+	uint32_t m_mp_pickup_hash; //0x05B8
+	uint32_t m_human_name_hash; //0x05BC
+	uint32_t m_audio_collision_hash; //0x05C0
+	uint32_t m_movement_mode_conditional_idle_hash; //0x05C4
+}; //Size: 0x05c8
+static_assert(sizeof(CWeaponInfo) == 0x5c8);
