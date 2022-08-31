@@ -15,6 +15,14 @@ enum class eAmmoSpecialType : int32_t
 	Tracer
 };
 
+enum class eAmmoFlags : uint32_t
+{
+	InfiniteAmmo = 0,
+	AddSmokeOnExplosion = 1,
+	Fuse = 2,
+	FixedAfterExplosion = 3,
+};
+
 class CAmmoInfo : public CItemInfo
 {
 public:
@@ -24,7 +32,7 @@ public:
 	int32_t m_ammo_max_mp; //0x002C
 	int32_t m_ammo_max_50_mp; //0x0030
 	int32_t m_ammo_max_100_mp; //0x0034
-	uint32_t m_ammo_flags; //0x0038
+	eAmmoFlags m_ammo_flags; //0x0038
 	eAmmoSpecialType m_ammo_special_type; //0x003C
 	char pad_0040[24]; //0x0040
 	float m_missile_speed; //0x0058

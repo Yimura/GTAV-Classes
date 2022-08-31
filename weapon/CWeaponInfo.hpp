@@ -2,6 +2,7 @@
 
 #include "CAmmoInfo.hpp"
 #include "CItemInfo.hpp"
+#include "../rage/vector.hpp"
 
 #include <cstdint>
 
@@ -52,7 +53,7 @@ enum class eImpactType : int32_t
 	BZGAS                   = 21,
 	FLARE                   = 22,
 	GAS_CANISTER            = 23,
-	EXTINGUISHER_1          = 24,
+	EXTINGUISHER            = 24,
 	PROGRAMMABLEAR          = 25,
 	TRAIN                   = 26,
 	BARREL                  = 27,
@@ -104,11 +105,11 @@ enum class eImpactType : int32_t
 	RCTANK_ROCKET           = 73,
 	BOMB_WATER              = 74,
 	BOMB_WATER_SECONDARY    = 75,
-	EXTINGUISHER_2          = 76,
-	EXTINGUISHER_3          = 77,
-	EXTINGUISHER_4          = 78,
-	EXTINGUISHER_5          = 79,
-	EXTINGUISHER_6          = 80,
+	UNK76          		= 76,
+	UNK77          		= 77,
+	FLASH_GRENADE          	= 78,
+	STUN_GRENADE          	= 79,
+	Unk80          		= 80,
 	SCRIPT_MISSILE_LARGE    = 81,
 	SUBMARINE_BIG           = 82,
 	EMPLAUNCHER_EMP         = 83,
@@ -125,7 +126,7 @@ enum class eFireType : int32_t
 	VolumetricParticle
 };
 
-enum class eWheelSlot : int32_t
+enum class eWeaponWheelSlot : int32_t
 {
 	Pistol,
 	SMG,
@@ -145,10 +146,10 @@ public:
 	eImpactType m_impact_type; //0x0024
 	char pad_0028[44]; //0x0028
 	eFireType m_fire_type; //0x0054
-	eWheelSlot m_wheel_slot; //0x0058
+	eWeaponWheelSlot m_wheel_slot; //0x0058
 	uint32_t m_group; //0x005C
 	class CAmmoInfo *m_ammo_info; //0x0060
-	class AimingInfo *m_aiming_info; //0x0068
+	class CAimingInfo *m_aiming_info; //0x0068
 	uint32_t m_clip_size; //0x0070
 	float m_accuracy_spread; //0x0074
 	float m_accurate_mode_accuracy_modifier; //0x0078
@@ -209,15 +210,60 @@ public:
 	float m_network_headshot_modifier; //0x0284
 	float m_lock_on_range; //0x0288
 	float m_weapon_range; //0x028C
-	char pad_0290[8]; //0x0290
+	float m_ai_sound_range; //0x0290
+	float m_ai_potential_blast_event_range; //0x0290
 	float m_damage_fall_off_range_min; //0x0298
 	float m_damage_fall_off_range_max; //0x029C
 	float m_damage_fall_off_modifier; //0x02A0
-	char pad_02A4[64]; //0x02A4
+	uint32_t m_vehicle_weapon_hash; //0x02A4
+	uint32_t m_default_camera_hash; //0x02B8
+	uint32_t m_aim_camera_hash; //0x02BC
+	uint32_t m_fire_camera_hash; //0x02C0
+	uint32_t m_cover_camera_hash; //0x02C4
+	uint32_t m_cover_ready_to_fire_hash; //0x02C8
+	uint32_t m_run_and_gun_camera_hash; //0x02CC
+	uint32_t m_cinematic_shooting_camera_hash; //0x02D0
+	uint32_t m_alt_or_scoped_camera_hash; //0x002D4
+	uint32_t m_run_and_gun_alt_or_scoped_camera_hash; //0x02D8
+	uint32_t m_cinematic_shooting_alt_or_scoped_camera_hash; //0x2DC
+	uint32_t m_pov_turret_camera_hash; //0x2E0
 	uint32_t m_recoil_shake_hash; //0x02E4
 	uint32_t m_recoil_shake_hash_first_person; //0x02E8
 	float m_min_time_between_recoil_shakes; //0x02EC
 	float m_recoil_shake_amplitude; //0x02F0
 	float m_explosion_shake_amplitude; //0x02F4
-}; //Size: 0x02F8
-static_assert(sizeof(CWeaponInfo) == 0x2F8);
+	float m_camera_fov; //0x02FC
+	float m_first_person_aim_fov_min; //0x0300
+	float m_first_person_aim_fov_max; //0x0300
+	float m_first_person_scope_fov; //0x0308
+	float m_first_person_scope_attachment_fov; //0x030C
+	char pad_00310[636]; //0x00310
+	rage::fvector2 m_reticule_hud_position; //0x0590
+	rage::fvector2 m_reticule_hud_position_pov_turret; //0x0598
+	float m_reticule_min_size_standing; //0x05A0
+	float m_reticule_min_size_crouched; //0x05A4
+	float m_reticule_scale; //0x05A8
+	uint32_t m_reticule_style_hash; //0x05AC
+	uint32_t m_first_person_reticule_style_hash; //0x05B0
+	uint32_t m_pickup_hash; //0x05B4
+	uint32_t m_mp_pickup_hash; //0x05B8
+	uint32_t m_human_name_hash; //0x05BC
+	uint32_t m_audio_collision_hash; //0x05C0
+	uint32_t m_movement_mode_conditional_idle_hash; //0x05C4
+	uint8_t m_ammo_diminishing_rate; //0x05C8
+	int8_t m_hud_damage; //0x05C9
+	int8_t m_hud_speed; //0x05CA
+	int8_t m_hud_capacity; //0x05CB
+	int8_t m_hud_accuracy; //0x05CC
+	float m_hud_range; //0x05CD
+	float m_aiming_breathing_additive_weight; //0x05D0
+	float m_firing_breathing_additive_weight; //0x05D4
+	float m_stealth_aiming_breathing_additive_weight; //0x5D8
+	float m_stealth_firing_breathing_additive_weight; //0x5DC
+	float m_aiming_lean_additive_weight; //0x05E0
+	float m_firing_lean_additive_weight; //0x05E4
+	float m_stealth_aiming_lean_additive_weight; //0x05E8
+	float m_stealth_firing_lean_additive_weight; //0x05EC
+	char m_stat_name[8]; //0x05F0
+}; //Size: 0x05E8
+static_assert(sizeof(CWeaponInfo) == 0x5E8);
