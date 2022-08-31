@@ -146,7 +146,7 @@ public:
 	eImpactType m_impact_type; //0x0024
 	char pad_0028[44]; //0x0028
 	eFireType m_fire_type; //0x0054
-	eWheelSlot m_wheel_slot; //0x0058
+	eWeaponWheelSlot m_wheel_slot; //0x0058
 	uint32_t m_group; //0x005C
 	class CAmmoInfo *m_ammo_info; //0x0060
 	class CAimingInfo *m_aiming_info; //0x0068
@@ -262,8 +262,8 @@ public:
 	float m_stealth_firing_breathing_additive_weight; //0x5DC
 	float m_aiming_lean_additive_weight; //0x05E0
 	float m_firing_lean_additive_weight; //0x05E4
-	float m_stealth_firing_lean_additive_weight; //0x05E8
+	float m_stealth_aiming_lean_additive_weight; //0x05E8
 	float m_stealth_firing_lean_additive_weight; //0x05EC
-	string m_stat_name; //0x05F0
+	char m_stat_name[8]; //0x05F0
 }; //Size: 0x05F4
 static_assert(sizeof(CWeaponInfo) == 0x5F4);
