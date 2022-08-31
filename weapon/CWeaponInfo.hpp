@@ -215,7 +215,7 @@ public:
 	float m_damage_fall_off_range_min; //0x0298
 	float m_damage_fall_off_range_max; //0x029C
 	float m_damage_fall_off_modifier; //0x02A0
-	uint32_t m_vehicle_weapon_hash; //0x02B4
+	uint32_t m_vehicle_weapon_hash; //0x02A4
 	uint32_t m_default_camera_hash; //0x02B8
 	uint32_t m_aim_camera_hash; //0x02BC
 	uint32_t m_fire_camera_hash; //0x02C0
@@ -265,5 +265,5 @@ public:
 	float m_stealth_aiming_lean_additive_weight; //0x05E8
 	float m_stealth_firing_lean_additive_weight; //0x05EC
 	char m_stat_name[8]; //0x05F0
-}; //Size: 0x05F8
-static_assert(sizeof(CWeaponInfo) == 0x5F8);
+}; //Size: 0x05E8
+static_assert(sizeof(CWeaponInfo) == 0x5E8);
