@@ -126,7 +126,7 @@ enum class eFireType : int32_t
 	VolumetricParticle
 };
 
-enum class eWheelSlot : int32_t
+enum class eWeaponWheelSlot : int32_t
 {
 	Pistol,
 	SMG,
@@ -250,5 +250,20 @@ public:
 	uint32_t m_human_name_hash; //0x05BC
 	uint32_t m_audio_collision_hash; //0x05C0
 	uint32_t m_movement_mode_conditional_idle_hash; //0x05C4
-}; //Size: 0x05c8
-static_assert(sizeof(CWeaponInfo) == 0x5c8);
+	uint8_t m_ammo_diminishing_rate; //0x05C8
+	int8_t m_hud_damage; //0x05C9
+	int8_t m_hud_speed; //0x05CA
+	int8_t m_hud_capacity; //0x05CB
+	int8_t m_hud_accuracy; //0x05CC
+	float m_hud_range; //0x05CD
+	float m_aiming_breathing_additive_weight; //0x05D0
+	float m_firing_breathing_additive_weight; //0x05D4
+	float m_stealth_aiming_breathing_additive_weight; //0x5D8
+	float m_stealth_firing_breathing_additive_weight; //0x5DC
+	float m_aiming_lean_additive_weight; //0x05E0
+	float m_firing_lean_additive_weight; //0x05E4
+	float m_stealth_firing_lean_additive_weight; //0x05E8
+	float m_stealth_firing_lean_additive_weight; //0x05EC
+	string m_stat_name; //0x05F0
+}; //Size: 0x05F4
+static_assert(sizeof(CWeaponInfo) == 0x5F4);
