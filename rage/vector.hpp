@@ -6,7 +6,7 @@ namespace rage
     union vector2
     {
         T data[2];
-        struct { T x, y};
+        struct { T x, y; };
     };
     
     template<typename T>
