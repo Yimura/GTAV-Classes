@@ -26,7 +26,7 @@ enum class eDamageType : int32_t
 	Tranquilizer
 };
 
-enum class eExplosionTag : int32_t
+enum class eImpactType : int32_t
 {
 	DEFAULT_BULLETS         = -1,
 	GRENADE                 = 0,
@@ -143,7 +143,7 @@ class CWeaponInfo : public CItemInfo
 {
 public:
 	eDamageType m_damage_type; //0x0020
-	eExplosionTag m_explosion_type; //0x0024
+	eImpactType m_impact_type; //0x0024
 	char pad_0028[44]; //0x0028
 	eFireType m_fire_type; //0x0054
 	eWheelSlot m_wheel_slot; //0x0058
