@@ -104,7 +104,7 @@ enum class eExplosionTag : int32_t
 	SCRIPT_MISSILE          = 72,
 	RCTANK_ROCKET           = 73,
 	BOMB_WATER              = 74,
-	BOMB_WATER_SECONDARY    = 75,x3E0
+	BOMB_WATER_SECONDARY    = 75,
 	UNK76          		= 76,
 	UNK77          		= 77,
 	FLASH_GRENADE          	= 78,
