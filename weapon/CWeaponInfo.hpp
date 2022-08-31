@@ -211,7 +211,7 @@ public:
 	float m_lock_on_range; //0x0288
 	float m_weapon_range; //0x028C
 	float m_ai_sound_range; //0x0290
-	float m_ai_potential_blast_event_range; //0x0290
+	float m_ai_potential_blast_event_range; //0x0294
 	float m_damage_fall_off_range_min; //0x0298
 	float m_damage_fall_off_range_max; //0x029C
 	float m_damage_fall_off_modifier; //0x02A0
