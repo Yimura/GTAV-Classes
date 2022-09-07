@@ -128,7 +128,7 @@ static_assert(sizeof(InvitedGamers) == 0xC88);
 class Network
 {
 public:
-	class Obf32 m_num_diput8_instances;
+	class Obf32 m_num_dinput8_instances;
 	class Obf32 m_last_time_dinput8_checked; //0x0010
 	class rage::snSession* m_game_session_ptr; //0x0020
 	class rage::snSession* m_transition_session_ptr; //0x0028
