@@ -23,7 +23,7 @@ namespace rage
     public:
         uint64_t m_peer_id;
         rlGamerHandle m_gamer_handle;
-        char unk_0018[32];
+        char m_aes_key[32];
         uint8_t unk_0038;
         netAddress m_unk_ip;
         uint16_t m_unk_port;
