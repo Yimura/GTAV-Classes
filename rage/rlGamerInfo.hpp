@@ -10,7 +10,7 @@ namespace rage
     {
     public:
         uint64_t m_host_token;
-        uint64_t m_platform_data;
+        uint64_t m_peer_id_2;
         rlGamerHandle m_gamer_handle_2;
         uint32_t m_ros_privilege;
         char m_name[20];
