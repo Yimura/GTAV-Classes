@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../rage/rlGamerInfo.hpp"
 #include "../rage/rlSessionInfo.hpp"
 
