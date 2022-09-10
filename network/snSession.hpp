@@ -167,4 +167,4 @@ namespace rage
 	}; //Size: 0x0110
 	static_assert(sizeof(rage::snMsgRemoveGamersFromSessionCmd) == 0x110);
 }
-#pragma pack(pop);
+#pragma pack(pop)

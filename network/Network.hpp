@@ -214,4 +214,4 @@ public:
 	char pad_2E16C[628]; //0x2E16C
 }; //Size: 0x2E3E0
 static_assert(sizeof(Network) == 0x2E3E0);
-#pragma(pop)
+#pragma pack(pop)
