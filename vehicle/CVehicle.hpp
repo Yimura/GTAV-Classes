@@ -12,7 +12,6 @@
 class CVehicle : public rage::CPhysical
 {
 public:
-    char pad_0x0000[0x20]; //0x0000
     CVehicleModelInfo* m_model_info; //0x0020 
     char pad_0x0028[0x20]; //0x0028
     CVehicleDrawHandler* m_draw_handler; //0x0048 
