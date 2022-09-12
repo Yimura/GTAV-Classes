@@ -1,7 +1,10 @@
 #pragma once
 
+#include "../draw_handlers/CVehicleDrawHandler.hpp"
 #include "../entities/CPhysical.hpp"
+
 #include "CHandlingData.hpp"
+#include "CVehicleModelInfo.hpp"
 
 #include <cstdint>
 
@@ -9,7 +12,21 @@
 class CVehicle : public rage::CPhysical
 {
 public:
-    char gap30C[4];
+    char pad_0x0000[0x20]; //0x0000
+    CVehicleModelInfo* m_model_info; //0x0020 
+    char pad_0x0028[0x20]; //0x0028
+    CVehicleDrawHandler* m_draw_handler; //0x0048 
+    char pad_0x0050[0x40]; //0x0050
+    rage::fvector3 m_seat_pos; //0x0090
+    char pad_0x009C[0x74]; //0x009C
+    rage::fvector3 N00001966; //0x0110 
+    char pad_0x011C[0x4]; //0x011C
+    rage::fvector3 N00001968; //0x0120 
+    char pad_0x012C[0x14]; //0x012C
+    rage::fvector3 N0000196C; //0x0140 
+    char pad_0x014C[0x14]; //0x014C
+    rage::fvector3 N00001970; //0x0160 
+    char pad_0x016C[0x1A4]; //0x016C
     uint32_t dword310;
     uint32_t dword314;
     uint8_t m_boost_state; // 0x318
