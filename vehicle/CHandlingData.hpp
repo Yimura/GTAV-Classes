@@ -7,7 +7,7 @@
 class CHandlingData
 {
 public:
-	char pad_0000[8]; //0x0000
+	uint64_t qword0; //0x0000
 	uint32_t m_model_hash; //0x0008
 	float m_mass; //0x000C
 	float m_initial_drag_coeff; //0x0010
