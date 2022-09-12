@@ -16,18 +16,25 @@
 class CPed : public rage::CPhysical
 {
 public:
-	char gap30C[20];
-	rage::fvector3 m_velocity; //0x0320
-	char pad_032C[2564]; //0x032C
-	class CVehicle *m_vehicle; //0x0D30
-	char pad_0D38[912]; //0x0D38
-	class CPlayerInfo *m_player_info; //0x10C8
-	class CPedInventory* m_inventory; //0x10D0
-	class CPedWeaponManager *m_weapon_manager; //0x10D8
-	char pad_10E0[907]; //0x10E0
-	uint8_t m_ped_task_flag; //0x146B
-	char pad_146C[196]; //0x146C
-	float m_armor; //0x1530
+	CPedModelinfo* m_model_info; //0x0020 
+	char pad_0x0028[0x20]; //0x0028
+	CPedDrawHandler* m_draw_handler; //0x0048 
+	char pad_0x0050[0x230]; //0x0050
+	float m_health; //0x0280 
+	char pad_0x0284[0x1C]; //0x0284
+	float m_max_health; //0x02A0 
+	char pad_0x02A4[0x7C]; //0x02A4
+	rage::fvector3 m_velocity; //0x0320 
+	char pad_0x032C[0xA04]; //0x032C
+	CVehicle* m_vehicle; //0x0D30 
+	char pad_0x0D38[0x390]; //0x0D38
+	CPlayerInfo* m_player_info; //0x10C8 
+	CPedInventory* m_inventory; //0x10D0 
+	CPedWeaponManager* m_weapon_manager; //0x10D8 
+	char pad_0x10E0[0x38B]; //0x10E0
+	uint8_t m_ped_task_flag; //0x146B 
+	char pad_0x146C[0xC4]; //0x146C
+	float m_armor; //0x1530 
 }; //Size: 0x1534
 static_assert(sizeof(CPed) == 0x1534);
 
