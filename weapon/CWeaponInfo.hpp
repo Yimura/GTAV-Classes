@@ -264,6 +264,6 @@ public:
 	float m_firing_lean_additive_weight; //0x05E4
 	float m_stealth_aiming_lean_additive_weight; //0x05E8
 	float m_stealth_firing_lean_additive_weight; //0x05EC
-	char m_stat_name[8]; //0x05F0
+	uint32_t m_stat_hash; //0x05F0
 }; //Size: 0x05E8
 static_assert(sizeof(CWeaponInfo) == 0x5E8);
