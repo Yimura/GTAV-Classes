@@ -8,7 +8,7 @@
 #include "CPedInventory.hpp"
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
-#include "../CPedDrawHandler/CVehicleDrawHandler.hpp"
+#include "../draw_handlers/CPedDrawHandler.hpp"
 
 #include <cstdint>
 
