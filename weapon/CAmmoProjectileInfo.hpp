@@ -3,6 +3,7 @@
 #include "CAmmoInfo.hpp"
 #include "CWeaponBoneId.hpp"
 #include "../rage/vector.hpp"
+#include "../enums/eExplosionTag.hpp"
 
 #include <cstdint>
 
