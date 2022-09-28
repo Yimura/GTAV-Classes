@@ -6,23 +6,50 @@
 
 enum class eVehicleType : std::uint32_t
 {
-	Unknown = 4294967295,
-    Car = 0,
-    Plane = 1,
-	Trailer = 2,
-	Quadbike = 3,
-	Draft = 4, //Unused
-	SubmarineCar = 5,
-	AmphibiousAutomobile = 6,
-	AmphibiousQuadbike = 7,
-	Heli = 8,
-	Blimp = 9,
-	AutoGyro = 10, //Unused
-	Bike = 11,
-	Bicycle = 12,
-	Boat = 13,
-	Train = 14,
-	Submarine = 15
+	VEHICLE_TYPE_NONE = 4294967295,
+	VEHICLE_TYPE_CAR = 0,
+	VEHICLE_TYPE_PLANE = 1,
+	VEHICLE_TYPE_TRAILER = 2,
+	VEHICLE_TYPE_QUADBIKE = 3,
+	VEHICLE_TYPE_DRAFT = 4,
+	VEHICLE_TYPE_SUBMARINECAR = 5,
+	VEHICLE_TYPE_AMPHIBIOUS_AUTOMOBILE = 6,
+	VEHICLE_TYPE_AMPHIBIOUS_QUADBIKE = 7,
+	VEHICLE_TYPE_HELI = 8,
+	VEHICLE_TYPE_BLIMP = 9,
+	VEHICLE_TYPE_AUTOGYRO = 10,
+	VEHICLE_TYPE_BIKE = 11,
+	VEHICLE_TYPE_BICYCLE = 12,
+	VEHICLE_TYPE_BOAT = 13,
+	VEHICLE_TYPE_TRAIN = 14,
+	VEHICLE_TYPE_SUBMARINE = 15,
+};
+
+enum class eVehicleClass : std::uint8_t
+{
+	VC_COMPACT = 0,
+	VC_SEDAN = 1,
+	VC_SUV = 2,
+	VC_COUPE = 3,
+	VC_MUSCLE = 4,
+	VC_SPORT_CLASSIC = 5,
+	VC_SPORT = 6,
+	VC_SUPER = 7,
+	VC_MOTORCYCLE = 8,
+	VC_OFF_ROAD = 9,
+	VC_INDUSTRIAL = 10,
+	VC_UTILITY = 11,
+	VC_VAN = 12,
+	VC_CYCLE = 13,
+	VC_BOAT = 14,
+	VC_HELICOPTER = 15,
+	VC_PLANE = 16,
+	VC_SERVICE = 17,
+	VC_EMERGENCY = 18,
+	VC_MILITARY = 19,
+	VC_COMMERCIAL = 20,
+	VC_RAIL = 21,
+	VC_OPEN_WHEEL = 22,
 };
 
 #pragma pack(push, 1)
@@ -73,7 +100,9 @@ public:
 	float m_default_health; //0x0494
 	char pad_0498[4]; //0x0498
 	float m_steer_wheel_multiplier; //0x049C
-	char pad_04A0[180]; //0x04A0
+	char pad_04A0[168]; //0x04A0
+	eVehicleClass m_vehicle_class; //0x0548
+	char pad_0549[11];
 	float m_min_seat_height; //0x0554
 	char pad_0558[40]; //0x0558
 	uint32_t m_is_jetski; //0x0580
