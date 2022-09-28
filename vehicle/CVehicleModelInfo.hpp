@@ -7,8 +7,8 @@
 enum class eVehicleType : std::uint32_t
 {
 	Unknown = 4294967295,
-    Car = 0,
-    Plane = 1,
+	Car = 0,
+	Plane = 1,
 	Trailer = 2,
 	Quadbike = 3,
 	Draft = 4, //Unused
@@ -23,6 +23,32 @@ enum class eVehicleType : std::uint32_t
 	Boat = 13,
 	Train = 14,
 	Submarine = 15
+};
+
+enum class eVehicleClass : std::uint8_t
+{
+	Compacts,
+	Sedans,
+	SUVs,
+	Coupes,
+	Muscle,
+	SportsClassics,
+	Sports,
+	Super,
+	Motorcycle,
+	OffRoad,
+	Industrial,
+	Utility,
+	Vans,
+	Cycles,
+	Boats,
+	Helicopters,
+	Planes,
+	Service,
+	Emergency,
+	Military,
+	Commercial,
+	Trains
 };
 
 #pragma pack(push, 1)
@@ -73,7 +99,9 @@ public:
 	float m_default_health; //0x0494
 	char pad_0498[4]; //0x0498
 	float m_steer_wheel_multiplier; //0x049C
-	char pad_04A0[180]; //0x04A0
+	char pad_04A0[168]; //0x04A0
+	eVehicleClass m_vehicle_class; //0x0548
+	char pad_0549[11];
 	float m_min_seat_height; //0x0554
 	char pad_0558[40]; //0x0558
 	uint32_t m_is_jetski; //0x0580
