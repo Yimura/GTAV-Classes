@@ -27,6 +27,7 @@ public:
     float m_friction_multiplier; //0x0078
     class sExplosion
     {
+    public:
         enum eExplosionTag m_default; //0x0000
         enum eExplosionTag m_hit_car; //0x0004
         enum eExplosionTag m_hit_truck; //0x0008
