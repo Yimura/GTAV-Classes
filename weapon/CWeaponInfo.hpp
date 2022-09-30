@@ -56,6 +56,7 @@ public:
     eDamageType m_damage_type; //0x0020
     class sExplosion
     {
+    public:
         enum eExplosionTag m_default; //0x0000
         enum eExplosionTag m_hit_car; //0x0004
         enum eExplosionTag m_hit_truck; //0x0008
@@ -66,6 +67,7 @@ public:
     static_assert(sizeof(sExplosion) == 0x18);
     struct sFrontClearTestParams
     {
+    public:
         bool m_should_perform_front_clear_test; //0x0000
         float m_forward_offset; //0x0004
         float m_vertical_offset; //0x0008
