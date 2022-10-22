@@ -8,8 +8,8 @@ class ScInfo
 public:
     char m_ticket[208]; //0x0000
     char pad_00D0[304]; //0x00D0
-    char m_session_ticket[96]; //0x0200 - rlSessionInfo base64 serialized?
-    char pad_0260[32]; //0x0260
+    char m_session_ticket[88]; //0x0200 - rlSessionInfo base64 serialized?
+    char pad_0258[40]; //0x0258
     uint32_t m_nonce; //0x0280
     char pad_0284[4]; //0x0284
     uint32_t m_account_id; //0x0288
