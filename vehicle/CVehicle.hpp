@@ -326,5 +326,5 @@ public:
     char gap1467;
     uint64_t qword1468;
 };
-static_assert(sizeof(CVehicle) == 0x1470);
+static_assert(sizeof(CVehicle) == 0x1450);
 #pragma pack(pop)
