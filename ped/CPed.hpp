@@ -26,9 +26,9 @@ public:
 	class CPedWeaponManager *m_weapon_manager; //0x10D8
 	char pad_10E0[907]; //0x10E0
 	uint8_t m_ped_task_flag; //0x146B
-	char pad_146C[196]; //0x146C
-	float m_armor; //0x1530
-}; //Size: 0x1534
-static_assert(sizeof(CPed) == 0x1514);
+	char pad_146C[192]; //0x146C
+	float m_armor; //0x150C
+}; //Size: 0x1510
+static_assert(sizeof(CPed) == 0x1510);
 
 #pragma pack(pop)
