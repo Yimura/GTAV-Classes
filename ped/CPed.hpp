@@ -29,6 +29,6 @@ public:
 	char pad_146C[196]; //0x146C
 	float m_armor; //0x1530
 }; //Size: 0x1534
-static_assert(sizeof(CPed) == 0x1534);
+static_assert(sizeof(CPed) == 0x1514);
 
 #pragma pack(pop)
