@@ -1,5 +1,6 @@
 #pragma once
-#include "rage/rlSessionInfo.hpp"
+#include "rlGamerHandle.hpp"
+#include "rlSessionInfo.hpp"
 
 namespace rage
 {
