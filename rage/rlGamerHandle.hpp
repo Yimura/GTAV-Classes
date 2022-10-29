@@ -19,5 +19,6 @@ namespace rage
         {
         }
     };
+    static_assert(sizeof(rlGamerHandle) == 0x10);
 #pragma pack(pop)
 }
