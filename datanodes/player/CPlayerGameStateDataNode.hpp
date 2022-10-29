@@ -28,7 +28,7 @@ public:
 	bool m_is_invincible; //0x00D5
 	bool unk_00D6; //0x00D6
 	bool unk_00D7; //0x00D7
-	bool unk_00D8; //0x00D8
+	bool m_seatbelt; //0x00D8
 	bool unk_00D9; //0x00D9
 	bool m_bullet_proof; //0x00DA
 	bool m_fire_proof; //0x00DB
