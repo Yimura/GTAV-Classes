@@ -4,7 +4,6 @@
 #include "../rage/vector.hpp"
 #include "datBase.hpp"
 #include "fwArchetypeDef.hpp"
-#include "../entities/fwEntity.hpp"
 
 namespace rage {
     #pragma pack(push,8)
@@ -13,7 +12,7 @@ namespace rage {
     public:
         virtual void Initialize() = 0;
         virtual void InitializeFromArchetypeDef(uint32_t mapTypeStoreIdx, fwArchetypeDef* archetypeDef, bool) = 0;
-        virtual fwEntity* CreateEntity() = 0;
+        virtual class fwEntity* CreateEntity() = 0;
 
         char pad_0008[16]; //0x0008
         int32_t m_hash; //0x0018
