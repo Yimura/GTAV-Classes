@@ -20,5 +20,5 @@ class CObject : public rage::CPhysical
     uint64_t qword408;
     uint64_t qword410;
 };
-static_assert(sizeof(CObject) == 0x418);
+static_assert(sizeof(CObject) == 0x3F8);
 #pragma pack(pop)

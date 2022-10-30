@@ -19,16 +19,14 @@ namespace rage
         char gap191[3];
         uint32_t dword194;
         char gap198[232];
-	    float m_health; //0x0280
-	    char pad_0284[28];
+        float m_health; //0x0280
         float m_maxhealth; //0x02A0
-        char gap2A4[4];
         uint64_t qword2A8;
         char gap2B0[72];
         uint64_t qword2F8;
         uint64_t qword300;
         uint32_t dword308;
     };
-    static_assert(sizeof(CPhysical) == 0x30C);
+    static_assert(sizeof(CPhysical) == 0x2EC);
 #pragma pack(pop)
 }

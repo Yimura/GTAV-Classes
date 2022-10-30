@@ -11,6 +11,8 @@ namespace rage
         uint64_t m_rockstar_id;
         uint64_t m_unk;
 
+        inline rlGamerHandle() = default;
+
         inline rlGamerHandle(uint64_t rockstar_id) :
             m_rockstar_id(rockstar_id),
             m_unk(3)
