@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CNetGamePlayer.hpp"
+#include "CNetGamePlayerDataMsg.hpp"
 #include "../player/CNonPhysicalPlayerData.hpp"
 
 #include <cstdint>
@@ -15,10 +16,10 @@ namespace rage
         virtual void Initialize() = 0;
         virtual void Shutdown() = 0;
         virtual void unk_0x18() = 0;
-        virtual CNetGamePlayer* AddPlayer_raw(void* a1, void* a2, void* a3, rage::rlGamerInfo* gamer_info, CNonPhysicalPlayerData* non_physical_player_data) = 0;
+        virtual CNetGamePlayer* AddPlayer_raw(rage::rlGamerInfo* gamer_info, uint32_t a2, CNetGamePlayerDataMsg* player_data, CNonPhysicalPlayerData* non_physical_player_data) = 0;
         virtual void RemovePlayer(CNetGamePlayer* net_game_player) = 0;
         virtual void UpdatePlayerListsForPlayer(CNetGamePlayer* net_game_player) = 0;
-        virtual CNetGamePlayer* AddPlayer(void* a1, void* a2, void* a3, rage::rlGamerInfo* gamer_info, CNonPhysicalPlayerData* non_physical_player_data) = 0;
+        virtual CNetGamePlayer* AddPlayer(rage::rlGamerInfo* gamer_info, uint32_t a3, CNetGamePlayerDataMsg* player_data, CNonPhysicalPlayerData* non_physical_player_data) = 0;
 
         char pad_0008[8]; //0x0008
         uint64_t *m_network_bandwidth_manager; //0x0010

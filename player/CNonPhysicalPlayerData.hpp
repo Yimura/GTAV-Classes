@@ -10,9 +10,9 @@ namespace rage
     {
     public:
         virtual ~nonPhysicalPlayerDataBase();
-        virtual void _0x08();
-        virtual void _0x10();
-        virtual void _0x18();
+        virtual void read();
+        virtual void write();
+        virtual void calculate_size();
         virtual void log();
     }; //Size: 0x0008
     static_assert(sizeof(nonPhysicalPlayerDataBase) == 0x8);
