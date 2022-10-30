@@ -1,8 +1,7 @@
 #pragma once
 
-#include "../rage/vector.hpp"
-
 #include <cstdint>
+#include "fwArchetype.hpp"
 
 enum class eModelType : std::uint8_t
 {
@@ -28,32 +27,18 @@ enum class eModelType : std::uint8_t
 };
 
 #pragma pack(push, 8)
-class CBaseModelInfo
+class CBaseModelInfo : public rage::fwArchetype
 {
 public:
-    char pad_0000[24]; //0x0000
-    uint32_t m_model_hash; //0x0018
-    char pad_001C[20]; //0x001C
-    rage::fvector4 m_axis_aligned_bounding_box_min; //0x0030
-    rage::fvector4 m_axis_aligned_bounding_box_max; //0x0040
-    uint32_t m_flags;
-    char pad_0054[4];
-    uint16_t unk_0x58;
-    char pad_005A[6];
-    uint8_t m_drawable_type;
-    char pad_0061;
-    uint16_t m_drawable_index;
-    char pad_0064[6];
-    uint16_t unk_0x6A;
-    char pad_006C[12];
-    uint64_t unk_0x78;
-    uint64_t unk_0x80;
-    char pad_0088[8];
-    uint64_t unk_0x90;
-    char pad_0098[5];
-    eModelType m_model_type;
-    char pad_009E[6];
-    uint64_t unk_0xA8;
+    char pad_0070[8]; //0x0070
+    uint64_t unk_0078; //0x0078
+    uint64_t unk_0080; //0x0080
+    char pad_0088[8]; //0x0088
+    uint64_t unk_0090; //0x0090
+    char pad_0098[5]; //0x0098
+    eModelType m_model_type; //0x009D
+    char pad_009E[6]; //0x009E
+    uint64_t unk_00A8; //0x00A8
 }; //Size: 0x00B0
 static_assert(sizeof(CBaseModelInfo) == 0xB0);
 #pragma pack(pop)
