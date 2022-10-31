@@ -8,6 +8,7 @@
 #include "CPedInventory.hpp"
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
+#include "CPedOxygenInfo.hpp"
 
 #include <cstdint>
 
@@ -20,7 +21,8 @@ public:
 	rage::fvector3 m_velocity; //0x0300
 	char pad_032C[2564]; //0x030C
 	class CVehicle *m_vehicle; //0x0D10
-	char pad_0D38[912]; //0x0D18
+	char pad_0D38[904]; //0x0D18
+	class CPedOxygenInfo* m_oxygen_info; //0x10A0
 	class CPlayerInfo *m_player_info; //0x10A8
 	class CPedInventory* m_inventory; //0x10B0
 	class CPedWeaponManager *m_weapon_manager; //0x10B8
