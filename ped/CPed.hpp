@@ -9,6 +9,7 @@
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
 #include "CPedOxygenInfo.hpp"
+#include "CPedBoneInfo.hpp"
 
 #include <cstdint>
 
@@ -19,7 +20,9 @@ class CPed : public rage::CPhysical
 public:
 	char gap30C[20];
 	rage::fvector3 m_velocity; //0x0300
-	char pad_032C[2564]; //0x030C
+	char pad_032C[260]; //0x030C
+	class CPedBoneInfo m_bone_info; //0x0410
+	char pad_4A0[2160]; //0x04A0
 	class CVehicle *m_vehicle; //0x0D10
 	char pad_0D38[904]; //0x0D18
 	class CPedOxygenInfo* m_oxygen_info; //0x10A0
