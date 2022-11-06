@@ -22,7 +22,7 @@ namespace rage
         char gap198[232];
         float m_health; //0x0280
         float m_maxhealth; //0x0284
-        CAttacker* m_attacker;
+        CAttacker* m_attackers;
         char gap2B0[72];
         uint64_t qword2F8;
         uint64_t qword300;
