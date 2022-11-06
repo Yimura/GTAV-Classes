@@ -53,15 +53,28 @@ namespace rage
 	class rlSessionDetail
 	{
 	public:
-		class rage::rlGamerInfo m_gamer_info;
-		class rage::rlSessionInfo m_session_info; //0x0098
-		char pad_0108[308]; //0x0108
+		class rage::rlGamerInfoBase m_base_gamer_info;
+		char pad_0060[8]; //0x0060
+		class rage::rlSessionInfo m_session_info; //0x0068
+		char pad_00D8[14]; //0x00D8
+		uint16_t m_session_type; //0x00E6
+		char pad_00E8[324]; //0x00E8
+		uint32_t m_player_count; //0x022C
+		uint32_t m_unk_player_count; //0x0230
+		char pad_0234[2]; //0x0234
+		int16_t m_unk_pos_x; //0x0236
+		int16_t m_unk_pos_y; //0x0238
+		int16_t m_unk_pos_z; //0x023A
 		uint8_t m_matchmaking_property_ids[32]; //0x023C
-		char pad_025C[5]; //0x025C
+		char pad_025C[2]; //0x025C
+		uint16_t m_rank; //0x025E
+		char pad_0260[1]; //0x0260
 		uint8_t m_mental_state; //0x0261
-		char pad_0262[342]; //0x0262
-	}; //Size: 0x03B8
-	static_assert(sizeof(rage::rlSessionDetail) == 0x3B8);
+		char pad_0262[21]; //0x0262
+		uint8_t m_population_density; //0x0277
+		char pad_0278[320]; //0x0278
+	}; //Size: 0x03CA
+	static_assert(sizeof(rlSessionDetail) == 0x3B8);
 
 
 	class rlMatchmakingFindResult
@@ -167,4 +180,14 @@ namespace rage
 	}; //Size: 0x0110
 	static_assert(sizeof(rage::snMsgRemoveGamersFromSessionCmd) == 0x110);
 }
+
+class SessionSortEntry
+{
+public:
+	class rage::rlSessionDetail* m_session_detail; //0x0000
+	char pad_0008[4]; //0x0008
+	float m_score; //0x000C
+	char pad_0010[8]; //0x0010
+}; //Size: 0x0018
+static_assert(sizeof(SessionSortEntry) == 0x18);
 #pragma pack(pop)

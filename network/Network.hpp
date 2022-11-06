@@ -74,9 +74,10 @@ public:
 }; //Size: 0x1928
 static_assert(sizeof(JoiningPlayerNameMap) == 0x1928);
 
-class CNetBlacklistNode : public rage::rlGamerHandle
+class CNetBlacklistNode
 {
 public:
+	class rage::rlGamerHandle m_handle; //0x0000
 	bool m_block_rejoin; //0x0010
 	char pad_0011[3]; //0x0011
 	uint32_t m_added_time; //0x0014
