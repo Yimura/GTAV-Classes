@@ -7,6 +7,8 @@ namespace rage
 	{
 	public:
 		virtual ~pgBase() = default;
+		virtual int return_zero() = 0;
+		virtual void error() = 0;
 
 		void *unk_0000; // 0x0000
 	}; //Size: 0x0008

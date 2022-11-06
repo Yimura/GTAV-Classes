@@ -23,7 +23,23 @@ namespace rage
         struct { T x, y, z, w; };
     };
 
+    template<typename T>
+    union matrix34
+    {
+        T data[3][4];
+        struct { struct {T x, y, z, w; } rows[3];};
+    };
+
+    template<typename T>
+    union matrix44
+    {
+        T data[3][4];
+        struct { struct {T x, y, z, w; } rows[4];};
+    };
+
     typedef vector2<float> fvector2;
     typedef vector3<float> fvector3;
     typedef vector4<float> fvector4;
+    typedef matrix34<float> fmatrix34;
+    typedef matrix44<float> fmatrix44;
 }
