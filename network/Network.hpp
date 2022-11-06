@@ -143,7 +143,7 @@ public:
 	char pad_8039[19]; //0x8039
 	uint32_t m_session_visibility_flags; //0x804C
 	uint32_t m_transition_visibility_flags; //0x8050
-	char pad_8039[36]; //0x8039
+	char pad_8054[36]; //0x8054
 	class MetricSessionMigrated m_metric_session_migrated; //0x8078
 	bool m_migrated_metric_enabled; //0x83A8
 	char pad_83A9[3]; //0x83A9
