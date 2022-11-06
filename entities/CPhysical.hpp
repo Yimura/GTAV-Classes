@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CDynamicEntity.hpp"
-#include "CAttacker.hpp"
+#include "CAttackers.hpp"
 
 #include <cstdint>
 
