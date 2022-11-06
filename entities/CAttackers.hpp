@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ped/CPed.hpp"
+class CPed; //fwdec
 
 #pragma pack(push, 1)
 class CAttackers
