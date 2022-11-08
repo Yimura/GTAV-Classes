@@ -9,322 +9,44 @@
 class CVehicle : public rage::CPhysical
 {
 public:
-    char gap2EC[4];
-    uint32_t dword2F0;
-    uint32_t dword2F4;
-    uint8_t m_boost_state; // 0x2F8
-    char gap2F9[2];
-    uint8_t m_boost_allow_recharge; // 0x2FB
-    uint16_t word2FC;
-    char gap2FE[2];
-    float m_boost; // 0x300
-    float m_rocket_recharge_speed; // 0x304
-    uint32_t dword308;
-    uint8_t byte30C;
-    char gap30D[3];
-    uint8_t byte310;
-    char gap311[3];
-    uint64_t qword314;
-    uint32_t dword31C;
-    uint8_t byte320;
-    char gap321[3];
-    uint32_t dword324;
-    uint8_t byte328;
-    char gap329[3];
-    uint64_t qword32C;
-    uint64_t qword334;
-    uint64_t qword33C;
-    uint64_t qword344;
-    uint32_t dword34C;
-    uint32_t dword350;
-    uint8_t byte354;
-    uint16_t word355;
-    uint8_t byte357;
-    uint64_t qword358;
-    uint64_t qword360;
-    uint64_t qword368;
-    uint32_t dword370;
-    uint32_t dword374;
-    uint8_t byte378;
-    char gap379[3];
-    uint64_t qword37C;
-    uint64_t qword384;
-    char gap38C[4];
-    float m_jump_boost_charge; // 0x390
-    uint8_t byte394;
-    char gap395[3];
-    uint64_t qword398;
-    uint32_t dword3A0;
-    uint32_t dword3A4;
-    char gap3A8[8];
-    uint16_t oword3B0;
-    char gap3B2[30];
-    uint16_t oword3D0;
-    char gap3D2[14];
-    uint32_t dword3E0;
-    uint64_t qword3E4;
-    char gap3EC[4];
-    uint32_t dword3F0;
-    uint64_t qword3F4;
-    char gap3FC[4];
-    uint64_t qword400;
-    uint32_t dword408;
-    uint32_t dword40C;
-    char gap410[1032];
-    uint64_t qword818;
-    float m_body_health; // 0x820
-    float m_petrol_tank_health; // 0x824
-    char gap828[12];
-    float float834;
-    char gap838[176];
-    float m_engine_health; // 0x8E8
-    char gap8EC[44];
-    CHandlingData* m_handling_data; // 0x918
-    char gap920[2];
+    char pad_02EC[0xC]; //0x02EC
+    uint8_t m_boost_state; //0x02F8
+    char pad_02F9[0x2]; //0x02F9
+    uint8_t m_boost_allow_recharge; //0x02FB
+    char pad_02FC[0x4]; //0x02FC
+    float m_boost; //0x0300
+    float m_rocket_recharge_speed; //0x304
+    char pad_0308[0x88]; //0x0308
+    float m_jump_boost_charge; //0x0390
+    char pad_0394[0x43C]; //0x0394
+    rage::fvector3 m_velocity; //0x07D0
+    char pad_07DC[0x44]; //0x07DC
+    float m_body_health; //0x0820
+    float m_petrol_tank_health; //0x0824
+    char pad_0x828[0xC0]; //0x0828
+    float m_engine_health; //0x08E8
+    char pad_08EC[0x2C]; //0x08EC
+    CHandlingData* m_handling_data; //0x0918
+    char pad_0920[0x2]; //0x0920
     uint8_t m_is_drivable; //0x0922
     uint8_t m_tyres_can_burst; //0x0923
     uint8_t m_deform_god; //0x0924
-    char gap925[6];
-    uint8_t byte92B;
-    char gap92C;
-    uint8_t byte92D;
-    char gap92E;
-    uint8_t byte92F;
-    char gap930[3];
-    uint8_t byte933;
-    uint8_t byte934;
-    char gap935;
-    uint8_t byte936;
-    uint8_t byte937;
-    char gap938[2];
-    uint8_t byte93A;
-    char gap93B[9];
-    uint64_t qword944;
-    char gap94C[4];
-    uint64_t qword950;
-    uint64_t qword958;
-    char gap960[8];
-    uint64_t qword968;
-    uint16_t word970;
-    uint32_t dword972;
-    uint16_t word976;
-    uint64_t qword978;
-    uint64_t qword980;
-    uint32_t dword988;
-    uint64_t qword98C;
-    uint64_t qword994;
-    uint64_t qword99C;
-    uint16_t word9A4;
-    uint8_t byte9A6;
-    char gap9A7;
-    uint32_t dword9A8;
-    uint8_t byte9AC;
-    char gap9AD;
-    uint16_t word9AE;
-    uint16_t word9B0;
-    char gap9B2[2];
-    uint32_t dword9B4;
-    char gap9B8[8];
-    uint32_t dword9C0;
-    uint64_t qword9C4;
-    uint32_t dword9CC;
-    uint32_t dword9D0;
-    char gap9D4[4];
-    float m_dirt_level; // 0x9D8
-    uint32_t dword9DC;
-    uint64_t qword9E0;
-    uint64_t qword9E8;
-    uint32_t dword9F0;
-    uint32_t dword9F4;
-    uint8_t byte9F8;
-    uint16_t word9F9;
-    uint8_t byte9FB;
-    uint32_t dword9FC;
-    uint64_t qwordA00;
-    uint32_t dwordA08;
-    uint32_t dwordA0C;
-    uint64_t qwordA10;
-    uint64_t qwordA18;
-    uint64_t qwordA20;
-    uint64_t qwordA28;
-    uint8_t byteA30;
-    char gapA31[7];
-    uint64_t qwordA38;
-    uint64_t qwordA40;
-    uint32_t dwordA48;
-    uint32_t dwordA4C;
-    uint32_t dwordA50;
-    uint32_t dwordA54;
-    uint32_t dwordA58;
-    uint32_t dwordA5C;
-    uint64_t qwordA60;
-    uint8_t byteA68;
-    char gapA69;
-    uint16_t wordA6A;
-    uint64_t qwordA6C;
-    uint64_t qwordA74;
-    uint64_t qwordA7C;
-    uint64_t qwordA84;
-    uint32_t dwordA8C;
-    uint16_t wordA90;
-    uint16_t wordA92;
-    uint8_t byteA94;
-    uint16_t wordA95;
-    uint16_t wordA97;
-    char gapA99[2];
-    char gapA9B[3]; // start of some kind of flag, default value 0x1000000i64
-    uint8_t m_is_targetable; // 0xA9E
-    char gapA9F[4]; // end of some kind of flag
-    uint32_t dwordAA3;
-    uint32_t dwordAA7;
-    uint16_t wordAAB;
-    uint8_t byteAAD;
-    uint8_t byteAAE;
-    char gapAAF;
-    uint64_t qwordAB0;
-    uint64_t qwordAB8;
-    uint8_t byteAC0;
-    char gapAC1[3];
-    uint32_t dwordAC4;
-    uint32_t dwordAC8;
-    uint32_t dwordACC;
-    uint32_t dwordAD0;
-    char gapAD4[4];
-    uint32_t dwordAD8;
-    char gapADC[20];
-    uint32_t dwordAF0;
-    uint32_t dwordAF4;
-    char gapAF8[24];
-    uint32_t dwordB10;
-    uint64_t qwordB14;
-    char gapB1C[4];
-    uint32_t dwordB20;
-    uint64_t qwordB24;
-    char gapB2C[4];
-    uint16_t owordB30;
-    char gapB32[14];
-    uint16_t owordB40;
-    char gapB42[14];
-    uint32_t dwordB50;
-    uint32_t dwordB54;
-    uint64_t qwordB58;
-    uint32_t dwordB60;
-    uint32_t dwordB64;
-    uint32_t dwordB68;
-    uint32_t dwordB6C;
-    uint32_t dwordB70;
-    uint32_t dwordB74;
-    uint32_t dwordB78;
-    uint32_t dwordB7C;
-    uint32_t dwordB80;
-    uint64_t qwordB84;
-    char gapB8C[4];
-    uint32_t dwordB90;
-    uint64_t qwordB94;
-    char gapB9C[20];
-    uint64_t qwordBB0;
-    char gapBB8[16];
-    uint32_t dwordBC8;
-    char gapBCC[4];
-    uint64_t qwordBD0;
-    uint32_t dwordBD8;
-    uint64_t qwordBDC;
-    uint16_t wordBE4;
-    uint8_t byteBE6;
-    char gapBE7;
-    uint64_t qwordBE8;
-    uint32_t dwordBF0;
-    uint32_t dwordBF4;
-    uint16_t wordBF8;
-    char gapBFA[2];
-    uint64_t qwordBFC;
-    uint64_t qwordC04;
-    uint64_t qwordC0C;
-    uint64_t qwordC14;
-    char gapC1C[4];
-    uint64_t qwordC20;
-    uint64_t qwordC28;
-    uint32_t dwordC30;
-    char gapC34[4];
-    uint32_t dwordC38;
-    float m_gravity; // 0xC3C - might be start of some sub-class
-    char gapC40[8];
+    char pad_0925[0xB3]; //0x0925
+    float m_dirt_level; //0x09D8
+    char pad_09DC[0xC2]; //0x09DC
+    uint8_t m_is_targetable; //0x0A9E
+    char pad_0A9F[0x19D]; //0x0A9F
+    float m_gravity; //0x0C3C - might be start of some sub-class
+    uint8_t m_max_passengers; //0x0C40
+    char pad_0C41; //0x0C41
+    uint8_t m_num_of_passengers; //0x0C42
+    char pad_0C43[5]; //0x0C43
     class CPed* m_driver; //0x0C48
     class CPed* m_passengers[15]; //0x0C50
     class CPed* m_last_driver; //0x0CC8
-    char gapCD0[1424]; // end of sub-class
-    uint32_t dword1260;
-    char gap1264[4];
-    uint32_t dword1268;
-    char gap126C[12];
-    uint16_t word1278;
-    uint8_t byte127A;
-    char gap127B;
-    uint64_t qword127C;
-    uint64_t qword1284;
-    uint64_t qword128C;
-    uint64_t qword1294;
-    char gap129C[4];
-    uint64_t qword12A0;
-    uint64_t qword12A8;
-    uint16_t word12B0;
-    char gap12B2[14];
-    uint32_t dword12C0;
-    uint32_t dword12C4;
-    uint64_t qword12C8;
-    uint32_t dword12D0;
-    char gap12D4[4];
-    uint64_t qword12D8;
-    char gap12E0[56];
-    uint64_t qword1318;
-    uint64_t qword1320;
-    uint32_t dword1328;
-    uint32_t dword132C;
-    uint32_t dword1330;
-    uint64_t qword1334;
-    uint32_t dword133C;
-    uint32_t dword1340;
-    uint32_t dword1344;
-    uint32_t dword1348;
-    char gap134C[4];
-    float float1350;
-    float float1354;
-    char gap1358[8];
-    uint64_t qword1360;
-    uint64_t qword1368;
-    uint32_t m_door_lock_status;
-    uint64_t qword1374;
-    uint16_t word137C;
-    uint16_t word137E;
-    uint8_t byte1380;
-    uint16_t word1381;
-    char gap1383[2];
-    uint8_t byte1385;
-    uint16_t word1386;
-    uint8_t byte1388;
-    char gap1389[3];
-    uint32_t dword138C;
-    uint8_t byte1390;
-    char gap1391[3];
-    uint64_t qword1394;
-    uint32_t dword139C;
-    uint32_t dword13A0;
-    uint32_t dword13A4;
-    uint32_t dword13A8;
-    uint8_t byte13AC;
-    char gap13AD[3];
-    uint64_t qword13B0;
-    uint8_t byte13B8;
-    char gap13B9[3];
-    uint32_t dword13BC;
-    char gap13C0[8];
-    uint32_t dword13C8;
-    char gap13CC[116];
-    uint32_t dword1440;
-    uint16_t word1444;
-    uint8_t byte1446;
-    char gap1447;
-    uint64_t qword1448;
+    char pad_0CD0[0x6A0]; //0x0CD0
+    uint32_t m_door_lock_status; //0x1370
+    char pad_1374[0xDC]; //0x1374
 };
 static_assert(sizeof(CVehicle) == 0x1450);
 #pragma pack(pop)

@@ -36,7 +36,11 @@ public:
     uint32_t m_player_controls; //0x0250
     char pad_0254[1256]; //0x0254
     float m_wanted_can_change; //0x073C
-    char pad_0740[304]; //0x0740
+    char pad_0740[144]; //0x0740
+    float m_wanted_level_difficulty; //0x07D0 min:-1 max:1
+    char pad_07D4[52]; //0x07D4
+    float m_wanted_level_multiplier; //0x0808 min:0 max:1
+    char pad_080C[100]; //0x080C
     uint32_t m_npc_ignore; //0x0870
     char pad_0874[12]; //0x0874
     bool m_is_wanted; //0x0880
