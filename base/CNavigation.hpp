@@ -14,7 +14,7 @@ public:
 
 	rage::fvector3* get_position()
 	{
-		return reinterpret_cast<rage::fvector3*>(&m_transformation_matrix.rows[0]);
+		return reinterpret_cast<rage::fvector3*>(&m_transformation_matrix.rows[3]);
 	}
 }; //Size: 0x0060
 static_assert(sizeof(CNavigation) == 0x60);
