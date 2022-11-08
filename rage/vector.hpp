@@ -33,7 +33,7 @@ namespace rage
     template<typename T>
     union matrix44
     {
-        T data[3][4];
+        T data[4][4];
         struct { struct {T x, y, z, w; } rows[4];};
     };
 

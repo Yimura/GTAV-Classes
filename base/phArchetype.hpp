@@ -6,6 +6,7 @@ namespace rage
 {
 	class phArchetype
 	{
+	public:
 		char pad_0000[32]; //0x0000
 		class phBound* m_bound; //0x0020
 		char pad_0028[16]; //0x0028
@@ -14,6 +15,7 @@ namespace rage
 
 	class phArchetypePhys : public phArchetype
 	{
+	public:
 		char pad_0038[28]; //0x0028
 		float m_water_collision; //0x0054
 		char pad_0058[40]; //0x0058
