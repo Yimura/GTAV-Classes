@@ -36,9 +36,16 @@ public:
 	char pad_143D[13]; //0x143D
 	uint8_t m_can_switch_weapon; //0x144A
 	uint8_t m_ped_task_flag; //0x144B
-	char pad_144C[192]; //0x144C
+	char pad_144C[4]; //0x144C
+	uint8_t m_forced_aim; //0x1450 m_forced_aim ^= (m_forced_aim ^ -(char)toggle) & 0x20;
+	char pad_1451[187]; //0x1451
 	float m_armor; //0x150C
-	char pad_1510[260]; //0x1510
+	float unk_health_threshold; //0x1510
+	float m_fatigued_health_threshold; //0x1514
+	float m_injured_health_threshold; //0x1518
+	float m_dying_health_threshold; //0x151C
+	float m_hurt_health_threshold; //0x1520
+	char pad_1524[240]; //0x1524
 	uint16_t m_cash; //0x1614
 }; //Size: 0x1616
 static_assert(sizeof(CPed) == 0x1616);
