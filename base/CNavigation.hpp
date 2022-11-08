@@ -7,10 +7,10 @@
 class CNavigation
 {
 public:
-	char pad_0000[16]; //0x0000
-	class rage::phArchetypeDamp* m_damp; //0x0010
-	char pad_0018[8]; //0x0018
-	rage::fmatrix44 m_transformation_matrix;
+    char pad_0000[16]; //0x0000
+    class rage::phArchetypeDamp* m_damp; //0x0010
+    char pad_0018[8]; //0x0018
+    rage::fmatrix44 m_transformation_matrix;
 }; //Size: 0x0060
 static_assert(sizeof(CNavigation) == 0x60);
 #pragma pack(pop)
