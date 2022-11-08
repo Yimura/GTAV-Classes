@@ -39,8 +39,8 @@ public:
 	char pad_144C[192]; //0x144C
 	float m_armor; //0x150C
 	char pad_1510[260]; //0x1510
-	int m_cash; //0x1614
-}; //Size: 0x1618
-static_assert(sizeof(CPed) == 0x1618);
+	uint16_t m_cash; //0x1614
+}; //Size: 0x1616
+static_assert(sizeof(CPed) == 0x1616);
 
 #pragma pack(pop)
