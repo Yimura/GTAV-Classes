@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "phBoundCapsule.hpp"
+#include "phBound.hpp"
 #include "../rage/vector.hpp"
 
 namespace rage
@@ -10,7 +10,7 @@ namespace rage
 	class phBoundComposite : public phBound
 	{
 	public:
-		class phBoundCapsule** m_bound_capsule; //0x0070
+		class phBound** m_bounds; //0x0070
 		fmatrix34* m_current_matrices; //0x0078
 		fmatrix34* m_last_matrices; //0x0080
 		fvector3* unk_0088; //0x0088

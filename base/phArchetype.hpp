@@ -1,6 +1,6 @@
 #pragma once
 
-#include "phBoundComposite.hpp"
+#include "phBound.hpp"
 
 namespace rage
 {
@@ -8,7 +8,7 @@ namespace rage
 	{
 	public:
 		char pad_0000[32]; //0x0000
-		class phBoundComposite* m_bound_composite; //0x0020
+		class phBound* m_bound; //0x0020
 		char pad_0028[16]; //0x0028
 	}; //Size: 0x0038
 	static_assert(sizeof(phArchetype) == 0x38);
