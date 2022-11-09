@@ -1,6 +1,4 @@
 #pragma once
-#include <list>
-
 #include "scrProgramTableEntry.hpp"
 
 #pragma pack(push, 1)
