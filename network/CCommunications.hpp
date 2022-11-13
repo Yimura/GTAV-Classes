@@ -6,7 +6,7 @@
 class CVoiceConnection
 {
 public:
-  class rage::rlGamerInfo m_gamer_info; //0x0000
+    class rage::rlGamerInfo m_gamer_info; //0x0000
 	char pad_0098[40]; //0x0098
 }; //Size: 0x00C0
 static_assert(sizeof(CVoiceConnection) == 0xC0);
@@ -27,7 +27,7 @@ class CCommunications
 public:
 	char pad_0000[48]; //0x0000
 	class CVoice m_voice; //0x0030
-	char pad_19A8[16]; //0x19A8
-}; //Size: 0x19B8
-static_assert(sizeof(CCommunications) == 0x19B8);
+	char pad_26F0[280308]; //0x26F0
+}; //Size: 0x46DE4
+static_assert(sizeof(CCommunications) == 0x46DE4);
 #pragma pack(pop)
