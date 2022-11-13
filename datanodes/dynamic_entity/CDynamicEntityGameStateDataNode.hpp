@@ -3,6 +3,13 @@
 #include <cstdint>
 
 #pragma pack(push, 4)
+struct CDecorator
+{
+    uint32_t m_type;
+    uint32_t m_value;
+    uint32_t m_name_hash;
+};
+
 class CDynamicEntityGameStateDataNode
 {
 public:
@@ -11,9 +18,7 @@ public:
     bool unk_00C4; // 0x00C4
     bool unk_00C5; // 0x00C5
     uint32_t m_decor_count; // 0x00C8
-    uint32_t m_decor_type[12]; // 0x00CC
-    uint32_t m_decor_value[12]; // 0x00FC
-    uint32_t m_decor_name_hash[12]; // 0x012C
+    CDecorator m_decors[12]; // 0x00CC
 }; //Size: 0x15C
 static_assert(sizeof(CDynamicEntityGameStateDataNode) == 0x15C);
 #pragma pack(pop)
