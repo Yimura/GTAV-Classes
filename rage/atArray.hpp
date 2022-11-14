@@ -6,6 +6,8 @@
 
 #include "sysMemAllocator.hpp"
 
+
+
 namespace rage
 {
 #pragma pack(push, 8)
@@ -55,7 +57,7 @@ namespace rage
             auto old_capacity = m_count;
 
             if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                LOG(FATAL) << "RAGE atArray::append was given too large of an atArray to append";
+                throw std::range_error("RAGE atArray::append was given too large of an atArray to append");
 
             auto size = (uint16_t)value_array_size;
             expand(m_count + size);
@@ -75,7 +77,7 @@ namespace rage
             auto old_capacity = m_count;
 
             if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                LOG(FATAL) << "RAGE atArray::append was given too large of a vector to append";
+                throw std::range_error("RAGE atArray::append was given too large of a vector to append");
 
             auto size = (uint16_t)value_array_size;
             expand(m_count + size);
@@ -95,7 +97,7 @@ namespace rage
             auto old_capacity = m_count;
 
             if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                LOG(FATAL) << "RAGE atArray::append was given too large of a list to append";
+                throw std::range_error("RAGE atArray::append was given too large of a list to append");
 
             auto size = (uint16_t)value_array_size;
             expand(m_count + size);
@@ -190,7 +192,7 @@ namespace rage
             {
                 T item = j[i];
                 if (std::is_pointer<T>())
-                    o << "\tArray Pointer: " << HEX_TO_UPPER(item) << " Item: [" << HEX_TO_UPPER(*(T*)item) << "]";
+                    o << "\tArray Pointer: " << std::hex << std::uppercase << item << std::nouppercase << std::dec << " Item: [" << std::hex << std::uppercase << (*(T*)item) << std::nouppercase << std::dec << "]";
                 else
                     o << "\tArray Item: " << item;
                 if (i != j.size() - 1)
