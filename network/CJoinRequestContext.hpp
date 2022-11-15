@@ -12,5 +12,5 @@ public:
 	uint32_t m_join_response_size; //0x0234
 	char pad_0238[12]; //0x0238
 }; //Size: 0x0244
-static_assert(sizeof(JoinRequestContext) == 0x244);
+static_assert(sizeof(CJoinRequestContext) == 0x244);
 #pragma pack(pop)
