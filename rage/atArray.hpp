@@ -15,144 +15,20 @@ namespace rage
     class atArray
     {
     public:
-        atArray()
+        atArray() :
+            m_data(nullptr),
+            m_size(0),
+            m_count(0)
         {
-            m_data = nullptr;
-            m_count = 0;
-            m_size = 0;
+            
         }
 
-        atArray(const atArray& right)
+        atArray(void* data_ptr, std::uint16_t size, std::uint16_t count) :
+            m_data(data_ptr),
+            m_size(size),
+            m_count(count)
         {
-            m_count = right.m_count;
-            m_size = right.m_size;
 
-            m_data = (T*)rage::GetAllocator()->allocate(m_size * sizeof(T), 16, 0);
-            std::uninitialized_copy(right.m_data, right.m_data + right.m_count, m_data);
-        }
-
-        atArray(int capacity)
-        {
-            m_data = (T*)rage::GetAllocator()->allocate(capacity * sizeof(T), 16, 0);
-            m_count = 0;
-            m_size = capacity;
-        }
-
-        void clear()
-        {
-            m_count = 0;
-            m_size = 0;
-
-            if (m_data)
-            {
-                rage::GetAllocator()->free(m_data);
-
-                m_data = nullptr;
-            }
-        }
-
-        void append(atArray<T> array_value)
-        {
-            auto value_array_size = array_value.size();
-            auto old_capacity = m_count;
-
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                throw std::range_error("RAGE atArray::append was given too large of an atArray to append");
-
-            auto size = (uint16_t)value_array_size;
-            expand(m_count + size);
-            m_size += size;
-
-            auto i = old_capacity;
-            for (auto weapon_hash : array_value)
-            {
-                m_data[i] = weapon_hash;
-                i++;
-            }
-        }
-
-        void append(std::vector<T> value_array)
-        {
-            auto value_array_size = value_array.size();
-            auto old_capacity = m_count;
-
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                throw std::range_error("RAGE atArray::append was given too large of a vector to append");
-
-            auto size = (uint16_t)value_array_size;
-            expand(m_count + size);
-            m_size += size;
-
-            auto i = old_capacity;
-            for (auto weapon_hash : value_array)
-            {
-                m_data[i] = weapon_hash;
-                i++;
-            }
-        }
-
-        void append(const std::initializer_list<T> value_array)
-        {
-            auto value_array_size = value_array.size();
-            auto old_capacity = m_count;
-
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
-                throw std::range_error("RAGE atArray::append was given too large of a list to append");
-
-            auto size = (uint16_t)value_array_size;
-            expand(m_count + size);
-            m_size += size;
-
-            auto i = old_capacity;
-            for (const T* it = value_array.begin(); it != value_array.end(); ++it)
-            {
-                m_data[i] = *it;
-                i++;
-            }
-        }
-
-        void append(T value)
-        {
-            set(m_count, value);
-        }
-
-        void set(uint16_t offset, const T& value)
-        {
-            if (offset >= m_count)
-            {
-                expand(offset + 1);
-            }
-
-            if (offset >= m_size)
-            {
-                m_size = offset + 1;
-            }
-
-            m_data[offset] = value;
-        }
-
-        void expand(uint16_t newSize)
-        {
-            if (m_count >= newSize)
-            {
-                return;
-            }
-
-            T* newOffset = (T*)rage::GetAllocator()->allocate(newSize * sizeof(T), 16, 0);
-
-            // initialize the new entries
-            std::uninitialized_fill(newOffset, newOffset + newSize, T());
-
-            // copy the existing entries
-            if (m_data)
-            {
-                std::copy(m_data, m_data + m_size, newOffset);
-
-                rage::GetAllocator()->free(m_data);
-            }
-
-            m_data = newOffset;
-            m_count = newSize;
         }
 
         T* begin() const
