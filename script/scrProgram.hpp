@@ -19,13 +19,15 @@ namespace rage
         void *m_local_data;            // 0x30
         std::int64_t **m_global_data;  // 0x38
         void **m_native_entrypoints;   // 0x40
-        char m_padding6[0x10];         // 0x48
+        std::uint32_t m_proc_count;    // 0x48
+        char pad_004C[4];              // 0x4C
+        const char** m_proc_names;     // 0x50
         std::uint32_t m_name_hash;     // 0x58
-        char m_padding7[0x04];         // 0x5C
+        std::uint32_t m_ref_count;     // 0x5C
         const char* m_name;            // 0x60
         const char** m_strings_data;   // 0x68
         std::uint32_t m_strings_count; // 0x70
-        char m_padding8[0x0C];         // 0x74
+        char m_breakpoints[0x0C];      // 0x74 This is an atMap, which we don't have the class for ATM.
 
         bool is_valid() const
         {
