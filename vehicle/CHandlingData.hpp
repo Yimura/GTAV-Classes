@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CBaseSubHandlingData.hpp"
+#include "../rage/atArray.hpp"
 #include "../rage/vector.hpp"
 
 #include <cstdint>
@@ -78,5 +80,7 @@ public:
     uint32_t m_damage_flags; //0x012C
     char pad_0130[12]; //0x0130
     uint32_t m_ai_handling_hash; //0x013C
-}; //Size: 0x0140
-static_assert(sizeof(CHandlingData) == 0x140);
+    char pad_140[24]; //0x140
+    rage::atArray<CBaseSubHandlingData*> m_sub_handling_data; // 0x158
+}; //Size: 0x0160
+static_assert(sizeof(CHandlingData) == 0x168);
