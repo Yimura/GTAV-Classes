@@ -56,7 +56,7 @@ public:
 
     bool has_seatbelt() { return m_seatbelt & 0x3; }
 
-    void forced_aim(bool toggle) { m_forced_aim ^= (m_forced_aim ^ -toggle) & 0x20; }
+    void forced_aim(bool toggle) { m_forced_aim ^= (m_forced_aim ^ -(char)toggle) & 0x20; }
 }; //Size: 0x1616
 static_assert(sizeof(CPed) == 0x1616);
 
