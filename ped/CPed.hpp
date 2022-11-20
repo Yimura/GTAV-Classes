@@ -12,6 +12,7 @@
 #include "CPedBoneInfo.hpp"
 
 #include <cstdint>
+#include <cmath>
 
 #pragma pack(push, 1)
 
@@ -47,6 +48,16 @@ public:
     float m_hurt_health_threshold; //0x1520
     char pad_1524[240]; //0x1524
     uint16_t m_cash; //0x1614
+
+    float get_speed() { return std::sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
+
+    bool can_be_ragdolled() { return m_ped_type & 0x20; }
+
+    uint32_t get_ped_type() { return m_ped_type << 11 >> 25; }
+
+    bool has_seatbelt() { return m_seatbelt & 0x3; }
+
+    void forced_aim(bool toggle) { m_forced_aim ^= (m_forced_aim ^ -(char)toggle) & 0x20; }
 }; //Size: 0x1616
 static_assert(sizeof(CPed) == 0x1616);
 
