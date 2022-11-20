@@ -12,6 +12,7 @@
 #include "CPedBoneInfo.hpp"
 
 #include <cstdint>
+#include <cmath>
 
 #pragma pack(push, 1)
 
