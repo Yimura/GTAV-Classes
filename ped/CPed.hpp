@@ -48,7 +48,7 @@ public:
     char pad_1524[240]; //0x1524
     uint16_t m_cash; //0x1614
 
-    float get_speed() { return sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
+    float get_speed() { return std::sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
 
     bool can_be_ragdolled() { return m_ped_type & 0x20; }
 
