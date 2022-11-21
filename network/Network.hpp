@@ -3,6 +3,7 @@
 #include "../security/Obf32.hpp"
 #include "CNetComplaintMgr.hpp"
 #include "snSession.hpp"
+#include <cstring>
 
 #pragma pack(push, 1)
 
@@ -60,7 +61,7 @@ class NetworkGameFilter
 {
 public:
 	virtual ~NetworkGameFilter() = default;
-	virtual void Reset() = 0;
+	virtual void Reset() {};
 
 	uint32_t m_build_type; //0x0008
 	uint32_t m_discriminator; //0x000C
