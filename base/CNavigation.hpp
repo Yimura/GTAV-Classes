@@ -17,7 +17,7 @@ public:
         return reinterpret_cast<rage::fvector3*>(&m_transformation_matrix.rows[3]);
     }
 
-    void model_to_world(rage::fvector3 model_coords, rage::fvector3& world_coords)
+    void model_to_world(const rage::fvector3& model_coords, rage::fvector3& world_coords)
     {
         world_coords.x = model_coords.x * m_transformation_matrix.data[0][0] + model_coords.y * m_transformation_matrix.data[1][0] + model_coords.z * m_transformation_matrix.data[2][0] + m_transformation_matrix.data[3][0];
         world_coords.y = model_coords.x * m_transformation_matrix.data[0][1] + model_coords.y * m_transformation_matrix.data[1][1] + model_coords.z * m_transformation_matrix.data[2][1] + m_transformation_matrix.data[3][1];
