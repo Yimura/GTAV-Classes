@@ -3,7 +3,7 @@
 #include "../rage/rlGamerInfo.hpp"
 
 #pragma pack(push, 1)
-class RemotePlayerDataMsg
+class RemoteGamerInfoMsg
 {
 public:
 	uint64_t m_session_id; //0x0000
@@ -14,5 +14,5 @@ public:
 	uint32_t m_required_player_count; //0x02C8
 	char pad_02CC[20]; //0x02CC
 }; //Size: 0x02E0
-static_assert(sizeof(RemotePlayerDataMsg) == 0x2E0);
+static_assert(sizeof(RemoteGamerInfoMsg) == 0x2E0);
 #pragma pack(pop)
