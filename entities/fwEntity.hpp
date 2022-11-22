@@ -31,6 +31,18 @@ namespace rage
         uint32_t dwordB0; //0x00B0
         char gapB4[4]; //0x00B4
         std::uint8_t byteB8; //0x00B8
+
+        rage::fvector3* get_position()
+        {
+            return reinterpret_cast<rage::fvector3*>(&m_transformation_matrix.rows[3]);
+        }
+
+        void model_to_world(fvector3 model_coords, fvector3& world_coords)
+        {
+            world_coords.x = model_coords.x * m_transformation_matrix.data[0][0] + model_coords.y * m_transformation_matrix.data[1][0] + model_coords.z * m_transformation_matrix.data[2][0] + m_transformation_matrix.data[3][0];
+            world_coords.y = model_coords.x * m_transformation_matrix.data[0][1] + model_coords.y * m_transformation_matrix.data[1][1] + model_coords.z * m_transformation_matrix.data[2][1] + m_transformation_matrix.data[3][1];
+            world_coords.z = model_coords.x * m_transformation_matrix.data[0][2] + model_coords.y * m_transformation_matrix.data[1][2] + model_coords.z * m_transformation_matrix.data[2][2] + m_transformation_matrix.data[3][2];
+        }
     };
     static_assert(sizeof(fwEntity) == 0xB9);
 #pragma pack(pop)

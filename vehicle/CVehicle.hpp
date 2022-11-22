@@ -4,6 +4,7 @@
 #include "CHandlingData.hpp"
 
 #include <cstdint>
+#include <cmath>
 
 #pragma pack(push, 1)
 class CVehicle : public rage::CPhysical
@@ -47,6 +48,8 @@ public:
     char pad_0CD0[0x6A0]; //0x0CD0
     uint32_t m_door_lock_status; //0x1370
     char pad_1374[0xDC]; //0x1374
+
+    float get_speed() { return sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
 };
 static_assert(sizeof(CVehicle) == 0x1450);
 #pragma pack(pop)

@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "../vehicle/CVehicle.hpp"
 #include "../player/CPlayerInfo.hpp"
 #include "CPedModelInfo.hpp"
@@ -9,20 +8,37 @@
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
 #include "CPedOxygenInfo.hpp"
-#include "CPedBoneInfo.hpp"
 
 #include <cstdint>
 #include <cmath>
 
-#pragma pack(push, 1)
+enum class ePedBoneType
+{
+    HEAD,
+    L_FOOT,
+    R_FOOT,
+    L_ANKLE,
+    R_ANKLE,
+    L_HAND,
+    R_HAND,
+    NECK,
+    ABDOMEN
+};
 
+struct CPedBoneInfo
+{
+    rage::fvector3 model_coords;
+    float pad;
+};
+
+#pragma pack(push, 1)
 class CPed : public rage::CPhysical
 {
 public:
     char gap2EC[20];
     rage::fvector3 m_velocity; //0x0300
     char pad_030C[260]; //0x030C
-    class CPedBoneInfo m_bone_info; //0x0410
+    CPedBoneInfo m_bone_info[9]; //0x0410
     char pad_04A0[2160]; //0x04A0
     class CVehicle *m_vehicle; //0x0D10
     char pad_0D18[896]; //0x0D18
@@ -49,7 +65,14 @@ public:
     char pad_1524[240]; //0x1524
     uint16_t m_cash; //0x1614
 
-    float get_speed() { return std::sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
+    float get_speed() { return sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
+
+    rage::fvector3 get_bone_coords(ePedBoneType type)
+    {
+        rage::fvector3 world_coords;
+        model_to_world(m_bone_info[(uint32_t)type].model_coords, world_coords);
+        return world_coords;
+    }
 
     bool can_be_ragdolled() { return m_ped_type & 0x20; }
 
@@ -60,5 +83,4 @@ public:
     void forced_aim(bool toggle) { m_forced_aim ^= (m_forced_aim ^ -(char)toggle) & 0x20; }
 }; //Size: 0x1616
 static_assert(sizeof(CPed) == 0x1616);
-
 #pragma pack(pop)
