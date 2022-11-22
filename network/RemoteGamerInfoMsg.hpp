@@ -7,7 +7,7 @@ class RemotePlayerDataMsg
 {
 public:
 	uint64_t m_session_id; //0x0000
-	class rage::netPlayerData m_gamer_info; //0x0008
+	class rage::rlGamerInfo m_gamer_info; //0x0008
 	char pad_00A0[32]; //0x00A0
 	uint32_t m_unk; //0x00C0
 	char pad_00C4[516]; //0x00C4
