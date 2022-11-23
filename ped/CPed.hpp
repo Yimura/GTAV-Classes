@@ -8,28 +8,10 @@
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
 #include "CPedOxygenInfo.hpp"
+#include "CPedBoneInfo.hpp"
 
 #include <cstdint>
 #include <cmath>
-
-enum class ePedBoneType
-{
-    HEAD,
-    L_FOOT,
-    R_FOOT,
-    L_ANKLE,
-    R_ANKLE,
-    L_HAND,
-    R_HAND,
-    NECK,
-    ABDOMEN
-};
-
-struct CPedBoneInfo
-{
-    rage::fvector3 model_coords;
-    float pad;
-};
 
 #pragma pack(push, 1)
 class CPed : public rage::CPhysical
@@ -38,7 +20,7 @@ public:
     char gap2EC[20];
     rage::fvector3 m_velocity; //0x0300
     char pad_030C[260]; //0x030C
-    CPedBoneInfo m_bone_info[9]; //0x0410
+    class CPedBoneInfo m_bone_info[9]; //0x0410
     char pad_04A0[2160]; //0x04A0
     class CVehicle *m_vehicle; //0x0D10
     char pad_0D18[896]; //0x0D18
