@@ -17,6 +17,7 @@ enum class ePedBoneType
 
 class CPedBoneInfo
 {
+public:
     rage::fvector3 model_coords;
     float pad;
 };
