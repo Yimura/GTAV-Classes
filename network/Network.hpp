@@ -3,6 +3,7 @@
 #include "../security/Obf32.hpp"
 #include "CNetComplaintMgr.hpp"
 #include "snSession.hpp"
+#include <cstring>
 
 #pragma pack(push, 1)
 
@@ -24,15 +25,55 @@ public:
 }; //Size: 0x0148
 static_assert(sizeof(NetworkGameConfig) == 0x148);
 
+class NetworkGameFilterMatchmakingComponent
+{
+public:
+	// do not use for actual network filters, this will break things
+	inline void SetParameter(const char* name, int index, int value)
+	{
+		std::strcpy(m_param_names[index], name);
+		m_param_mappings[index] = index;
+		m_param_values[index] = value;
+		m_enabled_params_bitset |= (1 << index);
+
+		if (m_num_parameters <= index)
+			m_num_parameters++;
+	}
+
+	uint32_t m_filter_type; //0x0000
+	char m_filter_name[24]; //0x0004
+	uint32_t m_num_parameters; //0x001C
+	uint16_t m_game_mode; //0x0020
+	uint16_t m_session_type; //0x0022
+	uint32_t m_param_unk[8]; //0x0024
+	char m_param_names[8][24]; //0x0044
+	char pad_0104[4]; //0x0104
+	uint32_t m_param_mappings[8]; //0x0108
+	char pad_0128[352]; //0x0128
+	uint32_t m_param_values[8]; //0x0288
+	char pad_02A8[96]; //0x02A8
+	uint32_t m_enabled_params_bitset; //0x0308
+	char pad_030C[8]; //0x030C
+}; //Size: 0x0314
+static_assert(sizeof(NetworkGameFilterMatchmakingComponent) == 0x314);
+
 class NetworkGameFilter
 {
 public:
-    char pad_0000[16]; //0x0000
-    char m_game_mode[24]; //0x0010
-    char pad_0028[8]; //0x0028
-    uint32_t m_attribute_values[8]; //0x0030
-    char m_attribute_names[8][24]; //0x0050
-    char pad_0110[564]; //0x0110
+	virtual ~NetworkGameFilter() = default;
+	virtual void Reset() {};
+
+	uint32_t m_build_type; //0x0008
+	uint32_t m_discriminator; //0x000C
+	uint32_t m_discriminator_mapping; //0x0010
+	uint32_t m_region_mapping; //0x0014
+	uint32_t m_language_mapping; //0x0018
+	uint32_t m_mm_group_1_mapping; //0x001C
+	uint32_t m_mm_group_2_mapping; //0x0020
+	uint32_t m_activity_type_mapping; //0x0024
+	uint32_t m_activity_id_mapping; //0x0028
+	uint32_t m_activity_players_mapping; //0x002C
+	class NetworkGameFilterMatchmakingComponent m_matchmaking_component; //0x0030
 }; //Size: 0x0344
 static_assert(sizeof(NetworkGameFilter) == 0x344);
 
