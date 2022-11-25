@@ -26,6 +26,7 @@ namespace rage
 			return getData();
 		}
 
+#if _WIN32
 		void setData(T val)
 		{
 			auto seed = time(nullptr);
@@ -42,6 +43,7 @@ namespace rage
 		{
 			setData(val);
 		}
+#endif
 	};
 
 	using Obf16 = ObfVar<unsigned short>;
