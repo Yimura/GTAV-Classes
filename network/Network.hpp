@@ -1,6 +1,6 @@
 #pragma once
 #include "../rage/rlMetric.hpp"
-#include "../security/Obf32.hpp"
+#include "../security/ObfVar.hpp"
 #include "CNetComplaintMgr.hpp"
 #include "snSession.hpp"
 #include <cstring>
