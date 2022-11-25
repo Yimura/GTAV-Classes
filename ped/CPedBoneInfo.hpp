@@ -19,6 +19,6 @@ class CPedBoneInfo
 {
 public:
     rage::fvector3 model_coords;
-    float pad;
+    char pad_000C[4];
 };
 static_assert(sizeof(CPedBoneInfo) == 0x10);
