@@ -15,6 +15,6 @@ public:
     char pad_0019[7]; //0x0019
     uint32_t m_active_mode; //0x0020
     char pad_0024[8]; //0x0024
-    wchar_t m_current_text[256]; //0x002C
+    char16_t m_current_text[256]; //0x002C
 }; //Size: 0x022C
 static_assert(sizeof(ChatData) == 0x22C);
