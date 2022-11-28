@@ -12,7 +12,7 @@ public:
     uint8_t m_chat_open; //0x0014
     char pad_0015[2]; //0x0015
     uint8_t m_not_typing; //0x0017
-    uint8_t N000009CA; //0x0018
+    uint8_t m_unk18; //0x0018
     char pad_0019[7]; //0x0019
     uint32_t m_active_mode; //0x0020
     char pad_0024[8]; //0x0024
