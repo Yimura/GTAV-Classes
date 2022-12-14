@@ -9,6 +9,12 @@ namespace rage
     class netPlayer
     {
     public:
+        virtual void* _0x00();
+        virtual void* _0x08();
+        virtual uint32_t _0x10();
+        virtual netPlayer* _0x18(void*);
+        virtual bool _0x20(void*);
+        virtual bool _0x28(void**);
         virtual ~netPlayer();
         virtual void reset();
         virtual bool is_valid();
