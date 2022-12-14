@@ -183,8 +183,8 @@ class Network
 {
 public:
     rage::rlSessionInfo m_steam_unk_session; //0x0000
-    class Obf32 m_num_dinput8_instances; //0x0070
-    class Obf32 m_last_time_dinput8_checked; //0x0080
+    rage::Obf32 m_num_dinput8_instances; //0x0070
+    rage::Obf32 m_last_time_dinput8_checked; //0x0080
     class rage::snSession* m_game_session_ptr; //0x0090
     class rage::snSession* m_transition_session_ptr; //0x0098
     char pad_00A0[24]; //0x00A0
