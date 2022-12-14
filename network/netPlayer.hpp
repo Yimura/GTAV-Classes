@@ -15,7 +15,7 @@ namespace rage
         virtual netPlayer* _0x18(void*);
         virtual bool _0x20(void*);
         virtual bool _0x28(void**);
-        virtual ~netPlayer();
+        virtual void destructor();
         virtual void reset();
         virtual bool is_valid();
         virtual const char* get_name();
