@@ -12,6 +12,8 @@ namespace rage
 
         virtual int _0x10() { return 0; }; // returns a constant integer
 
+        virtual void _0x18() { return 0; };
+
         virtual const char* get_name() { return ""; };
 
         virtual bool serialize(void* serializer) { return false; };
