@@ -12,7 +12,7 @@ namespace rage
 
         virtual int _0x10() { return 0; }; // returns a constant integer
 
-        virtual void _0x18() { return 0; };
+        virtual void _0x18();
 
         virtual const char* get_name() { return ""; };
 
