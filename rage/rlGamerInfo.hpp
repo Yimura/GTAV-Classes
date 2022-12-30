@@ -13,7 +13,7 @@ namespace rage
         uint64_t m_peer_id_2;
         rlGamerHandle m_gamer_handle_2;
         uint32_t m_ros_privilege;
-        char m_name[20];
+        char m_name[17];
     }; //Size: 0x0098
     static_assert(sizeof(rlGamerInfo) == 0x98);
 #pragma pack(pop)
