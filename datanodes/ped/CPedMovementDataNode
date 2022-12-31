@@ -1,0 +1,15 @@
+#pragma once
+
+#include <cstdint>
+
+class CPedMovementDataNode
+{
+public:
+	BYTE gap0[192];
+	BYTE m_is_walking;
+	BYTE m_is_running;
+	float m_flag_01;
+	float m_flag_02;
+	float m_walk_speed; //not sure if correct
+	float m_run_speed; //not sure if correct
+};
