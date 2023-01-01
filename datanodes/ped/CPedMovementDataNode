@@ -1,15 +1,15 @@
-#pragma once
-
-#include <cstdint>
-
+#pragma pack(push,4)
 class CPedMovementDataNode
 {
 public:
-	BYTE gap0[192];
-	BYTE m_is_walking;
-	BYTE m_is_running;
-	float m_flag_01;
-	float m_flag_02;
-	float m_walk_speed; //not sure if correct
-	float m_run_speed; //not sure if correct
-};
+    char pad_0000[192]; //0x0000
+    bool m_has_desired_move_blend_ratio_x; //0x00C0
+    bool m_has_desired_move_blend_ratio_y; //0x00C1
+    bool unk_00C2; //0x00C2
+    float m_desired_move_blend_ratio_x; //0x00C4
+    float m_desired_move_blend_ratio_y; //0x00C8
+    float unk_00CC; //0x00CC
+    float m_desired_pitch; //0x00D0
+}; //Size: 0x00D4
+static_assert(sizeof(CPedMovementDataNode) == 0xD4);
+#pragma pack(pop)
