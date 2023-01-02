@@ -1,9 +1,0 @@
-#pragma once
-
-class CVehicleControlDataNode
-{
-public:
-	char pad_0000[281]; //0x0000
-	bool m_unk; //0x0119
-	char pad_011A[38]; //0x011A
-}; //Size: 0x0140
