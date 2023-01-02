@@ -12,7 +12,7 @@ set(CMAKE_REQUIRED_QUIET ON)
 
 set(OK TRUE)
 
-file(GLOB_RECURSE HEADERS "*.hpp")
+file(GLOB_RECURSE HEADERS "**.hpp")
 
 message(STATUS "")
 
