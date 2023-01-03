@@ -190,8 +190,8 @@ struct BOSS_GOON
     SCR_INT                       BossVehicleSpawnState;
     PLAYER_INDEX                  PlayerInsideBossVehicle;
     SCR_HASH                      BossVehicleModel;
-    Timer                         LastBossVehicleSpawnTimer;
-    Timer                         BossVehicleInvincibleTimer;
+    TIMER                         LastBossVehicleSpawnTimer;
+    TIMER                         BossVehicleInvincibleTimer;
     SCR_VEC3                      BossVehicleSpawnedPosition;
     alignas(8) HudColor           BossVehicleHudColor;
     TEXT_LABEL_15                 BossVehicleTextLabel;
@@ -259,9 +259,9 @@ struct BOSS_GOON
     SCR_INT                       PAD_0431; // always set to zero and not read
     SCR_BOOL                      MCFormationActive;
     SCR_BOOL                      MCFormationHelpShown;
-    Timer                         MCFormationHealthBonusTimer;
-    Timer                         MCFormationLastHealthBonusTimer;
-    Timer                         MCFormationBreakTimer;
+    TIMER                         MCFormationHealthBonusTimer;
+    TIMER                         MCFormationLastHealthBonusTimer;
+    TIMER                         MCFormationBreakTimer;
     SCR_INT                       PAD_0440; // unused
     SCR_BOOL                      MCFormationAssist;
     SCR_BOOL                      MCRidingStyleRelaxed;
@@ -324,7 +324,7 @@ struct GBPD_FM_3_Entry
     BOSS_GOON                     BossGoon;
     uint64_t                      PAD_507[3]; // unused
     SCR_INT                       ScriptEventReplayProtectionCounter;
-    Timer                         CoronaForcedLaunchTimer;
+    TIMER                         CoronaForcedLaunchTimer;
     LEAVE_IN_HELI                 LeaveInHeli;
     SCR_INT                       OfficeDesktopFlags; // bit 0 -> login, bit 1 -> map
     uint64_t                      PAD_514[8]; // some IE stuff, most of it is unused
