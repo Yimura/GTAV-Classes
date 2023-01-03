@@ -1,6 +1,5 @@
 #pragma once
 #include <cstdint>
-#include <cstdbool>
 #include "scrVector.hpp"
 
 #ifndef BOOL
