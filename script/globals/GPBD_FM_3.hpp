@@ -104,16 +104,16 @@ enum class eClubhouseActivity
     ARM_WRESTLING
 };
 
-struct MPScriptData
+struct MP_SCRIPT_DATA
 {
     SCR_INT  Index; // this is an enum
     uint64_t Args[15];
     SCR_INT  InstanceId;
     uint64_t MoreArgs[4];
 };
-static_assert(sizeof(MPScriptData) == 21 * 8);
+static_assert(sizeof(MP_SCRIPT_DATA) == 21 * 8);
 
-struct MCStyle
+struct MC_STYLE
 {
     SCR_BOOL                      Enabled;
     SCR_INT                       BossOutfitType;
@@ -124,40 +124,40 @@ struct MCStyle
     SCR_BOOL                      HeadgearEnabled;
     SCR_BOOL                      EmblemEnabled;
 };
-static_assert(sizeof(MCStyle) == 22 * 8);
+static_assert(sizeof(MC_STYLE) == 22 * 8);
 
-struct VehicleExport
+struct VEHICLE_EXPORT
 {
     SCR_ARRAY<uint64_t, 4>        SellingVehicleIndices;
     SCR_INT                       PAD_0005; // this is set to zero in all export scripts and never read
 };
-static_assert(sizeof(VehicleExport) == 6 * 8);
+static_assert(sizeof(VEHICLE_EXPORT) == 6 * 8);
 
-struct HangarCargo
+struct HANGAR_CARGO
 {
     SCR_INT                       PAD_0000; // unused?
     SCR_ARRAY<uint64_t, 20>       DeliverableTypes;
     SCR_INT                       CargoType;
 };
-static_assert(sizeof(HangarCargo) == 23 * 8);
+static_assert(sizeof(HANGAR_CARGO) == 23 * 8);
 
-struct CasinoHeistPrep
+struct CASINO_HEIST_PREP
 {
     SCR_INT                       PrepIndex;
     SCR_INT                       SupportCrewMemberIndex; // only set on preps 1 through 3
     SCR_INT                       LoadoutIndex; // only set on prep 1 and 2
 };
-static_assert(sizeof(CasinoHeistPrep) == 3 * 8);
+static_assert(sizeof(CASINO_HEIST_PREP) == 3 * 8);
 
-struct LeaveInHeli
+struct LEAVE_IN_HELI
 {
     SCR_INT                       Flags;
     PLAYER_INDEX                  Owner;
     SCR_INT                       SeatIndex;
 };
-static_assert(sizeof(LeaveInHeli) == 3 * 8);
+static_assert(sizeof(LEAVE_IN_HELI) == 3 * 8);
 
-struct BossGoon
+struct BOSS_GOON
 {
     PLAYER_INDEX                  Boss; // leader of CEO/MC
     SCR_INT                       TimeBecameBoss;
@@ -183,7 +183,7 @@ struct BossGoon
     alignas(8) eActivityType      CurrentActivity;
     PLAYER_INDEX                  JoustTarget;
     PLAYER_INDEX                  ExecutiveDeathmatchTarget;
-    MPScriptData                  ActiveScript;
+    MP_SCRIPT_DATA                ActiveScript;
     PLAYER_INDEX                  PAD_0057;
     PLAYER_INDEX                  PAD_0058;
     alignas(8) eBossVehicleState  BossVehicleState;
@@ -196,7 +196,7 @@ struct BossGoon
     alignas(8) HudColor           BossVehicleHudColor;
     TEXT_LABEL_15                 BossVehicleTextLabel;
     SCR_INT                       BossVehicleNetId;
-    MCStyle                       MCStyle;
+    MC_STYLE                      MCStyle;
     uint64_t                      PAD_0098[3]; // unused
     SCR_INT                       FriendlyFireDisabledPlayers;
     SCR_INT                       PiracyPreventionYachtIndex; // not used by the scripts
@@ -218,18 +218,18 @@ struct BossGoon
     SCR_INT                       VIPGameplayDisabledTimer;
     SCR_INT                       SettingUpBusiness;
     uint64_t                      PAD_0183[4]; // TODO some unknown contraband struct
-    VehicleExport                 VehicleExport;
+    VEHICLE_EXPORT                VehicleExport;
     uint64_t                      PAD_0193[12]; // TODO
     SCR_ARRAY<uint64_t, 6>        ActiveFreemodeEvents; // force thunder
     uint64_t                      PAD_0212[22]; // I'm not even going to bother with this one
-    HangarCargo                   HangarCargo;
+    HANGAR_CARGO                  HangarCargo;
     uint64_t                      PAD_0236[23]; // not going to bother with this one either
     SCR_ARRAY<uint64_t, 20>       CasinoDeliverables;
     SCR_INT                       CasinoLimoDestination;
     SCR_BOOL                      CasinoLimoActive;
     SCR_BOOL                      CasinoLuxuryCarActive;
     SCR_HASH                      CasinoLuxuryCarModel;
-    CasinoHeistPrep               CasinoHeistPrep;
+    CASINO_HEIST_PREP             CasinoHeistPrep;
     SCR_INT                       CayoPrepIndex;
     SCR_INT                       CompanySUVDestination;
     SCR_BOOL                      CompanySUVActive;
@@ -288,9 +288,9 @@ struct BossGoon
     uint64_t                      PAD_0478[18]; // TODO
     SCR_BOOL                      DoubleActionCacheLocationRevealed;
 };
-static_assert(sizeof(BossGoon) == 497 * 8);
+static_assert(sizeof(BOSS_GOON) == 497 * 8);
 
-struct MCStats
+struct MC_STATS
 {
     SCR_INT                       FormationTime0;
     SCR_INT                       FormationTime1;
@@ -308,7 +308,7 @@ struct MCStats
     SCR_INT                       ClubChallengesCompleted;
     SCR_INT                       MemberChallengesCompleted;
 };
-static_assert(sizeof(MCStats) == 15 * 8);
+static_assert(sizeof(MC_STATS) == 15 * 8);
 
 
 struct GBPD_FM_3_Entry
@@ -321,11 +321,11 @@ struct GBPD_FM_3_Entry
     SCR_INT                       VehiclesNearbyActivityObjective; // only used by challenges and checkpoints
     SCR_BOOL                      PassiveMode;
     SCR_BOOL                      TimeTrialActive; // verify
-    BossGoon                      BossGoon;
+    BOSS_GOON                     BossGoon;
     uint64_t                      PAD_507[3]; // unused
     SCR_INT                       ScriptEventReplayProtectionCounter;
     Timer                         CoronaForcedLaunchTimer;
-    LeaveInHeli                   LeaveInHeli;
+    LEAVE_IN_HELI                 LeaveInHeli;
     SCR_INT                       OfficeDesktopFlags; // bit 0 -> login, bit 1 -> map
     uint64_t                      PAD_514[8]; // some IE stuff, most of it is unused
     SCR_INT                       IlluminatedClothingState;
@@ -338,7 +338,7 @@ struct GBPD_FM_3_Entry
     SCR_BOOL                      ClubhouseHideSignage;
     uint64_t                      PAD_0533[2]; // facility exit
     uint64_t                      PAD_0535[6]; // no clue what this is
-    MCStats                       MCStats;
+    MC_STATS                      MCStats;
     uint64_t                      PAD_0556[29];
     SCR_HASH                      ForcedWeapon;
     SCR_INT                       HangarCargoMissionLocationIndex;

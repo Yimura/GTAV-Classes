@@ -127,7 +127,7 @@ enum class eBusinessHubProductIndex
     COUNTERFEIT_CASH
 };
 
-struct PlaylistData
+struct PLAYLIST_DATA
 {
     PLAYER_INDEX           Host;
     SCR_INT                Flags;
@@ -136,9 +136,9 @@ struct PlaylistData
     SCR_INT                TotalMissions;
     PLAYER_INDEX           PAD_0006;
 };
-static_assert(sizeof(PlaylistData) == 6 * 8);
+static_assert(sizeof(PLAYLIST_DATA) == 6 * 8);
 
-struct MissionData
+struct MISSION_DATA
 {
     SCR_INT                           PAD_0000; // unused
     SCR_INT                           ScriptId; // TODO: add enum
@@ -150,10 +150,10 @@ struct MissionData
     SCR_INT                           PAD_0017; // unused
     SCR_BITSET<eMissionDataFlags>     Flags;
 };
-static_assert(sizeof(MissionData) == 19 * 8);
+static_assert(sizeof(MISSION_DATA) == 19 * 8);
 
 // local copy can be found at Global_2680247
-struct JobSettings
+struct JOB_SETTINGS
 {
     SCR_ARRAY<uint64_t, 31>           Settings; // indices vary based on job type. take a look at func_8988 in fmmc_launcher if you wish to change them
     SCR_INT                           NumPlayers; // verify
@@ -163,9 +163,9 @@ struct JobSettings
     SCR_BOOL                          MatchmakingOpen;
     SCR_INT                           ContentHash;
 };
-static_assert(sizeof(JobSettings) == 38 * 8);
+static_assert(sizeof(JOB_SETTINGS) == 38 * 8);
 
-struct VehicleSelection
+struct VEHICLE_SELECTION
 {
     SCR_BOOL                          Active;
     SCR_BOOL                          Active2;
@@ -191,18 +191,18 @@ struct VehicleSelection
     uint64_t                          PAD_0037[2]; // TODO
     SCR_INT                           PAD_0039; // TODO random integer between 1 and 11
 };
-static_assert(sizeof(VehicleSelection) == 40 * 8);
+static_assert(sizeof(VEHICLE_SELECTION) == 40 * 8);
 
-struct StrikeTeam
+struct STRIKE_TEAM
 {
     PLAYER_INDEX                      Target;
-    Timer                             Cooldown;
+    TIMER                             Cooldown;
     SCR_BOOL                          CancelStrikeTeam; // read but not written to
     SCR_INT                           Level;
 };
-static_assert(sizeof(StrikeTeam) == 5 * 8);
+static_assert(sizeof(STRIKE_TEAM) == 5 * 8);
 
-struct PlayerStats
+struct PLAYER_STATS
 {
     SCR_INT                           Team;
     SCR_INT                           RP;
@@ -258,17 +258,17 @@ struct PlayerStats
     SCR_HASH                          FavoriteVehicle;
     SCR_HASH                          FavoriteWeapon;
 };
-static_assert(sizeof(PlayerStats) == 60 * 8);
+static_assert(sizeof(PLAYER_STATS) == 60 * 8);
 
-struct ExecutiveWarehouseInfo
+struct EXEC_WAREHOUSE_INFO
 {
     SCR_INT                           Index;
     SCR_INT                           Stock;
     SCR_INT                           PAD_0002; // unused
 };
-static_assert(sizeof(ExecutiveWarehouseInfo) == 3 * 8);
+static_assert(sizeof(EXEC_WAREHOUSE_INFO) == 3 * 8);
 
-struct IEWarehouseData
+struct IE_WAREHOUSE_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           NumVehicles;
@@ -276,9 +276,9 @@ struct IEWarehouseData
     SCR_INT                           PAD_0043; // set to zero and not read
     SCR_INT                           OwnedWarehouseVariation;
 };
-static_assert(sizeof(IEWarehouseData) == 45 * 8);
+static_assert(sizeof(IE_WAREHOUSE_DATA) == 45 * 8);
 
-struct FactoryInfo
+struct FACTORY_INFO
 {
     SCR_INT                           Index;
     SCR_INT                           TotalProduct;
@@ -294,9 +294,9 @@ struct FactoryInfo
     SCR_INT                           ProductValue; // untested
     SCR_INT                           StaffAssignmentType; // valid only for factory index 5 (bunker) 0 = manufacturing, 1 = research, 2 = both
 };
-static_assert(sizeof(FactoryInfo) == 13 * 8);
+static_assert(sizeof(FACTORY_INFO) == 13 * 8);
 
-struct HangarData
+struct HANGAR_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           AppearanceBitset;
@@ -305,10 +305,10 @@ struct HangarData
     SCR_INT                           PAD_0004; // unused, a function tries to set it to something but is never called with the right parameters. it isn't read either
     SCR_BOOL                          SetupDone;
 };
-static_assert(sizeof(HangarData) == 6 * 8);
+static_assert(sizeof(HANGAR_DATA) == 6 * 8);
 
 // facility
-struct DefunctBaseData
+struct DEFUNCT_BASE_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           AppearanceBitset;
@@ -318,10 +318,10 @@ struct DefunctBaseData
     SCR_INT                           PAD_0005;
     SCR_INT                           TotalContraband; // wat
 };
-static_assert(sizeof(DefunctBaseData) == 7 * 8);
+static_assert(sizeof(DEFUNCT_BASE_DATA) == 7 * 8);
 
 // nightclub
-struct BusinessHubData
+struct BUSINESS_HUB_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           TotalContraband; // not read by the scripts
@@ -335,10 +335,10 @@ struct BusinessHubData
     SCR_ARRAY<uint64_t, 16>           PAD_0017; // have no clue what this is
     SCR_ARRAY<uint64_t, 8>            TotalSoldProduct;
 };
-static_assert(sizeof(BusinessHubData) == 43 * 8);
+static_assert(sizeof(BUSINESS_HUB_DATA) == 43 * 8);
 
 // also the nightclub? strange
-struct NightclubData
+struct NIGHTCLUB_DATA
 {
     SCR_INT                           Index; // same as BusinessHubData::Index
     SCR_INT                           AppearanceBitset;
@@ -350,11 +350,11 @@ struct NightclubData
     SCR_INT                           CroudVariation;
     SCR_INT                           DanceAwardProgress; // "Gold Dancer trophy unlocked."
     SCR_INT                           DanceAward2Progress; // "Gold Battler trophy unlocked."
-    Timer                             DJMusicChangeTimer;
+    TIMER                             DJMusicChangeTimer;
 };
-static_assert(sizeof(NightclubData) == 12 * 8);
+static_assert(sizeof(NIGHTCLUB_DATA) == 12 * 8);
 
-struct ArenaGarageData
+struct ARENA_GARAGE_DATA
 {
     SCR_INT                           Index; // always one for obvious reasons
     SCR_INT                           OwnedGarageFloorLevel;
@@ -366,29 +366,29 @@ struct ArenaGarageData
     SCR_INT                           SpectatingType;
     SCR_INT                           PAD_0008; // unused
 };
-static_assert(sizeof(ArenaGarageData) == 9 * 8);
+static_assert(sizeof(ARENA_GARAGE_DATA) == 9 * 8);
 
-struct InsideTrack
+struct INSIDE_TRACK
 {
     TEXT_LABEL_63                     PlayerName; // real name leak when playing inside track
     SCR_INT                           BetHorseID;
     SCR_INT                           BetChips;
 };
-static_assert(sizeof(InsideTrack) == 18 * 8);
+static_assert(sizeof(INSIDE_TRACK) == 18 * 8);
 
 // casino penthouse
-struct CasinoApartmentData
+struct CASINO_APARTMENT_DATA
 {
     SCR_INT                           Index; // always one for obvious reasons
     SCR_INT                           PAD_0001; // unused
     SCR_INT                           AppearanceBitset;
     SCR_INT                           AppearanceBitset2;
     uint64_t                          PAD_0005[2];
-    InsideTrack                       InsideTrack;
+    INSIDE_TRACK                      InsideTrack;
 };
-static_assert(sizeof(CasinoApartmentData) == 24 * 8);
+static_assert(sizeof(CASINO_APARTMENT_DATA) == 24 * 8);
 
-struct ArcadeData
+struct ARCADE_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           AppearanceBitset;
@@ -397,16 +397,16 @@ struct ArcadeData
     SCR_INT                           SafeCashValue;
     SCR_INT                           PAD_0005; // unused
 };
-static_assert(sizeof(ArcadeData) == 6 * 8);
+static_assert(sizeof(ARCADE_DATA) == 6 * 8);
 
-struct ArcadeMachines
+struct ARCADE_MACHINES
 {
     SCR_INT                           OrderedMachinesBitset;
     SCR_INT                           ArrivedMachinesBitset;
 };
-static_assert(sizeof(ArcadeMachines) == 2 * 8);
+static_assert(sizeof(ARCADE_MACHINES) == 2 * 8);
 
-struct SubmarineData
+struct SUBMARINE_DATA
 {
     SCR_INT                           AppearanceBitset;
     SCR_HASH                          Model; // not read by the scripts, always set to HASH("kosatka")
@@ -415,9 +415,9 @@ struct SubmarineData
     SCR_INT                           LastGuidedMissileUseTime;
     SCR_INT                           PAD_0005; // unused
 };
-static_assert(sizeof(SubmarineData) == 6 * 8);
+static_assert(sizeof(SUBMARINE_DATA) == 6 * 8);
 
-struct AutoShopData
+struct AUTOSHOP_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           AccessSetting;
@@ -426,38 +426,38 @@ struct AutoShopData
     SCR_INT                           PAD_0004;
     SCR_ARRAY<uint64_t, 2>            ModdingVehicles; // VEHICLE_INDEX, not NETWORK_INDEX
 };
-static_assert(sizeof(AutoShopData) == 8 * 8);
+static_assert(sizeof(AUTOSHOP_DATA) == 8 * 8);
 
 // LS car meet
-struct CarClubData
+struct CAR_CLUB_DATA
 {
     SCR_INT                           Flags;
     SCR_INT                           Reputation;
     SCR_INT                           ReputationLevel;
     SCR_INT                           TestTrackAccess; // unused?
 };
-static_assert(sizeof(CarClubData) == 4 * 8);
+static_assert(sizeof(CAR_CLUB_DATA) == 4 * 8);
 
 // agency
-struct FixerHQData
+struct FIXER_HQ_DATA
 {
     SCR_INT                           Index;
     SCR_INT                           AppearanceBitset;
     SCR_INT                           SafeCashValue;
 };
-static_assert(sizeof(FixerHQData) == 3 * 8);
+static_assert(sizeof(FIXER_HQ_DATA) == 3 * 8);
 
 // eclipse blvd garage (currently unreleased)
-struct MultiStoreyGarageData
+struct MULTI_STOREY_GARAGE_DATA
 {
     SCR_INT                           Index; // always one for obvious reasons
     SCR_INT                           AppearanceBitset;
     SCR_INT                           AppearanceBitset2;
     SCR_ARRAY<uint64_t, 2>            GarageTints;
 };
-static_assert(sizeof(MultiStoreyGarageData) == 6 * 8);
+static_assert(sizeof(MULTI_STOREY_GARAGE_DATA) == 6 * 8);
 
-struct PropertyData
+struct PROPERTY_DATA
 {
     SCR_ARRAY<uint64_t, 30>           PropertyIds;
     SCR_BITSET<ePropertyInteriorFlags>Flags; // I really don't want to indent everything again
@@ -471,7 +471,7 @@ struct PropertyData
     SCR_ARRAY<uint64_t, 30>           EclipseTheme; // not sure why this is an array of 30 yet
     SCR_INT                           ApartmentType; // normal vs stilt vs eclipse
     SCR_INT                           OwnerInstance; // same as Instance in most cases
-    SCR_ARRAY<ExecutiveWarehouseInfo, 5> ExecutiveWarehouseInfos;
+    SCR_ARRAY<EXEC_WAREHOUSE_INFO, 5> ExecutiveWarehouseInfos;
     SCR_INT                           OfficeSafeMoneyMultiplier;
     SCR_BITSET<eInteriorStyleFlags>   StyleFlags;
     SCR_INT                           PAD_0134; // unused
@@ -484,12 +484,12 @@ struct PropertyData
     SCR_INT                           AssistantDialogBitset4;
     SCR_INT                           AssistantDialogBitset5;
     SCR_INT                           AssistantDialogBitset6; // do we REALLY need 6 bitsets for assistant dialog?
-    IEWarehouseData                   IEWarehouseData;
+    IE_WAREHOUSE_DATA                 IEWarehouseData;
     SCR_INT                           Garage1DataBitset;
     SCR_INT                           Garage2DataBitset;
     SCR_INT                           Garage3DataBitset;
     SCR_INT                           ModshopDataBitset;
-    SCR_ARRAY<FactoryInfo, 7>         FactoryInfos;
+    SCR_ARRAY<FACTORY_INFO, 7>        FactoryInfos;
     SCR_INT                           TotalBunkerResearch;
     SCR_INT                           CurrentBunkerResearchProgress;
     SCR_INT                           BunkerDecorVariation;
@@ -497,13 +497,13 @@ struct PropertyData
     SCR_INT                           MOCColor; // bitset for some reason
     uint64_t                          PAD_0290[2]; // unused
     SCR_INT                           GunShopFlags;
-    HangarData                        HangarData;
+    HANGAR_DATA                       HangarData;
     SCR_INT                           PAD_0299;
-    DefunctBaseData                   DefunctBaseData;
+    DEFUNCT_BASE_DATA                 DefunctBaseData;
     SCR_INT                           AvengerInteriorDecorFlags; // "PACKED_MP_INT_ARMORY_AIRCRAFT_INTERIOR_v0"
     uint64_t                          PAD_0308[2];
-    BusinessHubData                   BusinessHubData;
-    NightclubData                     NightclubData;
+    BUSINESS_HUB_DATA                 BusinessHubData;
+    NIGHTCLUB_DATA                    NightclubData;
     SCR_INT                           PAD_0365;
     SCR_INT                           TerrorbyteDesign;
     SCR_INT                           PAD_0367;
@@ -511,7 +511,7 @@ struct PropertyData
     SCR_INT                           TerrorbyteRadio;
     SCR_INT                           NanoDroneCooldown;
     PLAYER_INDEX                      HostOfInteriorScript;
-    ArenaGarageData                   ArenaGarageData;
+    ARENA_GARAGE_DATA                 ArenaGarageData;
     SCR_INT                           ArcadeJukeboxStation; // for simple interior type 17
     SCR_INT                           JukeboxFavoritePlaylist;
     SCR_INT                           ClubhouseBarCashAmount;
@@ -525,47 +525,47 @@ struct PropertyData
     uint64_t                          PAD_0398[4];
     SCR_INT                           OfficeGarageModdingVehicleSlot;
     SCR_INT                           CurrentOfficeGarageFloor;
-    CasinoApartmentData               CasinoApartmentData;
-    ArcadeData                        ArcadeData;
-    ArcadeMachines                    ArcadeMachines;
+    CASINO_APARTMENT_DATA             CasinoApartmentData;
+    ARCADE_DATA                       ArcadeData;
+    ARCADE_MACHINES                   ArcadeMachines;
     SCR_ARRAY<uint64_t, 41>           ArcadeMachineSlots;
     SCR_INT                           PAD_0478; // TODO
-    SubmarineData                     SubmarineData;
-    AutoShopData                      AutoShopData;
+    SUBMARINE_DATA                    SubmarineData;
+    AUTOSHOP_DATA                     AutoShopData;
     SCR_ARRAY<uint64_t, 2>            AutoShopArcadeMachineSlots;
-    CarClubData                       CarClubData;
-    FixerHQData                       FixerHQData;
+    CAR_CLUB_DATA                     CarClubData;
+    FIXER_HQ_DATA                     FixerHQData;
     SCR_INT                           PAD_0503; // not read by the scripts
     VEHICLE_INDEX                     CurrentlyModdingVehicleFixerHQ;
-    MultiStoreyGarageData             MultiStoreyGarageData;
+    MULTI_STOREY_GARAGE_DATA          MultiStoreyGarageData;
     SCR_INT                           FreakshopBits; // 0: has weapon workshop, 1: radio enabled
 };
-static_assert(sizeof(PropertyData) == 512 * 8);
+static_assert(sizeof(PROPERTY_DATA) == 512 * 8);
 
-struct BikerContracts
+struct BIKER_CONTRACTS
 {
     SCR_ARRAY<uint64_t, 4>            ActiveContractMissions;
     SCR_INT                           SelectedContractMission;
     SCR_BOOL                          Enabled;
 };
-static_assert(sizeof(BikerContracts) == 7 * 8);
+static_assert(sizeof(BIKER_CONTRACTS) == 7 * 8);
 
-struct NightclubSale
+struct NIGHTCLUB_SALE
 {
     SCR_INT                           BuyerIndex;
     SCR_INT                           NumSoldItems;
     SCR_INT                           SaleAmount;
     uint64_t                          PAD_0003[2];
 };
-static_assert(sizeof(NightclubSale) == 5 * 8);
+static_assert(sizeof(NIGHTCLUB_SALE) == 5 * 8);
 
-struct ArenaWarData
+struct ARENA_WAR_DATA
 {
     SCR_INT                           PointsTier;
     SCR_INT                           SkillLevel;
     SCR_INT                           TrinketBitset; // MP_STAT_ARN_BS_TRINKET_SAVED
 };
-static_assert(sizeof(ArenaWarData) == 3 * 8);
+static_assert(sizeof(ARENA_WAR_DATA) == 3 * 8);
 
 struct GPBD_FM_Entry
 {
@@ -580,14 +580,14 @@ struct GPBD_FM_Entry
     SCR_INT                           NJVSLeaveState; // network error or quit
     SCR_INT                           JobPoints; // can be spoofed to change the "JP" value in the player list
     PLAYER_INDEX                      NextHost; // transfer transition host when joining next job
-    PlaylistData                      PlaylistData;
+    PLAYLIST_DATA                     PlaylistData;
     TEXT_LABEL_63                     JobName;
     SCR_ARRAY<uint64_t, 2>            ActiveGunRange; // this should have really been an enum lol
-    MissionData                       MissionData;
+    MISSION_DATA                      MissionData;
     uint64_t                          PAD_0055[2]; // unused
-    JobSettings                       JobSettings;
+    JOB_SETTINGS                      JobSettings;
     SCR_INT                           FMMCLauncherState;
-    VehicleSelection                  VehicleSelection;
+    VEHICLE_SELECTION                 VehicleSelection;
     SCR_INT                           JobStartCloudTime; // this is a struct but too lazy to create one
     SCR_INT                           ContentHash;
     SCR_BOOL                          PAD_0138; // unused
@@ -600,7 +600,7 @@ struct GPBD_FM_Entry
     TEXT_LABEL_23                     MatchId;
     uint64_t                          PAD_0156[8]; // unused
     TEXT_LABEL_63                     DisplayJobName; // as shown in the playerlist?
-    StrikeTeam                        StrikeTeam;
+    STRIKE_TEAM                       StrikeTeam;
     uint64_t                          PAD_0185[7]; // pad
     SCR_INT                           FMMCState;
     SCR_INT                           PAD_0193; // TODO
@@ -613,10 +613,10 @@ struct GPBD_FM_Entry
     SCR_ARRAY<uint64_t, 2>            PAD_0201;
     SCR_INT                           HairdoShopIndex;
     SCR_INT                           PAD_0204;
-    PlayerStats                       PlayerStats;
+    PLAYER_STATS                      PlayerStats;
     SCR_INT                           PAD_265;
     SCR_INT                           Mood;
-    PropertyData                      PropertyData;
+    PROPERTY_DATA                     PropertyData;
     uint64_t                          PAD_0779[4]; // TODO
     uint64_t                          PAD_0783[12]; // no clue what it does but it looks rather interesting
     SCR_INT                           AssistedKillFlags;
@@ -633,7 +633,7 @@ struct GPBD_FM_Entry
     SCR_INT                           OfficeLargestMoneyThresholdIndex;
     SCR_ARRAY<uint64_t, 2>            EnabledOfficeCashPiles;
     SCR_ARRAY<uint64_t, 2>            EnabledClubhouseCashPiles;
-    BikerContracts                    BikerContracts;
+    BIKER_CONTRACTS                   BikerContracts;
     SCR_INT                           CasinoWonBitset; // can be used to tamper with the casino PA system
     uint64_t                          PAD_0829[2];
     SCR_BOOL                          CameraPositionOverriden;
@@ -642,10 +642,10 @@ struct GPBD_FM_Entry
     SCR_INT                           HeliRappelFlags;
     SCR_INT                           PAD_0837; // some more aircraft flags
     SCR_BOOL                          RespawningToPreviousCheckpoint;
-    NightclubSale                     NightclubSale;
+    NIGHTCLUB_SALE                    NightclubSale;
     uint64_t                          PAD_844[11]; // unused, all of them
     SCR_INT                           SeatingIndex;
-    ArenaWarData                      ArenaWarData;
+    ARENA_WAR_DATA                    ArenaWarData;
     uint64_t                          PAD_0859[2];
     SCR_INT                           ApartmentEnterFlags;
 };

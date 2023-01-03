@@ -287,7 +287,7 @@ enum class eSimpleInteriorIndex
     SIMPLE_INTERIOR_MULTISTOREY_GARAGE
 };
 
-struct JobStats
+struct JOB_STATS
 {
     SCR_INT Wins;
     SCR_INT Losses;
@@ -296,22 +296,22 @@ struct JobStats
     SCR_INT PAD_0004; // unused
 };
 
-struct JobBet
+struct JOB_BET
 {
     SCR_INT PAD_0000; // TODO
     SCR_INT Amount;
 };
 
-struct MissionBets
+struct MISSION_BETS
 {
     SCR_INT                       Identifier; // a random integer between 100 and 10000000
-    JobStats                      Stats;
-    SCR_ARRAY<JobBet, 32>         PlacedBets;
+    JOB_STATS                     Stats;
+    SCR_ARRAY<JOB_BET, 32>        PlacedBets;
     SCR_BOOL                      CancelBetting;
 };
-static_assert(sizeof(MissionBets) == 72 * 8);
+static_assert(sizeof(MISSION_BETS) == 72 * 8);
 
-struct PlayerBlip
+struct PLAYER_BLIP
 {
     SCR_INT                       PAD_0000;
     SCR_INT                       NumPassengersInVehicle;
@@ -325,9 +325,9 @@ struct PlayerBlip
     SCR_BOOL                      UnknownOverride; // can also be used to spoof position
     SCR_VEC3                      UnknownOverridePosition;
 };
-static_assert(sizeof(PlayerBlip) == 15 * 8);
+static_assert(sizeof(PLAYER_BLIP) == 15 * 8);
 
-struct YachtAppearance
+struct YACHT_APPEARANCE
 {
     SCR_INT                       PAD_0000; // TODO
     SCR_INT                       PAD_0001;
@@ -337,9 +337,9 @@ struct YachtAppearance
     TEXT_LABEL_63                 Name;
     SCR_HASH                      NameHash;
 };
-static_assert(sizeof(YachtAppearance) == 22 * 8);
+static_assert(sizeof(YACHT_APPEARANCE) == 22 * 8);
 
-struct YachtData
+struct YACHT_DATA
 {
     SCR_BOOL                      HasYacht;
     SCR_VEC3                      Position;
@@ -353,15 +353,15 @@ struct YachtData
     SCR_INT                       ClosestYachtIndex;
     SCR_INT                       TurbulenceState; // controls random camera shakes when on a yacht
     SCR_INT                       DefenseSetting;
-    YachtAppearance               Appearance;
+    YACHT_APPEARANCE              Appearance;
     SCR_BOOL                      RemoveClothingWhileInHotTub;
     SCR_HASH                      MissionYachtOwnerHandleHash; // always -1 or NETWORK::NETWORK_HASH_FROM_PLAYER_HANDLE(PLAYER::PLAYER_ID())
     SCR_BOOL                      SpawnAccess; // "spawn access"?
     SCR_INT                       MissionYachtIndex;
 };
-static_assert(sizeof(YachtData) == 49 * 8);
+static_assert(sizeof(YACHT_DATA) == 49 * 8);
 
-struct SimpleInteriorData
+struct SMPL_INTERIOR_DATA
 {
     SCR_INT                       Flags; // TODO!!!
     SCR_INT                       Flags2;
@@ -387,10 +387,10 @@ struct SimpleInteriorData
     SCR_INT                       MissionSpawnSimpleInteriorIndex;
     SCR_INT                       InteriorSubtype; // nightclub vs nightclub garage etc
 };
-static_assert(sizeof(SimpleInteriorData) == 29 * 8);
+static_assert(sizeof(SMPL_INTERIOR_DATA) == 29 * 8);
 
 // yes there's a struct for leaving your clubhouse
-struct LeaveClubhouse
+struct LEAVE_CLUBHOUSE
 {
     SCR_BOOL                      Active;
     SCR_BOOL                      Active2;
@@ -398,9 +398,9 @@ struct LeaveClubhouse
     SCR_INT                       ExitLocation;
     SCR_ARRAY<uint64_t, 32>       ParticipantHashes;
 };
-static_assert(sizeof(LeaveClubhouse) == 37 * 8);
+static_assert(sizeof(LEAVE_CLUBHOUSE) == 37 * 8);
 
-struct ArcadeGame
+struct ARCADE_GAME
 {
     SCR_BITSET<eArcadeGameBitset> Bits;
     SCR_INT                       CabinetIndex;
@@ -408,7 +408,7 @@ struct ArcadeGame
     SCR_INT                       CabinetGame; // TODO
     SCR_INT                       GameStage;
 };
-static_assert(sizeof(ArcadeGame) == 5 * 8);
+static_assert(sizeof(ARCADE_GAME) == 5 * 8);
 
 struct GlobalPlayerBDEntry
 {
@@ -438,13 +438,13 @@ struct GlobalPlayerBDEntry
     SCR_INT                       DeliveryBikeNetId; // this is a guess, verify
     SCR_BOOL                      PAD_0057;
     uint64_t                      PAD_0058[15]; // confirmed these are not used by PC scripts
-    PlayerBlip                    PlayerBlip;
+    PLAYER_BLIP                   PlayerBlip;
     SCR_BOOL                      NeedToPopulateSessionStartTime; // the session start time is unused
     uint64_t                      PAD_0089[32]; // TODO
     alignas(8) eMissionType       MissionType;
     SCR_BOOL                      SpawningVehicle;
     uint64_t                      PAD_0123[3]; // confirmed these are not used by PC scripts
-    MissionBets                   MissionBets;
+    MISSION_BETS                  MissionBets;
     SCR_BOOL                      RadarBlipVisibliltyMechanicEnabled;
     SCR_BITSET<ePlayerStateFlags> PlayerStateFlags;
     SCR_INT                       PlayerStateFlags2; // TODO
@@ -508,8 +508,8 @@ struct GlobalPlayerBDEntry
     SCR_BOOL                      IsRockstarDev; // dev dlc check and not the CNetGamePlayer flag so can be used to detect YimMenu
     SCR_BOOL                      ScreenFadedOut;
     SCR_BOOL                      TimeTrialActive;
-    YachtData                     YachtData;
-    SimpleInteriorData            SimpleInteriorData;
+    YACHT_DATA                    YachtData;
+    SMPL_INTERIOR_DATA            SimpleInteriorData;
     SCR_BOOL                      PAD_0350; // TODO
     SCR_INT                       PAD_0351; // unused vehicle/interior stuff
     SCR_BOOL                      ShowMOCBlip;
@@ -519,7 +519,7 @@ struct GlobalPlayerBDEntry
     SCR_BOOL                      ShowDinghyBlip;
     SCR_BOOL                      ShowDeliveryBikeBlip;
     SCR_BOOL                      ShowAcidLabBlip;
-    LeaveClubhouse                LeaveClubhouse;
+    LEAVE_CLUBHOUSE               LeaveClubhouse;
     SCR_INT                       Friends; // bitset of players that are friends
     SCR_VEC3                      InteriorVehiclePosition; // for terrorbyte and MOC, used to fake player blip position on map
     SCR_FLOAT                     InteriorVehicleHeading;
@@ -542,7 +542,7 @@ struct GlobalPlayerBDEntry
     SCR_INT                       OrbitalBitset2; // ugh
     SCR_INT                       CurrentlyUsingArenaTrapIndex;
     SCR_INT                       CurrentlyUsingArenaTrapActivatedTime;
-    ArcadeGame                    ArcadeGame;
+    ARCADE_GAME                   ArcadeGame;
     SCR_INT                       DancePartner;
     SCR_INT                       PAD_0445;
     SCR_INT                       BeachPartyFlags;
