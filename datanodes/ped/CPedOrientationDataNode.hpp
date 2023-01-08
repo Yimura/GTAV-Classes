@@ -10,5 +10,5 @@ public:
 	float m_desired_heading_x;//0x000C4
 	float m_desired_heading_y;//0x000C8
 };
-static_assert(sizeof(CPedMovementDataNode) == 0xD4);
+static_assert(sizeof(CPedOrientationDataNode) == 0xCC);
 #pragma pack(pop)
