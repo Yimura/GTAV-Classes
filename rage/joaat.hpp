@@ -6,12 +6,12 @@
 namespace rage
 {
     using joaat_t = std::uint32_t;
-    inline consteval char joaat_to_lower(char c)
+    inline constexpr char joaat_to_lower(char c)
     {
         return c >= 'A' && c <= 'Z' ? c | 1 << 5 : c;
     }
 
-    inline consteval joaat_t joaat(const std::string_view str)
+    inline constexpr joaat_t joaat(const std::string_view str)
     {
         joaat_t hash = 0;
         for (auto c : str)
