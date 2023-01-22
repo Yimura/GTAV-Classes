@@ -33,7 +33,7 @@ static_assert(sizeof(DELIVERABLE_ID) == 2 * 8);
 
 struct DELIVERABLE_SCRIPT_INFO
 {
-	SCR_HASH                           Hash;
+	SCR_HASH                           Hash_;
 	uint64_t                           PAD_0001[2]; // unused
 };
 static_assert(sizeof(DELIVERABLE_SCRIPT_INFO) == 3 * 8);
