@@ -6,8 +6,8 @@
 struct CDecorator
 {
     uint32_t m_type;
-    uint32_t m_value;
     uint32_t m_name_hash;
+    uint32_t m_value;
 };
 
 class CDynamicEntityGameStateDataNode
