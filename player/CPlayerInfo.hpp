@@ -61,5 +61,5 @@ public:
     char pad_0D24[8]; //0x0D24
     float m_melee_weapon_defence_mult; //0x0D2C
 }; //Size: 0x0D30
-static_assert(sizeof(CPlayerInfo) == 0xD30);
+static_assert(sizeof(CPlayerInfo) == 0xD90);
 #pragma pack(pop)

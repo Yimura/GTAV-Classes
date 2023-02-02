@@ -21,6 +21,7 @@ namespace rage
     class rlGamerInfoBase
     {
     public:
+        char pad_0000[0x60];
         uint64_t m_peer_id; //0x0000
         rlGamerHandle m_gamer_handle; //0x008
         char m_aes_key[32]; //0x0018
@@ -35,6 +36,6 @@ namespace rage
         uint16_t m_internal_port; //0x0058
         uint32_t unk_005C; //0x005C
     };
-    static_assert(sizeof(rlGamerInfoBase) == 0x60);
+    static_assert(sizeof(rlGamerInfoBase) == 0xC0);
 #pragma pack(pop)
 }
