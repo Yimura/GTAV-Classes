@@ -97,7 +97,7 @@ public:
     char pad_0074[4]; //0x0074
     uint32_t m_flags; //0x0078
 }; //Size: 0x007C
-static_assert(sizeof(SessionInfoBackup) == 0x7C);
+static_assert(sizeof(SessionInfoBackup) == 0xDC);
 
 class MatchmakingSessionResult
 {
@@ -105,7 +105,7 @@ public:
     class rage::rlSessionDetail m_detail;
     char pad_03B8[24]; //0x03B8
 }; //Size: 0x03D0
-static_assert(sizeof(MatchmakingSessionResult) == 0x3D0);
+static_assert(sizeof(MatchmakingSessionResult) == 0x490);
 
 class PlayerNameMapNode
 {
@@ -191,95 +191,95 @@ public:
     class rage::snSession m_game_session; //0x00B8
     class rage::snSession m_transition_session; //0x3F28
     char pad_7D98[16]; //0x7D98
-    class NetworkGameConfig m_network_game_config; //0x7DA8
-    class NetworkGameConfig m_network_transition_config; //0x7EF0
-    bool m_session_attributes_dirty; //0x8038
-    char pad_8039[19]; //0x8039
-    uint32_t m_session_visibility_flags; //0x804C
-    uint32_t m_transition_visibility_flags; //0x8050
-    char pad_8054[60]; //0x8054
-    class MetricSessionMigrated m_metric_session_migrated; //0x8090
-    bool m_migrated_metric_enabled; //0x83D8
-    char pad_83D9[3]; //0x83D9
-    uint32_t m_game_session_state; //0x83DC
-    class NetworkGameFilter m_network_game_filter; //0x83E0
-    char pad_8724[33]; //0x8724
-    bool m_was_invited; //0x8745
-    char pad_8746[10]; //0x8746
-    class rage::rlSessionInfo m_unk_session_info; //0x8750
-    char pad_87C0[635]; //0x87C0
-    bool m_need_host_change; //0x8A3B
-    char pad_8A3C[2612]; //0x8A3C
-    class rage::rlSessionDetail m_joining_session_detail; //0x9470
-    class SessionInfoBackup m_last_joined_session; //0x9828
-    char pad_98A4[40]; //0x98A4
-    uint32_t m_current_matchmaking_group; //0x98CC
-    uint32_t m_matchmaking_group_max_players[5]; //0x98D0
-    uint32_t m_num_active_matchmaking_groups; //0x98E4
-    char pad_98E8[8]; //0x98E8
-    uint8_t m_matchmaking_property_id; //0x98F0
-    uint8_t m_matchmaking_mental_state; //0x98F1
-    char pad_98F2[366]; //0x98F2
-    class rage::rlMatchmakingFindResult m_game_session_matchmaking[3]; //0x9A60
-    char pad_143B0[40]; //0x143B0
-    class MatchmakingSessionResult m_game_matchmaking_session_results[10]; //0x143D8
-    char pad_169F8[308]; //0x169F8
-    uint32_t m_num_bosses; //0x16B2C
-    bool m_num_bosses_set; //0x16B30
-    char pad_16B31[7]; //0x16B31
-    class rage::rlGamerHandle m_transition_creator_handle; //0x16B38
-    char pad_16B48[12]; //0x16B48
-    bool m_is_waiting_async; //0x16B54
-    bool m_is_preferred_activity; //0x16B55
-    char pad_16B56[2]; //0x16B56
-    uint32_t m_in_progress_finish_time; //0x16B58
-    char pad_16B5C[4]; //0x16B5C
-    bool m_local_player_info_dirty; //0x16B60
-    char pad_16B61[495]; //0x16B61
-    class rage::rlGamerHandle m_inviter_handle; //0x16D50
-    class CNetComplaintMgr m_game_complaint_mgr; //0x16D60
-    class CNetComplaintMgr m_transition_complaint_mgr; //0x179F8
-    char pad_18690[32]; //0x18690
-    class JoiningPlayerNameMap m_unused_joining_player_name_map; //0x186B0
-    char pad_19FD8[8]; //0x19FD8
-    class CNetBlacklist m_blacklist; //0x19FE0
-    char pad_1A298[8]; //0x1A298
-    class InvitedGamers m_game_invited_gamers; //0x1A2A0
-    char pad_1AF28[56]; //0x1AF28
-    class SessionInfoBackup m_last_joined_transition; //0x1AF60
-    uint32_t m_activity_max_players; //0x1AFDC
-    uint32_t m_activity_max_spectators; //0x1AFE0
-    char pad_1AFE4[48]; //0x1AFE4
-    bool m_do_not_launch_from_join_as_migrated_host; //0x1B014
-    char pad_1B015[7]; //0x1B015
-    bool m_is_activity_session; //0x1B01C
-    char pad_1B01D[35]; //0x1B01D
-    class RemotePlayerData m_remote_player_data; //0x1B040
-    char pad_1B648[8]; //0x1B648
-    class rage::netGamePlayerData m_local_net_game_player_data; //0x1B650
-    char pad_1B680[600]; //0x1B680
-    class rage::rlMatchmakingFindResult m_transition_matchmaking[4]; //0x1B8D8
-    class NetworkGameFilter m_transition_filters[4]; //0x29A98
-    char pad_2A7A8[20]; //0x2A7A8
-    uint32_t m_transition_quickmatch_group_handle_count; //0x2A7BC
-    class rage::rlGamerHandle m_transition_quickmatch_group_handles[32]; //0x2A7C0
-    bool m_retain_activity_group; //0x2A9C0
-    char pad_2A9C1[7]; //0x2A9C1
-    class rage::rlSessionInfo m_transition_to_activity_session_info; //0x2A9C8
-    char pad_2AA38[48]; //0x2AA38
-    class MatchmakingSessionResult m_transition_matchmaking_session_results[10]; //0x2AA68
-    char pad_2D088[8]; //0x2D088
-    class InvitedGamers m_transition_invited_gamers; //0x2D090
-    char pad_2DD18[16]; //0x2DD18
-    class rage::rlGamerHandle m_transition_to_game_handle; //0x2DD28
-    class rage::rlSessionInfo m_transition_to_game_session_info; //0x2DD38
-    char pad_2DDA8[4]; //0x2DDA8
-    uint32_t m_transition_to_game_session_participant_count; //0x2DDAC
-    class rage::rlGamerHandle m_transition_to_game_session_participants[32]; //0x2DDB0
-    char pad_2DFB0[72]; //0x2DFB0
-    class rage::rlGamerHandle m_follower_handles[32]; //0x2DFF8
-    uint32_t m_follower_count; //0x2E1F8
-    char pad_2E1FC[628]; //0x2E1FC
-}; //Size: 0x2E470
-static_assert(sizeof(Network) == 0x2E470);
+    class NetworkGameConfig m_network_game_config; //0xAC48
+    class NetworkGameConfig m_network_transition_config; //0xAD90
+    bool m_session_attributes_dirty; //0xAED8
+    char pad_AED9[19]; //0xAED9
+    uint32_t m_session_visibility_flags; //0xAEEC
+    uint32_t m_transition_visibility_flags; //0xAEF0
+    char pad_AEF4[60]; //0xAEF4
+    class MetricSessionMigrated m_metric_session_migrated; //0xAF30
+    bool m_migrated_metric_enabled; //0xB278
+    char pad_B279[3]; //0xB279
+    uint32_t m_game_session_state; //0xB27C
+    class NetworkGameFilter m_network_game_filter; //0xB280
+    char pad_B5C4[33]; //0xB5C4
+    bool m_was_invited; //0xB5E5
+    char pad_B5E6[10]; //0xB5E6
+    class rage::rlSessionInfo m_unk_session_info; //0xB5F0
+    char pad_B6C0[635]; //0xB6C0
+    bool m_need_host_change; //0xB93B
+    char pad_B93C[2628]; //0xB93C
+    class rage::rlSessionDetail m_joining_session_detail; //0xC380
+    class SessionInfoBackup m_last_joined_session; //0xC7F8
+    char pad_C8D4[40]; //0xC8D4
+    uint32_t m_current_matchmaking_group; //0xC8FC
+    uint32_t m_matchmaking_group_max_players[5]; //0xC900
+    uint32_t m_num_active_matchmaking_groups; //0xC914
+    char pad_C918[8]; //0xC918
+    uint8_t m_matchmaking_property_id; //0xC920
+    uint8_t m_matchmaking_mental_state; //0xC921
+    char pad_C922[366]; //0xC922
+    class rage::rlMatchmakingFindResult m_game_session_matchmaking[3]; //0xCA90
+    char pad_195A0[40]; //0x195A0
+    class MatchmakingSessionResult m_game_matchmaking_session_results[10]; //0x195C8
+    char pad_1C368[308]; //0x1C368
+    uint32_t m_num_bosses; //0x1C49C
+    bool m_num_bosses_set; //0x1C4A0
+    char pad_1C4A1[7]; //0x1C4A1
+    class rage::rlGamerHandle m_transition_creator_handle; //0x1C4A8
+    char pad_1C4B8[12]; //0x1C4B8
+    bool m_is_waiting_async; //0x1C4C4
+    bool m_is_preferred_activity; //0x1C4C5
+    char pad_1C4C6[2]; //0x1C4C6
+    uint32_t m_in_progress_finish_time; //0x1C4C8
+    char pad_1C4CC[4]; //0x1C4CC
+    bool m_local_player_info_dirty; //0x1C4D0
+    char pad_1C4D1[495]; //0x1C4D1
+    class rage::rlGamerHandle m_inviter_handle; //0x1C6C0
+    class CNetComplaintMgr m_game_complaint_mgr; //0x1C6D0
+    class CNetComplaintMgr m_transition_complaint_mgr; //0x1D368
+    char pad_1E000[32]; //0x1E000
+    class JoiningPlayerNameMap m_unused_joining_player_name_map; //0x1E020
+    char pad_1F948[8]; //0x1F948
+    class CNetBlacklist m_blacklist; //0x1F950
+    char pad_1FC08[8]; //0x1FC08
+    class InvitedGamers m_game_invited_gamers; //0x1FC10
+    char pad_20898[4864]; //0x20898
+    class SessionInfoBackup m_last_joined_transition; //0x21B98
+    uint32_t m_activity_max_players; //0x21C74
+    uint32_t m_activity_max_spectators; //0x21C78
+    char pad_21C7C[48]; //0x21C7C
+    bool m_do_not_launch_from_join_as_migrated_host; //0x21CAC
+    char pad_21CAD[7]; //0x21CAD
+    bool m_is_activity_session; //0x21CB4
+    char pad_21CB5[35]; //0x21CB5
+    class RemotePlayerData m_remote_player_data; //0x21CD8
+    char pad_222E0[8]; //0x222E0
+    class rage::netGamePlayerData m_local_net_game_player_data; //0x222E8
+    char pad_22318[608]; //0x22318
+    class rage::rlMatchmakingFindResult m_transition_matchmaking[4]; //0x22578
+    class NetworkGameFilter m_transition_filters[4]; //0x33438
+    char pad_34148[20]; //0x34148
+    uint32_t m_transition_quickmatch_group_handle_count; //0x3415C
+    class rage::rlGamerHandle m_transition_quickmatch_group_handles[32]; //0x34160
+    bool m_retain_activity_group; //0x34360
+    char pad_34361[7]; //0x34361
+    class rage::rlSessionInfo m_transition_to_activity_session_info; //0x34368
+    char pad_34438[48]; //0x34438
+    class MatchmakingSessionResult m_transition_matchmaking_session_results[10]; //0x34468
+    char pad_37208[8]; //0x37208
+    class InvitedGamers m_transition_invited_gamers; //0x37210
+    char pad_37E98[16]; //0x37E98
+    class rage::rlGamerHandle m_transition_to_game_handle; //0x37EA8
+    class rage::rlSessionInfo m_transition_to_game_session_info; //0x37EB8
+    char pad_37F88[4]; //0x37F88
+    uint32_t m_transition_to_game_session_participant_count; //0x37F8C
+    class rage::rlGamerHandle m_transition_to_game_session_participants[32]; //0x37F90
+    char pad_38190[72]; //0x38190
+    class rage::rlGamerHandle m_follower_handles[32]; //0x381D8
+    uint32_t m_follower_count; //0x383D8
+    char pad_383DC[628]; //0x383DC
+}; //Size: 0x38650
+static_assert(sizeof(Network) == 0x38650);
 #pragma pack(pop)

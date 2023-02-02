@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include "../rage/netSyncTree.hpp"
+#include "../base/atRTTI.hpp"
 
 class CObject;
 namespace rage
@@ -20,17 +21,19 @@ namespace rage
         char pad_004E[1]; //0x004E
         bool m_should_not_be_delete; //0x004F
 
-        virtual ~netObject() = 0;
-        virtual void mov1() = 0;
-        virtual void mov2() = 0;
-        virtual void m_8() = 0;
-        virtual void m_10() = 0;
-        virtual void m_18() = 0;
-        virtual void* m_20() = 0;
-        virtual void m_28() = 0;
-        virtual netSyncTree* GetSyncTree() = 0;
-        virtual void m_38() = 0;
-        virtual void m_40() = 0;
+        DEFINE_RAGE_RTTI(rage::netObject)
+
+        virtual void mov1() = 0;                                               // 0x38
+        virtual void mov2() = 0;                                               // 0x40
+
+        virtual void m_8() = 0;                                                // 0x48
+        virtual void m_10() = 0;                                               // 0x50
+        virtual void m_18() = 0;                                               // 0x58
+        virtual void* m_20() = 0;                                              // 0x60
+        virtual void m_28() = 0;                                               // 0x68
+        virtual netSyncTree* GetSyncTree() = 0;                                // 0x70
+        virtual void m_38() = 0;                                               // 0x78
+        virtual void m_40() = 0;                                               // 0x80
         virtual void m_48() = 0;
         virtual void m_50() = 0;
         virtual void m_58() = 0;

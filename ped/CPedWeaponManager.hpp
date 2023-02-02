@@ -14,5 +14,6 @@ public:
     class CWeaponInfo* m_weapon_info; //0x0020
     char pad_0028[72]; //0x0028
     class CWeaponInfo* m_vehicle_weapon_info; //0x0070
-}; //Size: 0x0078
-static_assert(sizeof(CPedWeaponManager) == 0x78);
+    class CObject* m_weapon_object; //0x0078
+}; //Size: 0x0080
+static_assert(sizeof(CPedWeaponManager) == 0x80);

@@ -15,7 +15,7 @@ namespace rage
         uint64_t m_msg_id; //0x0000
         class rage::rlGamerInfo m_player_data; //0x0008
     }; //Size: 0x00A0
-    static_assert(sizeof(rage::snPlayer) == 0xA0);
+    static_assert(sizeof(rage::snPlayer) == 0x100);
 
     class snPeer
     {
@@ -23,7 +23,7 @@ namespace rage
         class rage::rlGamerInfo m_peer_data; //0x0000
         char pad_0098[40]; //0x0098
     }; //Size: 0x00C0
-    static_assert(sizeof(rage::snPeer) == 0xC0);
+    static_assert(sizeof(rage::snPeer) == 0x120);
 
     class rlRemoteGamer
     {
@@ -40,15 +40,15 @@ namespace rage
     class rlSession
     {
     public:
-        char pad_0008[168]; //0x0008
-        class rage::rlSessionInfo m_session_info; //0x00B0
-        char pad_0120[288]; //0x0120
-        uint64_t m_session_id; //0x0240
-        char pad_0248[1648]; //0x0248
+        char pad_0008[256]; //0x0008
+        class rage::rlSessionInfo m_session_info; //0x0108
+        char pad_01D8[296]; //0x01D8
+        uint64_t m_session_id; //0x0300
+        char pad_0308[1136]; //0x0308
 
         virtual ~rlSession() = default;
-    }; //Size: 0x08B8
-    static_assert(sizeof(rage::rlSession) == 0x8B8);
+    }; //Size: 0x0778
+    static_assert(sizeof(rage::rlSession) == 0x778);
 
     class rlSessionDetail
     {
@@ -74,7 +74,7 @@ namespace rage
         uint8_t m_population_density; //0x0277
         char pad_0278[320]; //0x0278
     }; //Size: 0x03CA
-    static_assert(sizeof(rlSessionDetail) == 0x3B8);
+    static_assert(sizeof(rlSessionDetail) == 0x478);
 
 
     class rlMatchmakingFindResult
@@ -83,7 +83,7 @@ namespace rage
         class rage::rlSessionDetail m_result_session_details[15]; //0x0000
         char pad_37C8[168]; //0x37C8
     }; //Size: 0x3870
-    static_assert(sizeof(rage::rlMatchmakingFindResult) == 0x3870);
+    static_assert(sizeof(rage::rlMatchmakingFindResult) == 0x43B0);
 
     class netGamePlayerData
     {
@@ -168,7 +168,7 @@ namespace rage
         }
 
     }; //Size: 0x3E70
-    static_assert(sizeof(rage::snSession) == 0x3E70);
+    static_assert(sizeof(rage::snSession) == 0x5590);
 
     class snMsgRemoveGamersFromSessionCmd
     {

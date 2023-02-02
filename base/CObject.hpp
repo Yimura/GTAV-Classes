@@ -1,6 +1,8 @@
 #pragma once
 #include "../entities/CPhysical.hpp"
 
+class CWeapon;
+
 #pragma pack(push, 2)
 class CObject : public rage::CPhysical
 {

@@ -15,6 +15,6 @@ namespace rage
         uint32_t m_ros_privilege;
         char m_name[17];
     }; //Size: 0x0098
-    static_assert(sizeof(rlGamerInfo) == 0x98);
+    static_assert(sizeof(rlGamerInfo) == 0xF8);
 #pragma pack(pop)
 }

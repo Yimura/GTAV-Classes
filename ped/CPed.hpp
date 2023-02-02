@@ -7,7 +7,7 @@
 #include "CPedInventory.hpp"
 #include "../entities/fwEntity.hpp"
 #include "../rage/vector.hpp"
-#include "CPedOxygenInfo.hpp"
+#include "CPedIntelligence.hpp"
 #include "CPedBoneInfo.hpp"
 
 #include <cstdint>
@@ -26,7 +26,7 @@ public:
     char pad_0D18[896]; //0x0D18
     uint32_t m_ped_type; //0x1098
     char pad_109C[4]; //0x109C
-    class CPedOxygenInfo* m_oxygen_info; //0x10A0
+    class CPedIntelligence* m_ped_intelligence; //0x10A0
     class CPlayerInfo *m_player_info; //0x10A8
     class CPedInventory* m_inventory; //0x10B0
     class CPedWeaponManager *m_weapon_manager; //0x10B8

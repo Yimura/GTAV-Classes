@@ -59,5 +59,5 @@ public:
     uint32_t m_account_id; //0x02B4
     uint32_t m_unk_02BC; //0x02BC
 }; //Size: 0x02C0
-static_assert(sizeof(CNetGamePlayer) == 0x2C0);
+static_assert(sizeof(CNetGamePlayer) == 0x320);
 #pragma pack(pop)

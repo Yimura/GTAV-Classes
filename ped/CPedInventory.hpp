@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include "../base/atRTTI.hpp"
 
 class CPed;
 
@@ -8,13 +9,10 @@ class CPed;
 class CPedInventory
 {
 public:
-    virtual ~CPedInventory();
-    virtual void _0x0008();
-    virtual void _0x0010();
-    virtual void _0x0018();
+    DEFINE_RAGE_RTTI(CPedInventory);
 
     uint64_t unk_0008;
-    CPed* m_ped;
+    CPed* m_ped; //0x0010
     uint64_t unk_0018;
     uint32_t unk_0020;
     uint64_t unk_0028;
@@ -31,7 +29,8 @@ public:
     char pad_006C[4];
     char unk_0070;
     char pad_0071[7];
-    char unk_0078;
+    bool m_infinite_ammo : 1;
+    bool m_infinite_clip : 1;
     char pad_0079[7];
     uint64_t unk_0080;
 };

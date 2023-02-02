@@ -70,7 +70,7 @@ struct GSBD
 	SCR_ARRAY<uint64_t, 32>             SpawnPositionCreationTimes;
 	SCR_ARRAY<uint64_t, 32>             SpawnPositionsValid;
 	SCR_ARRAY<uint64_t, 32>             PAD_0294;
-	SCR_ARRAY<uint64_t, 32>             SpawnPositionTokens;
+	SCR_ARRAY<uint64_t, 32>             SpawnPositionTokens;	
 	SCR_INT                             SpawnPositionCounter;
 	SCR_ARRAY<uint64_t, 32>             RespawnVehicles;
 	SCR_ARRAY<uint64_t, 32>             RespawnVehicleSeats;
