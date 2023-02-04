@@ -40,9 +40,9 @@ namespace rage
     class rlSession
     {
     public:
-        char pad_0008[256]; //0x0008
-        class rage::rlSessionInfo m_session_info; //0x0108
-        char pad_01D8[296]; //0x01D8
+        char pad_0008[264]; //0x0008
+        class rage::rlSessionInfo m_session_info; //0x0110
+        char pad_01E0[288]; //0x01E0
         uint64_t m_session_id; //0x0300
         char pad_0308[1136]; //0x0308
 
