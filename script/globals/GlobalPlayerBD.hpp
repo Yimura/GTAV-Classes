@@ -484,7 +484,7 @@ struct GlobalPlayerBDEntry
     SCR_BOOL                      GamerTagShowArrow;
     SCR_BOOL                      CarWashInProgress;
     INTERIOR_INDEX                CurrentInteriorIndex;
-    SCR_INT                       PAD_0246; // TODO
+    SCR_INT                       CurrentShopIndex; // things like clothing and tattoo stores
     SCR_INT                       CurrentStoreIndex; // the stores in the map which can be held up
     SCR_BOOL                      ShopActive; // any shop
     SCR_BOOL                      InTaxi;
@@ -492,7 +492,7 @@ struct GlobalPlayerBDEntry
     SCR_INT                       PrimaryHairColor;
     SCR_INT                       SecondaryHairColor;
     SCR_INT                       FriendlyPlayers; // bitset of player team relgroups that obtain a Respect relationship with player
-    SCR_BOOL                      KilledByPlayer; // verify
+    SCR_BOOL                      IsInvisible;
     SCR_BOOL                      InImpromptuDeathmatch;
     SCR_VEC3                      ImpromptuDeatmatchStartPosition;
     SCR_INT                       PAD_0569; // not read by scripts, impromptu DM related
@@ -544,7 +544,7 @@ struct GlobalPlayerBDEntry
     SCR_INT                       CurrentlyUsingArenaTrapActivatedTime;
     ARCADE_GAME                   ArcadeGame;
     SCR_INT                       DancePartner;
-    SCR_INT                       PAD_0445;
+    SCR_INT                       CayoPericoFlags;
     SCR_INT                       BeachPartyFlags;
     uint64_t                      PAD_0477[10]; // I don't think we'll ever be able to figure out what this does
     SCR_INT                       ThreeCardPokerStyle;
