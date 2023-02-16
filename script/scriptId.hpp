@@ -4,11 +4,11 @@
 #pragma pack(push, 1)
 namespace rage
 {
-    class scriptId : public scriptIdBase
-    {
-    public:
-        joaat_t m_hash;           // 0x08
-        char m_name[0x20];        // 0x0C
-    };
+	class scriptId : public scriptIdBase {
+	public:
+		uint32_t m_hash; //0x0008
+		char m_name[32]; //0x000C
+	}; //Size: 0x002C
+	static_assert(sizeof(scriptId) == 0x2C);
 }
 #pragma pack(pop)

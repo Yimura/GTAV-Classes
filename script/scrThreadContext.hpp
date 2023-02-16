@@ -10,25 +10,26 @@ namespace rage
         idle,
         running,
         killed,
-        unk_3,
-        unk_4,
+        paused,
+        breakpoint
     };
 
     class scrThreadContext
     {
     public:
-        std::uint32_t m_thread_id;           // 0x00
-        joaat_t m_script_hash;               // 0x04
-        eThreadState m_state;                // 0x08
-        std::uint32_t m_instruction_pointer; // 0x0C
-        std::uint32_t m_frame_pointer;       // 0x10
-        std::uint32_t m_stack_pointer;       // 0x14
-        float m_timer_a;                     // 0x18
-        float m_timer_b;                     // 0x1C
-        float m_timer_c;                     // 0x20
-        char m_padding1[0x2C];               // 0x24
-        std::uint32_t m_stack_size;          // 0x50
-        char m_padding2[0x54];               // 0x54
+		uint32_t m_thread_id; //0x0000
+		joaat_t m_script_hash; //0x0004
+		eThreadState m_state; //0x0008
+		uint32_t m_instruction_pointer; //0x000C
+		uint32_t m_frame_pointer; //0x0010
+		uint32_t m_stack_pointer; //0x0014
+		float m_timer_a; //0x0018
+		float m_timer_b; //0x001C
+		float m_timer_c; //0x0020
+		char pad_0024[40]; //0x0024
+		uint32_t m_stack_size; //0x004C
+		uint32_t m_catch_instruction_pointer; //0x0050
+		char pad_0054[84]; //0x0054
     };
     static_assert(sizeof(scrThreadContext) == 0xA8);
 }

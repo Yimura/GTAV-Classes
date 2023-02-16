@@ -15,17 +15,17 @@ namespace rage
         virtual void kill() = 0;
 
     public:
-        scrThreadContext m_context;                 // 0x08
-        void* m_stack;                              // 0xB0
-        char m_padding[0x4];                        // 0xB8
-        uint32_t m_arg_size;                        // 0xBC
-        uint32_t m_arg_loc;                         // 0xC0
-        char m_padding2[0x4];                       // 0xC4
-        const char* m_exit_message;                 // 0xC8
-        char m_pad[0x4];
-        char m_name[0x40];                          // 0xD4
-        scriptHandler* m_handler;                   // 0x114
-        scriptHandlerNetComponent* m_net_component; // 0x11C
-
-    };
+		class scrThreadContext m_context; //0x0000
+		void* m_stack; //0x00A8
+		uint32_t unk_00B0; //0x00B0
+		uint32_t m_arg_size; //0x00B4
+		uint32_t m_arg_loc; //0x00B8
+		uint32_t unk_00BC; //0x00BC - Some sort of arg
+		const char* m_exit_message; //0x00C0
+		uint32_t unk_00C8; //0x00C8
+		char m_name[64]; //0x00D0
+		class scriptHandler* m_handler; //0x0110
+		class CGameScriptHandlerNetComponent* m_net_component; //0x0118
+    }; //Size: 0x0128
+	static_assert(sizeof(scrThread) == 0x128);
 }

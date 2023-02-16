@@ -4,17 +4,18 @@
 class GtaThread : public rage::scrThread
 {
 public:
-	rage::joaat_t m_script_hash;                // 0x120
-	char m_padding3[0x14];                      // 0x124
-	std::int32_t m_instance_id;                 // 0x138
-	char m_padding4[0x04];                      // 0x13C
-	std::uint8_t m_flag1;                       // 0x140
-	bool m_safe_for_network_game;               // 0x141
-	char m_padding5[0x02];                      // 0x142
-	bool m_is_minigame_script;                  // 0x144
-	char m_padding6[0x02];                      // 0x145
-	bool m_can_be_paused;                       // 0x147
-	bool m_can_remove_blips_from_other_scripts; // 0x148
-	char m_padding7[0x0F];                      // 0x149
-};
+	uint32_t m_script_hash; //0x0120
+	uint32_t m_instruction_pointer_cleanup; //0x0124
+	char unk_0128[16]; //0x0128
+	int32_t m_instance_id; //0x0138
+	uint32_t unk_013C; //0x013C
+	uint8_t m_flag1; //0x0140
+	bool m_safe_for_network_game; //0x0141
+	char pad_0142[2]; //0x0142
+	bool m_is_minigame_script; //0x0144
+	char pad_0145[2]; //0x0145
+	bool m_can_be_paused; //0x0147
+	bool m_can_remove_blips_from_other_scripts; //0x0148
+	char pad_0149[15]; //0x0149
+}; //Size: 0x0160
 static_assert(sizeof(GtaThread) == 0x160);

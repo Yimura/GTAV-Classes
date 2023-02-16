@@ -5,13 +5,13 @@
 #pragma pack(push, 1)
 namespace rage
 {
-    class scrProgramTableEntry
-    {
-    public:
-        scrProgram* m_program;     // 0x00
-        char m_Pad1[0x04];         // 0x08
-        joaat_t m_hash;            // 0x0C
-    };
+	class scrProgramTableEntry
+	{
+	public:
+		scrProgram* m_program; //0x0000
+		char pad_0008[4]; //0x0008
+		joaat_t m_hash; //0x000C
+	}; //Size: 0x0010
     static_assert(sizeof(scrProgramTableEntry) == 0x10);
 }
 #pragma pack(pop)
