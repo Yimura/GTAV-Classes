@@ -36,7 +36,7 @@ public:
         m_param_values[index] = value;
         m_enabled_params_bitset |= (1 << index);
 
-        if (m_num_parameters <= index)
+        if (m_num_parameters <= (uint32_t)index)
             m_num_parameters++;
     }
 

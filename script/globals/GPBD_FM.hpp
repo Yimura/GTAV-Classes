@@ -1,6 +1,7 @@
 #pragma once
 #include "../types.hpp"
 #include "../Timer.hpp"
+#include "../MPScriptData.hpp"
 
 enum class eMissionDataFlags
 {
@@ -137,20 +138,6 @@ struct PLAYLIST_DATA
     PLAYER_INDEX           PAD_0006;
 };
 static_assert(sizeof(PLAYLIST_DATA) == 6 * 8);
-
-struct MISSION_DATA
-{
-    SCR_INT                           PAD_0000; // unused
-    SCR_INT                           ScriptId; // TODO: add enum
-    SCR_INT                           InstanceId;
-    uint64_t                          PAD_0003[7]; // unused
-    SCR_VEC3                          TriggerPosition;
-    uint64_t                          PAD_0013[3]; // unused
-    SCR_INT                           InstanceIdForPresence;
-    SCR_INT                           PAD_0017; // unused
-    SCR_BITSET<eMissionDataFlags>     Flags;
-};
-static_assert(sizeof(MISSION_DATA) == 19 * 8);
 
 // local copy can be found at Global_2680247
 struct JOB_SETTINGS
@@ -493,7 +480,7 @@ struct PROPERTY_DATA
     SCR_INT                           TotalBunkerResearch;
     SCR_INT                           CurrentBunkerResearchProgress;
     SCR_INT                           BunkerDecorVariation;
-    SCR_INT                           PAD_0288;
+    SCR_INT                           MOCBitset;
     SCR_INT                           MOCColor; // bitset for some reason
     uint64_t                          PAD_0290[2]; // unused
     SCR_INT                           GunShopFlags;
@@ -583,8 +570,7 @@ struct GPBD_FM_Entry
     PLAYLIST_DATA                     PlaylistData;
     TEXT_LABEL_63                     JobName;
     SCR_ARRAY<uint64_t, 2>            ActiveGunRange; // this should have really been an enum lol
-    MISSION_DATA                      MissionData;
-    uint64_t                          PAD_0055[2]; // unused
+    MP_SCRIPT_DATA                    MissionScriptData;
     JOB_SETTINGS                      JobSettings;
     SCR_INT                           FMMCLauncherState;
     VEHICLE_SELECTION                 VehicleSelection;
@@ -626,7 +612,7 @@ struct GPBD_FM_Entry
     SCR_INT                           UNK_0799;
     SCR_INT                           GangAttackTarget; // triggers unique dialog from some phone NPCs
     SCR_INT                           ActivePVSlot;
-    PLAYER_INDEX                      PAD_0802;
+    PLAYER_INDEX                      SpectatingPlayer;
     SCR_INT                           PAD_0803;
     SCR_ARRAY<uint64_t, 2>            ActiveAmbientWeaponPickups;
     SCR_ARRAY<uint64_t, 6>            OfficeMapMarkers;
