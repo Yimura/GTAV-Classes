@@ -21,6 +21,10 @@ add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
 message(STATUS "")
 
+target_include_directories(GTAV-Classes PRIVATE 
+    "${SRC_DIR}"
+)
+
 if(NOT OK)
     file(READ "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeError.log" LOG)
     message(STATUS ${LOG})
