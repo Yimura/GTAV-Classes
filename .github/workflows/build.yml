@@ -17,7 +17,7 @@ jobs:
       run: cmake -S ${{github.workspace}} -B ${{github.workspace}}/build
 
     - name: Build 64bit release DLL
-      run: cmake --build ${{github.workspace}}/build --config Release --target YimMenu --
+      run: cmake --build ${{github.workspace}}/build --config Release --target GTAV-Classes --
 
     - name: Check if DLL got built
       run: if (-Not (Test-Path -path "build/Release/GTAV-Classes.dll")) {throw 1}
