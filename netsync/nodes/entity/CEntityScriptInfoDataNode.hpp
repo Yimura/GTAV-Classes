@@ -6,7 +6,8 @@
 struct CEntityScriptInfoDataNode : CSyncDataNodeInfrequent
 {
 public:
-	alignas(8) bool m_has_script_info;
+	bool m_has_script_info;
+	int m_pad;
 	CGameScriptObjInfo m_script_info;
 };
 static_assert(sizeof(CEntityScriptInfoDataNode) == 0x118);
