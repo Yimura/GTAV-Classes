@@ -7,6 +7,6 @@
 class CDynamicEntitySyncTreeBase : public CEntitySyncTreeBase
 {
 public:
-	CDynamicEntityGameStateDataNode m_dynamic_entity_game_state_data_node;
+	char m_dynamic_entity_game_state_data_node[0xE28 - 0xCD8];
 };
 static_assert(sizeof(CDynamicEntitySyncTreeBase) == 0xE28);
