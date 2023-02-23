@@ -13,22 +13,17 @@ set(CMAKE_REQUIRED_QUIET ON)
 set(OK TRUE)
 
 file(GLOB_RECURSE HEADERS "**.hpp")
+file(GLOB_RECURSE SRC_MAIN "classes.cpp")
+source_group(FILES ${SRC_MAIN})
+add_library(GTAV-Classes MODULE "${SRC_MAIN}")
+
+add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
 message(STATUS "")
 
-foreach(HEADER ${HEADERS})
-    get_filename_component(FILENAME ${HEADER} NAME)
-    check_include_file_cxx("${HEADER}" ${FILENAME}_OK)
-
-    if(${FILENAME}_OK)
-        message(STATUS "${FILENAME} OK!")
-    else()
-        set(OK FALSE)
-        message(SEND_ERROR "${FILENAME} failed to compile!")
-    endif()
-endforeach()
-
-message(STATUS "")
+target_include_directories(GTAV-Classes PRIVATE 
+    "${SRC_DIR}"
+)
 
 if(NOT OK)
     file(READ "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeError.log" LOG)

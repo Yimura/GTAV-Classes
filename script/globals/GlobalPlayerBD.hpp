@@ -1,5 +1,6 @@
 #pragma once
 #include "../types.hpp"
+#include "../MPScriptData.hpp"
 
 enum class eFreemodeState
 {
@@ -33,15 +34,113 @@ enum class eAnimationBitset
 
 enum class eBlipFlags
 {
+    // 0 is unused
     kVisibleOnCutscene = 1,
     kFlashMinimapDisplay = 2,
+    kFlashBlip = 3,
+    kMicroLightOTRActive = 4,
     kSkipTutorialSessionChecks = 5,
     kHideOnMinimap = 6, // needs testing
-    kHideOnMinimapWhenInterior = 6, // needs testing
+    kHideOnMinimapWhenInterior = 7, // needs testing
     kHideOnMinimapWhenBigMapActive = 9, // needs testing
     kDontUsePassiveBlip = 21,
     kUseRampageBlip = 24,
     kHideWhenFading = 25
+};
+
+enum class eBlipType
+{
+    ON_FOOT,
+    TANK,
+    PLAYER_JET,
+    PLAYER_PLANE,
+    PLAYER_HELI,
+    PLAYER_GUNCAR,
+    PLAYER_BOAT,
+    ROCKET_VOLTIC,
+    TECHNICAL,
+    RUINER_2000,
+    DUNE_BUGGY,
+    PHANTOM_WEDGE,
+    ARMORED_BOXVILLE, // boxville5
+    WASTELANDER,
+    QUAD,
+    APC,
+    OPPRESSOR_MK_1,
+    HALF_TRACK,
+    DUNE_FAV,
+    WEAPONIZED_TAMPA,
+    AA_TRAILER,
+    ALPHA_Z1,
+    BOMBUSHKA,
+    HAVOK,
+    HOWARD,
+    HUNTER,
+    MICROLIGHT,
+    MOGUL,
+    MOLOTOK,
+    NOKOTA,
+    PYRO,
+    ROGUE,
+    STARLING,
+    SEABREEZE,
+    TULA,
+    STROMBERG,
+    DELUXO,
+    THRUSTER,
+    KHANJALI,
+    RIOT_VAN,
+    VOLATOL,
+    BARRAGE,
+    AKULA,
+    CHERNOBOG,
+    AVENGER,
+    TURRETED_LIMO,
+    SEA_SPARROW,
+    CARACARA,
+    PARTY_BUS,
+    TERRORBYTE,
+    MENACER,
+    SCRAMJET,
+    POUNDER_CUSTOM,
+    MULE_CUSTOM,
+    SPEEDO_CUSTOM,
+    OPPRESSOR_MK_2,
+    STRIKEFORCE,
+    ARENA_BRUISER,
+    ARENA_BRUTUS,
+    ARENA_CERBERUS,
+    ARENA_DEATHBIKE,
+    ARENA_DOMINATOR,
+    ARENA_IMPALER,
+    ARENA_IMPERATOR,
+    ARENA_ISSI,
+    ARENA_SASQUATCH,
+    ARENA_SCARAB,
+    ARENA_SLAMVAN,
+    ARENA_ZR380,
+    MINI_SUB,
+    SPARROW,
+    FOLDING_WING_JET,
+    GANG_BIKE,
+    MILITARY_QUAD,
+    SQUADDIE, // SQUADEE
+    CAYO_DINGHY,
+    WINKY,
+    PATROL_BOAT,
+    ANNIHILATOR,
+    KART_RETRO,
+    KART_MODERN,
+    MILITARY_TRUCK,
+    SUBMARINE,
+    CHAMPION,
+    BUFFALO_STX,
+    DEITY, // why does this have a blip?
+    JUBILEE,
+    GRANGER_3600LX,
+    PATRIOT_MILSPEC,
+    ARMS_DEALING_AIR, // requires some flag to be set
+    BRICKADE_6X6
 };
 
 enum class ePlayerStateFlags
@@ -49,12 +148,17 @@ enum class ePlayerStateFlags
     kScreenFadingOut = 0,
     kScreenFadedOut = 1,
     kCinematicNewsChannelActive = 2,
-    kPlayerSwitchState1 = 5,
-    kPlayerSwitchState2 = 6,
-    kPlayerSwitchState3 = 7,
-    kPlayerSwitchState4 = 8,
+    kRepeatingPreviousCheckpoint = 3,
+    kCarModIntro = 4,
+    kPlayerSwitchStateAscent = 5,
+    kPlayerSwitchStateInClouds = 6,
+    kPlayerSwitchStatePan = 7,
+    kPlayerSwitchStateDescent = 8,
     kModshopActive = 9,
     kModshopExitingVehicle = 10,
+    kSpectating = 28,
+    kBeastActive = 29,
+    kPlayerNotInSCTV = 30,
     kPlayerInSCTV = 31
 };
 
@@ -316,7 +420,7 @@ struct PLAYER_BLIP
     SCR_INT                       PAD_0000;
     SCR_INT                       NumPassengersInVehicle;
     SCR_BITSET<eBlipFlags>        BlipFlags;
-    SCR_INT                       PlayerVehicleBlipType; // can be used to spoof your blip as a tank, oppressor etc
+    alignas(8) eBlipType          PlayerVehicleBlipType; // can be used to spoof your blip as a tank, oppressor etc
     SCR_INT                       IdleDurationUntilBlipIsVisible;
     SCR_INT                       BlipVisibleDuration;
     SCR_INT                       MissionInteriorIndex; // can be used to spoof blip position
@@ -413,7 +517,8 @@ static_assert(sizeof(ARCADE_GAME) == 5 * 8);
 struct GlobalPlayerBDEntry
 {
     alignas(8) eFreemodeState     FreemodeState;
-    uint64_t                      PAD_0001[32]; // TODO
+    MP_SCRIPT_DATA                CurrentScript;
+    uint64_t                      PAD_0022[11]; // unused
     SCR_INT                       PlayersVisible;
     SCR_INT                       PlayersTracked;
     SCR_BITSET<eAnimationBitset>  AnimationBitset;
@@ -435,7 +540,7 @@ struct GlobalPlayerBDEntry
     NETWORK_INDEX                 DinghyNetId;
     NETWORK_INDEX                 DeliveryMechanicNetId4; // another one...
     NETWORK_INDEX                 AcidLabNetId;
-    NETWORK_INDEX                 DeliveryBikeNetId; // this is a guess, verify
+    NETWORK_INDEX                 DeliveryBikeNetId;
     SCR_BOOL                      PAD_0057;
     uint64_t                      PAD_0058[15]; // confirmed these are not used by PC scripts
     PLAYER_BLIP                   PlayerBlip;

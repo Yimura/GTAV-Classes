@@ -2,6 +2,7 @@
 #include "../types.hpp"
 #include "../Timer.hpp"
 #include "../HudColor.hpp"
+#include "../MPScriptData.hpp"
 
 enum class eActivityType
 {
@@ -103,15 +104,6 @@ enum class eClubhouseActivity
     DARTS,
     ARM_WRESTLING
 };
-
-struct MP_SCRIPT_DATA
-{
-    SCR_INT  Index; // this is an enum
-    uint64_t Args[15];
-    SCR_INT  InstanceId;
-    uint64_t MoreArgs[4];
-};
-static_assert(sizeof(MP_SCRIPT_DATA) == 21 * 8);
 
 struct MC_STYLE
 {

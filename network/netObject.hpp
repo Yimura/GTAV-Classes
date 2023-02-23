@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "../rage/netSyncTree.hpp"
+#include "../netsync/netSyncTree.hpp"
 #include "../base/atRTTI.hpp"
 
 class CObject;
