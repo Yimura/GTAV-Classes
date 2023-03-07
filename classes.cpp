@@ -84,6 +84,7 @@
 #include "netsync/nodes/train/CTrainGameStateDataNode.hpp"
 #include "netsync/nodes/vehicle/CVehicleCreationDataNode.hpp"
 #include "netsync/nodes/vehicle/CVehicleGadgetDataNode.hpp"
+#include "netsync/nodes/vehicle/CVehicleProximityMigrationDataNode.hpp"
 #include "netsync/trees/CDynamicEntitySyncTreeBase.hpp"
 #include "netsync/trees/CEntitySyncTreeBase.hpp"
 #include "netsync/trees/CPhysicalSyncTreeBase.hpp"
