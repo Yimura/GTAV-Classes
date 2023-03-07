@@ -10,7 +10,7 @@ public:
 	bool m_has_occupants[16];
 	int16_t m_occupants[16];
 	char pad[16];
-	bool override_position;
+	bool m_override_position;
 	char pad2[8];
 	rage::fvector3 m_position;
 	rage::vector3<int32_t> m_velocity;
