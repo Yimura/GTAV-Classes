@@ -21,7 +21,9 @@ public:
     uint64_t qword120;
     uint64_t qword128;
     uint32_t dword130;
-    char gap134[148];
+    char gap134[4];
+    uint32_t ped_type;
+    char gap13C[140];
     uint64_t qword1C8;
     uint32_t dword1D0;
     uint64_t qword1D8;
