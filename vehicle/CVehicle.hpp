@@ -30,8 +30,8 @@ public:
     char pad_0874[2]; //0x0874
     uint8_t m_top_gear; //0x0876
     char pad_0877[0x39]; //0x0877
-    float m_rpm;
-    char pad_08D4[0x34];
+    float m_rpm; //0x08D0
+    char pad_08D4[0x34]; //0x8D4
     float m_engine_health; //0x08E8
     char pad_08EC[0x2C]; //0x08EC
     CHandlingData* m_handling_data; //0x0918
