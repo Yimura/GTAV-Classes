@@ -61,19 +61,6 @@ namespace rage
         };
 
         class CBaseModelInfo* m_model_info; //0x0020
-        uint16_t get_ability_flag() const
-        {
-            const std::uintptr_t custom_offset = 0x58B;
-            const std::uintptr_t custom_ptr = reinterpret_cast<std::uintptr_t>(m_model_info) + custom_offset;
-            return *reinterpret_cast<const std::uint16_t*>(custom_ptr);
-        }
-        void set_ability_flag(std::uint16_t value) const
-        {
-            const std::uintptr_t custom_offset = 0x58B;
-            const std::uintptr_t custom_ptr = reinterpret_cast<std::uintptr_t>(m_model_info) + custom_offset;
-            *reinterpret_cast<std::uint16_t*>(custom_ptr) = value;
-        }
-
         uint8_t m_entity_type; //0x0028
         char gap29; //0x0029
         uint16_t gap2A; //0x002A
