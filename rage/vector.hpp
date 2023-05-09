@@ -13,6 +13,12 @@ namespace rage
 			y(y)
 		{
 		}
+
+		vector2() :
+			x(),
+			y()
+		{
+		}
 	};
 
 	template<typename T>
@@ -25,6 +31,13 @@ namespace rage
 			x(x),
 			y(y),
 			z(z)
+		{
+		}
+
+		vector3() :
+			x(),
+			y(),
+			z()
 		{
 		}
 	};
@@ -40,6 +53,14 @@ namespace rage
 			y(y),
 			z(z),
 			w(w)
+		{
+		}
+
+		vector4() :
+			x(),
+			y(),
+			z(),
+			w()
 		{
 		}
 	};
