@@ -53,6 +53,16 @@ namespace rage
 			vec.z = this->z * other;
 			return vec;
 		}
+		
+		bool operator==(const scrVector& other)
+		{
+			return this->x == other.x && this->y == other.y && this->z == other.z;
+		}
+
+		bool operator!=(const scrVector& other)
+		{
+			return this->x != other.x || this->y != other.y || this->z != other.z;
+		}
 
 		alignas(8) float x{};
 		alignas(8) float y{};

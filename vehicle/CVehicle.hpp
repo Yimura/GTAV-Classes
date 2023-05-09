@@ -24,7 +24,14 @@ public:
     char pad_07DC[0x44]; //0x07DC
     float m_body_health; //0x0820
     float m_petrol_tank_health; //0x0824
-    char pad_0x828[0xC0]; //0x0828
+    char pad_0828[0x48]; //0x0828
+    uint16_t m_next_gear; //0x0870
+    uint16_t m_current_gear; //0x0872
+    char pad_0874[2]; //0x0874
+    uint8_t m_top_gear; //0x0876
+    char pad_0877[0x39]; //0x0877
+    float m_rpm; //0x08D0
+    char pad_08D4[0x34]; //0x8D4
     float m_engine_health; //0x08E8
     char pad_08EC[0x2C]; //0x08EC
     CHandlingData* m_handling_data; //0x0918
