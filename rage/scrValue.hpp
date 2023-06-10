@@ -5,13 +5,13 @@
 namespace rage
 {
 	union scrValue
-  {
-		s32 Int;
-		u32 Uns;
+	{
+		int Int;
+		unsigned int Uns;
 		float Float;
 		LPCSTR String;
 		scrValue* Reference;
-		u64 Any;
+		uint64_t Any;
 		bool operator==(const scrValue& val) {
 			return Int == val.Int;
 		}
