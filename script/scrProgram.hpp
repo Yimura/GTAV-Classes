@@ -2,6 +2,7 @@
 #include <cstdint>
 
 #include "../base/pgBase.hpp"
+#include "../rage/scrValue.hpp"
 
 #pragma pack(push, 1)
 namespace rage
@@ -16,9 +17,9 @@ namespace rage
         std::uint32_t m_local_count;   // 0x24
         std::uint32_t m_global_count;  // 0x28
         std::uint32_t m_native_count;  // 0x2C
-        void *m_local_data;            // 0x30
-        std::int64_t **m_global_data;  // 0x38
-        void **m_native_entrypoints;   // 0x40
+        scrValue *m_local_data;            // 0x30
+        scrValue **m_global_data;  // 0x38
+        scrNativeHandler *m_native_entrypoints;   // 0x40
         std::uint32_t m_proc_count;    // 0x48
         char pad_004C[4];              // 0x4C
         const char** m_proc_names;     // 0x50
@@ -84,7 +85,7 @@ namespace rage
             return nullptr;
         }
 
-        void** get_address_of_native_entrypoint(void* entrypoint)
+        scrNativeHandler* get_address_of_native_entrypoint(scrNativeHandler entrypoint)
         {
             for (std::uint32_t i = 0; i < m_native_count; ++i)
             {
