@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include <wtypes.h>
+using LPCSTR = const char*; //For Linux support, but I didn't want to make the class inaccurate
 
 namespace rage
 {
