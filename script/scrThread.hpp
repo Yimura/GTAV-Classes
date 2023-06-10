@@ -2,6 +2,8 @@
 #include "scriptHandler.hpp"
 #include "scriptHandlerNetComponent.hpp"
 #include "scrThreadContext.hpp"
+#include "tls_context.hpp"
+#include "../rage/scrValue.hpp"
 
 namespace rage
 {
