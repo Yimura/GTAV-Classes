@@ -2,6 +2,7 @@
 #include "scriptHandler.hpp"
 #include "scriptHandlerNetComponent.hpp"
 #include "scrThreadContext.hpp"
+#include "../rage/scrValue.hpp"
 
 namespace rage
 {
@@ -16,7 +17,7 @@ namespace rage
 
     public:
         scrThreadContext m_context;                 // 0x08
-        void* m_stack;                              // 0xB0
+        scrValue* m_stack;                              // 0xB0
         char m_padding[0x4];                        // 0xB8
         uint32_t m_arg_size;                        // 0xBC
         uint32_t m_arg_loc;                         // 0xC0
