@@ -39,11 +39,11 @@ using Vector3 = rage::scrVector;
 template <int SIZE>
 struct SCR_TEXT_LABEL
 {
-    alignas(8) char Data[SIZE];
+	alignas(8) char Data[SIZE];
 private:
-    alignas(8) char _PAD[SIZE];
+	alignas(8) char _PAD[SIZE];
 public:
-    operator char* () { return Data; }
+	operator char* () { return Data; }
 };
 
 #define TEXT_LABEL_15 SCR_TEXT_LABEL<16>
@@ -54,41 +54,41 @@ public:
 template <typename T, int SIZE>
 struct SCR_ARRAY
 {
-    SCR_INT      Size;
-    alignas(8) T Data[SIZE];
+	SCR_INT      Size;
+	alignas(8) T Data[SIZE];
 
-    T& operator [](int index)
-    {
-        return Data[index];
-    }
+	T& operator [](int index)
+	{
+		return Data[index];
+	}
 };
 
 template <typename T>
 struct SCR_BITSET
 {
-    alignas(8) int Value;
+	alignas(8) int Value;
 
-    bool IsSet(T val)
-    {
-        return Value & (1 << (int)val);
-    }
+	bool IsSet(T val)
+	{
+		return Value & (1 << (int)val);
+	}
 
-    void Set(T val)
-    {
-        Value |= (1 << (int)val);
-    }
+	void Set(T val)
+	{
+		Value |= (1 << (int)val);
+	}
 
-    void Clear(T val)
-    {
-        Value &= ~(1 << (int)val);
-    }
+	void Clear(T val)
+	{
+		Value &= ~(1 << (int)val);
+	}
 };
 
 struct Color3
 {
-    SCR_INT R;
-    SCR_INT G;
-    SCR_INT B;
+	SCR_INT R;
+	SCR_INT G;
+	SCR_INT B;
 };
 static_assert(sizeof(Color3) == 3 * 8);
 
@@ -96,6 +96,8 @@ static_assert(sizeof(Color3) == 3 * 8);
 struct GAMER_HANDLE
 {
 private:
-    uint64_t Data[13];
+	uint64_t Data[13];
 };
 static_assert(sizeof(GAMER_HANDLE) == 13 * 8);
+
+#define NUM_CONTACTS 80
