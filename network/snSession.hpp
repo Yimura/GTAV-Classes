@@ -108,7 +108,7 @@ namespace rage
 	public:
 		uint64_t m_memory_allocator; //0x0000
 		char pad_0008[64]; //0x0008
-		uint64_t m_net_connection_mgr; //0x0048
+		rage::netConnectionManager* m_net_connection_mgr; //0x0048
 		char pad_0050[48]; //0x0050
 		class rage::rlSession m_rline_session; //0x0080
 		class rage::snPlayer m_local_player; //0x07F0
