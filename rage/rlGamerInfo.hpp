@@ -10,7 +10,13 @@ namespace rage
 	{
 	public:
 		uint64_t m_host_token;
-		rlGamerHandle m_gamer_handle_2;
+
+		union
+		{
+			rlGamerHandle m_gamer_handle_2;
+			uint64_t m_peer_id_2; // not found in all instances
+		};
+
 		uint32_t m_ros_privilege;
 		char m_name[17];
 	}; //Size: 0x0098
