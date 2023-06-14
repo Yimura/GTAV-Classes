@@ -49,9 +49,9 @@ struct GSBD_FM
 	SCR_ARRAY<uint64_t, 2>                MuggingPlayers; // 0 = mugger, 1 = merryweather mercs
 	SCR_ARRAY<uint64_t, 2>                MuggedPlayers;
 	uint64_t                              PAD_0112[4]; // unused
-	SCR_ARRAY<uint64_t, 60>               PAD_0116; // TODO
+	SCR_ARRAY<uint64_t, 61>               PAD_0116; // TODO
 	SCR_INT                               ShopProcessingBitset;
-	SCR_ARRAY<uint64_t, 79>               ActiveContactServiceBitsets;
+	SCR_ARRAY<uint64_t, NUM_CONTACTS>     ActiveContactServiceBitsets;
 	SCR_ARRAY<ACTIVE_CONTACT_SERVICE, 32> ActiveContactServices;
 	PLAYER_INDEX                          SpectatorTVWantedPlayer;
 	SCR_BOOL                              SpectatorTVWantedClosing;
@@ -63,4 +63,4 @@ struct GSBD_FM
 	BIKER_CONTRACTS_SERVER                BikerContracts;
 	SCR_ARRAY<uint64_t, 32>               DoubleActionCacheLocationRevealed;
 };
-static_assert(sizeof(GSBD_FM) == 574 * 8);
+static_assert(sizeof(GSBD_FM) == 576 * 8);
