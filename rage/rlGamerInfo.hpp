@@ -14,7 +14,7 @@ namespace rage
 		union
 		{
 			rlGamerHandle m_gamer_handle_2;
-			uint64_t m_peer_id_2; // not found in all instances
+			uint32_t m_peer_id_2; // not found in all instances
 		};
 
 		uint32_t m_ros_privilege;
