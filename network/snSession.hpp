@@ -176,11 +176,11 @@ namespace rage
 	{
 	public:
 		uint64_t m_session_id; //0x0000
-		uint64_t m_peer_ids[32]; //0x0008
-		int32_t m_unk = -1; //0x0108
-		uint32_t m_num_peers; //0x010C
+		rage::rlGamerHandle m_handles[32]; //0x0008
+		int32_t m_unk = -1; //0x208
+		uint32_t m_num_peers; //0x20C
 	}; //Size: 0x0110
-	static_assert(sizeof(rage::snMsgRemoveGamersFromSessionCmd) == 0x110);
+	static_assert(sizeof(rage::snMsgRemoveGamersFromSessionCmd) == 0x210);
 }
 
 class SessionSortEntry
