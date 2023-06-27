@@ -64,6 +64,19 @@ namespace rage
 			return this->x != other.x || this->y != other.y || this->z != other.z;
 		}
 
+		std::string to_string() const
+		{
+			std::stringstream ss;
+			ss << "(" << x << ", " << y << ", " << z << ")";
+			return ss.str();
+		}
+
+		friend std::ostream& operator<<(std::ostream& os, const scrVector& vec)
+		{
+			os << "(" << vec.x << ", " << vec.y << ", " << vec.z << ")";
+			return os;
+		}
+
 		alignas(8) float x{};
 		alignas(8) float y{};
 		alignas(8) float z{};
