@@ -1,5 +1,8 @@
 #pragma once
 #include "../rage/vector.hpp"
+#include <string>
+#include <sstream>
+#include <ostream>
 
 namespace rage
 {
