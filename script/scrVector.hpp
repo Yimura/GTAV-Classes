@@ -67,7 +67,7 @@ namespace rage
 		std::string to_string() const
 		{
 			std::stringstream ss;
-			ss << "(" << x << ", " << y << ", " << z << ")";
+			ss << *this;
 			return ss.str();
 		}
 
