@@ -1,5 +1,8 @@
 #pragma once
 #include "../rage/vector.hpp"
+#include <string>
+#include <sstream>
+#include <ostream>
 
 namespace rage
 {
@@ -62,6 +65,19 @@ namespace rage
 		bool operator!=(const scrVector& other)
 		{
 			return this->x != other.x || this->y != other.y || this->z != other.z;
+		}
+
+		std::string to_string() const
+		{
+			std::stringstream ss;
+			ss << *this;
+			return ss.str();
+		}
+
+		friend std::ostream& operator<<(std::ostream& os, const scrVector& vec)
+		{
+			os << "(" << vec.x << ", " << vec.y << ", " << vec.z << ")";
+			return os;
 		}
 
 		alignas(8) float x{};
