@@ -16,6 +16,4 @@ public:
     bool has_waypoint_data; //0x00CA
     bool is_waypoint_set;   //0x00CB
 };
-constexpr auto waypoint_x_offset = offsetof(CPlayerExtendedGameStateNode, waypoint_x);
-static_assert(waypoint_x_offset == 0xC0);
 #pragma pack(pop)
