@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../base/CBaseModelInfo.hpp"
+#include "vehicle/CVehicleModelInfoLayout.hpp"
 
 #include <cstdint>
 
@@ -56,7 +57,8 @@ enum class eVehicleClass : std::uint8_t
 class CVehicleModelInfo : public CBaseModelInfo
 {
 public:
-    char pad_00A4[72]; //0x00A4
+    CVehicleModelInfoLayout* m_vehicle_layout; //0x00B0
+    char pad_00B8[64]; //0x00B8
     uint8_t m_primary_color_combinations[25]; //0x00F8
     uint8_t m_secondary_color_combinations[25]; //0x0111
     uint8_t m_unk_color_combos1[25]; //0x012A
@@ -73,8 +75,11 @@ public:
     char pad_02D9[103]; //0x02D9
     eVehicleType m_vehicle_type; //0x0340
     uint32_t m_unk_vehicle_type; //0x0344
-    uint32_t m_diffuse_tint; //0x0348
-    char pad_034C[20]; //0x034C
+    uint16_t m_diffuse_tint; //0x0348
+    int8_t m_max_seats; //0x034A
+    char pad_034B[5]; //0x034B
+    CVehicleLayoutMetaData* m_layout_metadata; //0x0350
+    char pad_0358[8]; //0x0358
     rage::fvector3 m_first_person_driveby_ik_offset; //0x0360
     char pad_036C[4]; //0x036C
     rage::fvector3 m_first_person_driveby_unarmed_ik_offset; //0x0370
