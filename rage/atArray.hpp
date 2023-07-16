@@ -21,16 +21,16 @@ namespace rage
 
         }
 
+#if _WIN32
         atArray(const atArray& right)
         {
             m_count = right.m_count;
             m_size = right.m_size;
 
-#if _WIN32
             m_data = (T*)tlsContext::get()->m_allocator->Allocate(m_size * sizeof(T), 16, 0);
-#endif
             std::uninitialized_copy(right.m_data, right.m_data + right.m_count, m_data);
         }
+#endif
 
         atArray(void* data_ptr, std::uint16_t size, std::uint16_t count) :
             m_data(data_ptr),
@@ -40,6 +40,7 @@ namespace rage
 
         }
 
+#if _WIN32
         void clear()
         {
             m_count = 0;
@@ -47,13 +48,12 @@ namespace rage
 
             if (m_data)
             {
-#if _WIN32
                 tlsContext::get()->m_allocator->Free(m_data);
-#endif
 
                 m_data = nullptr;
             }
         }
+#endif
 
         bool append(atArray<T> value_array)
         {
@@ -133,6 +133,7 @@ namespace rage
             m_data[offset] = value;
         }
 
+#if _WIN32
         void expand(uint16_t newSize)
         {
             if (m_count >= newSize)
@@ -140,9 +141,7 @@ namespace rage
                 return;
             }
 
-#if _WIN32
             T* newOffset = (T*)tlsContext::get()->m_allocator->Allocate(newSize * sizeof(T), 16, 0);
-#endif
 
 
             // initialize the new entries
@@ -152,14 +151,13 @@ namespace rage
             if (m_data)
             {
                 std::copy(m_data, m_data + m_size, newOffset);
-#if _WIN32
                 tlsContext::get()->m_allocator->Free(m_data);
-#endif
             }
 
             m_data = newOffset;
             m_count = newSize;
         }
+#endif
 
         void append(T value)
         {
