@@ -26,7 +26,9 @@ namespace rage
             m_count = right.m_count;
             m_size = right.m_size;
 
+#if _WIN32
             m_data = (T*)tlsContext::get()->m_allocator->Allocate(m_size * sizeof(T), 16, 0);
+#endif
             std::uninitialized_copy(right.m_data, right.m_data + right.m_count, m_data);
         }
 
@@ -45,7 +47,9 @@ namespace rage
 
             if (m_data)
             {
+#if _WIN32
                 tlsContext::get()->m_allocator->Free(m_data);
+#endif
 
                 m_data = nullptr;
             }
@@ -136,7 +140,10 @@ namespace rage
                 return;
             }
 
+#if _WIN32
             T* newOffset = (T*)tlsContext::get()->m_allocator->Allocate(newSize * sizeof(T), 16, 0);
+#endif
+
 
             // initialize the new entries
             std::uninitialized_fill(newOffset, newOffset + newSize, T());
@@ -145,8 +152,9 @@ namespace rage
             if (m_data)
             {
                 std::copy(m_data, m_data + m_size, newOffset);
-
+#if _WIN32
                 tlsContext::get()->m_allocator->Free(m_data);
+#endif
             }
 
             m_data = newOffset;
