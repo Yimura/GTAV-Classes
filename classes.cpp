@@ -179,6 +179,8 @@
 #include "vehicle/CHandlingObject.hpp"
 #include "vehicle/CVehicle.hpp"
 #include "vehicle/CVehicleModelInfo.hpp"
+#include "vehicle/CVehicleDriveByMetadataMgr.hpp"
+#include "vehicle/CVehicleSeatMetadataMgr.hpp"
 #include "weapon/CAmmoInfo.hpp"
 #include "weapon/CAmmoProjectileInfo.hpp"
 #include "weapon/CAmmoRocketInfo.hpp"
