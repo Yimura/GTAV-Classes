@@ -27,6 +27,12 @@ namespace rage
             m_count = right.m_count;
             m_size = right.m_size;
 
+            if (right.m_data == nullptr)
+            {
+                m_data = nullptr;
+                return;
+            }
+
             m_data = (T*)tlsContext::get()->m_allocator->Allocate(m_size * sizeof(T), 16, 0);
             std::uninitialized_copy(right.m_data, right.m_data + right.m_count, m_data);
         }
@@ -153,12 +159,12 @@ namespace rage
             m_data = newOffset;
             m_count = newSize;
         }
-#endif
 
         void append(T value)
         {
             set(m_count, value);
         }
+#endif
 
         T* begin() const
         {
