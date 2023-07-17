@@ -159,12 +159,12 @@ namespace rage
             m_data = newOffset;
             m_count = newSize;
         }
-#endif
 
         void append(T value)
         {
             set(m_count, value);
         }
+#endif
 
         T* begin() const
         {
