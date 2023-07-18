@@ -32,6 +32,7 @@
 #include "enums/eExplosionTag.hpp"
 #include "enums/eHandlingType.hpp"
 #include "misc/CTunables.hpp"
+#include "misc/vfx/TimecycleKeyframeData.hpp"
 #include "netsync/CProjectBaseSyncDataNode.hpp"
 #include "netsync/CProjectSyncTree.hpp"
 #include "netsync/netSyncDataNode.hpp"
