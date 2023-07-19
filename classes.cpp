@@ -189,5 +189,6 @@
 #include "weapon/CItemInfo.hpp"
 #include "weapon/CWeaponBoneId.hpp"
 #include "weapon/CWeaponInfo.hpp"
+#include "ui/CBlipList.hpp"
 
 // add your classes here
