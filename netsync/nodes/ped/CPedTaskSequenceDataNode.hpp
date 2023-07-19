@@ -5,6 +5,7 @@
 #pragma pack(push,4)
 class CPedTaskSequenceData
 {
+public:
 	int m_task_type;       // 0x00
 	int m_task_data_size;  // 0x04
 	char m_task_data[602]; // 0x08

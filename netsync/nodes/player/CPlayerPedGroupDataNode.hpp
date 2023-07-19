@@ -8,6 +8,7 @@
 class CGroup;
 class CGroupMember
 {
+public:
 	int16_t m_net_id;
 	CPed* m_ped; // this isn't serialized
 };

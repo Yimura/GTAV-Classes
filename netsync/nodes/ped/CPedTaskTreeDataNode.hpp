@@ -5,6 +5,7 @@
 #pragma pack(push,4)
 class CPedTaskData
 {
+public:
 	int m_task_type;   // 0x00
 	int m_priority;    // 0x04
 	int m_tree_depth;  // 0x08
