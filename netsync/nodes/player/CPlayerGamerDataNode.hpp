@@ -22,5 +22,5 @@ public:
 	uint32_t m_unk;                     //0x0254
 	int32_t m_account_id;               //0x0258
 };
-static_assert(sizeof(CPlayerGamerDataNode) == 0x25C);
+static_assert(sizeof(CPlayerGamerDataNode) == 0x260);
 #pragma pack(pop)
