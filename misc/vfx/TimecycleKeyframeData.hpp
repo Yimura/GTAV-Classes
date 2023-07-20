@@ -90,7 +90,7 @@ public:
 	float m_moon_disc_size; //0x0534
 	char pad_0538[24]; //0x0538
 	rage::fvector4 m_moon; //0x0550
-	float m_moon_itensity; //0x0560
+	float m_moon_intensity; //0x0560
 	char pad_0564[140]; //0x0564
 }; //Size: 0x05F0
 static_assert(sizeof(TimecycleKeyframeData) == 0x5F0);
