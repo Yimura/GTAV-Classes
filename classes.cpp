@@ -124,6 +124,7 @@
 #include "network/RemoteGamerInfoMsg.hpp"
 #include "network/snConnectToPeerTask.hpp"
 #include "network/snSession.hpp"
+#include "network/netConnection.hpp"
 #include "ped/CPed.hpp"
 #include "ped/CPedBoneInfo.hpp"
 #include "ped/CPedFactory.hpp"
