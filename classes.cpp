@@ -32,6 +32,7 @@
 #include "enums/eExplosionTag.hpp"
 #include "enums/eHandlingType.hpp"
 #include "misc/CTunables.hpp"
+#include "misc/vfx/TimecycleKeyframeData.hpp"
 #include "netsync/CProjectBaseSyncDataNode.hpp"
 #include "netsync/CProjectSyncTree.hpp"
 #include "netsync/netSyncDataNode.hpp"
@@ -207,5 +208,6 @@
 #include "weapon/CItemInfo.hpp"
 #include "weapon/CWeaponBoneId.hpp"
 #include "weapon/CWeaponInfo.hpp"
+#include "ui/CBlipList.hpp"
 
 // add your classes here
