@@ -72,6 +72,36 @@ namespace rage
 	class netConnection
 	{
 	public:
+		class InFrame
+		{
+		public:
+			enum class EventType
+			{
+				ConnectionClosed = 3,
+				FrameReceived = 4,
+				BandwidthExceeded = 6,
+				OutOfMemory = 7
+			};
+
+			virtual ~InFrame() = default;
+
+			virtual void destroy() = 0;
+			virtual EventType get_event_type() = 0;
+			virtual uint32_t _0x18() = 0;
+
+			uint32_t m_timestamp;             //0x0008
+			char pad_0008[52];                //0x000C
+			uint32_t m_msg_id;                //0x0040
+			uint32_t m_connection_identifier; //0x0044
+			InFrame* m_this;                  //0x0048
+			uint32_t m_peer_id;               //0x0050
+			char pad_0050[44];                //0x0058
+			uint32_t m_length;                //0x0080
+			char pad_007C[4];                 //0x0084
+			void* m_data;                     //0x0088
+		};
+		static_assert(sizeof(rage::netConnection::InFrame) == 0x90);
+
 		char gap0[8];
 		rage::netConnectionPeer* m_connection_peer;
 		int m_msg_id;
