@@ -1,8 +1,7 @@
 #pragma once
 
 #include "../rage/vector.hpp"
-
-class CPlayerCameraData;
+#include "CPlayerCameraData.hpp"
 
 class CPlayerAngles
 {
