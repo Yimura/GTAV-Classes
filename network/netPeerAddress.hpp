@@ -23,8 +23,8 @@ namespace rage
 		netAddress m_external_ip; //0x0008
 		uint16_t m_external_port; //0x000C
 		uint64_t m_peer_id; //0x0010
-		netAddress unk_0018; //0x0018
-		uint16_t unk_001C; //0x001C
+		netAddress m_relay_address; //0x0018
+		uint16_t m_relay_port; //0x001C
 		uint8_t m_connection_type; //0x001E
 	};
 	static_assert(sizeof(netPeerAddress) == 0x20);
