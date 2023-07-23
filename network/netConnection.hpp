@@ -1,28 +1,13 @@
 #pragma once
 #include <cstdint>
 #include "rage/rlGamerInfoBase.hpp"
+#include "netPeerAddress.hpp"
 
 #pragma pack(push, 1)
 namespace rage
 {
 	class netConnectionManager;
 	class netConnectionPeer;
-
-#pragma pack(push, 4)
-	class netPeerAddress
-	{
-	public:
-		uint32_t m_internal_ip; //0x0000
-		uint16_t m_internal_port; //0x0004
-		uint32_t m_external_ip; //0x0008
-		uint16_t m_external_port; //0x000C
-		uint64_t m_peer_id; //0x0010
-		uint32_t unk_0018; //0x0018
-		uint16_t unk_001C; //0x001C
-		uint8_t m_platform; //0x001E
-	};
-	static_assert(sizeof(netPeerAddress) == 0x20);
-#pragma pack(pop)
 
 	class netQueuedMessage
 	{
