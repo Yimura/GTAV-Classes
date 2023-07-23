@@ -11,7 +11,7 @@ namespace rage
 	class rlGamerInfoBase
 	{
 	public:
-		bool m_security_enabled;         //0x0000
+		int m_security_enabled;          //0x0000
 		uint64_t m_peer_id;              //0x0008
 		rlGamerHandle m_gamer_handle;    //0x0010
 		char m_aes_key[0x28];            //0x0020
