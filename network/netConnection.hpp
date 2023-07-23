@@ -19,7 +19,7 @@ namespace rage
 		uint64_t m_peer_id; //0x0010
 		uint32_t unk_0018; //0x0018
 		uint16_t unk_001C; //0x001C
-		uint8_t m_platform; //0x001E
+		uint8_t m_connection_type; //0x001E
 	};
 	static_assert(sizeof(netPeerAddress) == 0x20);
 #pragma pack(pop)
