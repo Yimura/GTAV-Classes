@@ -31,6 +31,7 @@
 #include "entities/fwEntity.hpp"
 #include "enums/eExplosionTag.hpp"
 #include "enums/eHandlingType.hpp"
+#include "game_files/CGameConfig.hpp"
 #include "misc/CTunables.hpp"
 #include "misc/vfx/TimecycleKeyframeData.hpp"
 #include "netsync/CProjectBaseSyncDataNode.hpp"
