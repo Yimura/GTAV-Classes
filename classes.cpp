@@ -202,6 +202,7 @@
 #include "vehicle/CVehicleModelInfo.hpp"
 #include "vehicle/CVehicleDriveByMetadataMgr.hpp"
 #include "vehicle/CVehicleSeatMetadataMgr.hpp"
+#include "vehicle/CTrainConfig.hpp"
 #include "weapon/CAmmoInfo.hpp"
 #include "weapon/CAmmoProjectileInfo.hpp"
 #include "weapon/CAmmoRocketInfo.hpp"
