@@ -33,7 +33,10 @@ public:
     float m_rpm; //0x08D0
     char pad_08D4[0x34]; //0x8D4
     float m_engine_health; //0x08E8
-    char pad_08EC[0x2C]; //0x08EC
+    char pad_08EC[0x18]; //0x08EC
+    float m_kers_boost_max; //0x0904
+    float m_kers_boost; //0x0908
+    char pad_090C[0xC]; //0x090C
     CHandlingData* m_handling_data; //0x0918
     char pad_0920[0x2]; //0x0920
     uint8_t m_is_drivable; //0x0922
