@@ -14,7 +14,7 @@ public:
     uint32_t m_amount; //0x011C
     uint32_t m_custom_model; //0x0120
     uint32_t m_life_time; //0x0124
-    uint32_t m_weapon_component[11]; //0x0128
+    uint32_t m_weapon_component[12]; //0x0128
     uint32_t m_num_weapon_components; //0x0154
     uint32_t m_tint_index; //0x0158
     bool m_player_gift; //0x015C
