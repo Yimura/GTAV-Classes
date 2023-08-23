@@ -19,12 +19,12 @@ public:
     bool m_is_spectating; //0x000C
     char pad_00AD[3]; //0x000AD
     uint64_t unk_00B0; //0x00B0
+    ClanData m_clan_data; //0x00C8
     char unk_00B8; //0x00B8
     char pad_00B9[3]; //0x00B9
     uint32_t unk_00BC; //0x00BC
     uint32_t unk_00C0; //0x00C0
     char pad_00C4[4]; //0x00C4
-    ClanData m_clan_data; //0x00C8
     char m_crew_rank_title[25]; //0x0180
     bool m_is_rockstar_dev; //0x0199
     bool m_is_rockstar_qa; //0x019A
