@@ -55,7 +55,7 @@ namespace rage
 	};
 	static_assert(sizeof(scrNativeCallContext) == 0xE0);
 
-	using scrNativeHash = std::int64_t;
+	using scrNativeHash = std::uint64_t;
 	using scrNativePair = std::pair<scrNativeHash, scrNativeHash>;
 	using scrNativeHandler = void(*)(scrNativeCallContext*);
 }
