@@ -139,6 +139,7 @@
 #include "player/CPlayerAngles.hpp"
 #include "player/CPlayerInfo.hpp"
 #include "rage/atArray.hpp"
+#include "rage/atReferenceCounter.hpp"
 #include "rage/atSingleton.hpp"
 #include "rage/joaat.hpp"
 #include "rage/rlGamerHandle.hpp"
