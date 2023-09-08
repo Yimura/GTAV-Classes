@@ -49,6 +49,81 @@ enum class eWeaponWheelSlot : int32_t
     ThrowableSpecial
 };
 
+class sWeaponFx
+{
+public:
+    enum class eEffectGroup : int32_t
+    {
+        PunchKick,
+        MeleeWood,
+        MeleeMetal,
+        MeleeSharp,
+        _0x260647E1,
+        PistolSmall,
+        PistalLarge,
+        _0x2491FC7D,
+        _0xA5EDC328,
+        SMG,
+        ShotGun,
+        RifleAssualt,
+        RifleSniper,
+        Rocket,
+        Grenade,
+        Molotov,
+        _0x85D962A7,
+        Explosion,
+        Laser,
+        Stungun,
+        HeavyMG,
+        VehicleMG
+    } m_effect_group;                     //0x00
+    uint32_t m_flash_fx_hash;             //0x04
+    uint32_t m_flash_fx_alt_hash;         //0x08
+    uint32_t m_flash_fx_fp_hash;          //0x0C
+    uint32_t m_flash_fx_fp_alt_hash;      //0x10
+    uint32_t m_smoke_fx_hash;             //0x14
+    uint32_t m_smoke_fx_fp_hash;          //0x18
+    float m_muzzle_smoke_fx_min_level;    //0x1C
+    float m_muzzle_smoke_fx_inc_per_shot; //0x20
+    float m_muzzle_smoke_fx_dec_per_sec;  //0x24
+    char pad_28[8];
+    rage::fvector3 m_muzzle_override_offset; //0x30
+    char pad_3C[8];
+    uint32_t m_shell_fx_hash;    //0x44
+    uint32_t m_shell_fx_fp_hash; //0x48
+    uint32_t m_tracer_fx_hash;   //0x4C
+    uint32_t m_ped_damage_hash;  //0x50
+    float m_tracer_fx_chance_sp; //0x54
+    float m_tracer_fx_chance_mp; //0x58
+    char pad_5C[4];
+    float m_flash_fx_chance_sp;             //0x60
+    float m_flash_fx_chance_mp;             //0x64
+    float m_flash_fx_alt_chance;            //0x68
+    float m_flash_fx_scale;                 //0x6C
+    uint8_t m_flash_fx_light_enabled;       //0x70
+    uint8_t m_flash_fx_light_casts_shadows; //0x71
+    char pad_72[2];
+    float m_flash_fx_light_offset_dist; //0x74
+    char pad_78[8];
+    rage::fvector3 m_flash_fx_light_rgba_min; //0x80
+    char pad_8C[4];
+    rage::fvector3 m_flash_fx_light_rgba_max; //0x90
+    char pad_9C[4];
+    rage::fvector2 m_flash_fx_light_intensity_minmax; //0xA0
+    rage::fvector2 m_flash_fx_light_range_minmax;     //0xA8
+    rage::fvector2 m_flash_fx_light_falloff_minmax;   //0xB0
+    uint8_t m_ground_disturb_fx_enabled;              // 0xB8
+    char pad_B9[3];
+    float m_ground_disturb_fx_dist;                 //0xBC
+    uint32_t m_ground_disturb_fx_name_default_hash; //0xC0
+    uint32_t m_ground_disturb_fx_name_sand_hash;    //0xC4
+    uint32_t m_ground_disturb_fx_name_dirt_hash;    //0xC8
+    uint32_t m_ground_disturb_fx_name_water_hash;   //0xCC
+    uint32_t m_ground_disturb_fx_name_foliage_hash; //0xD0
+    char pad_D4[12];
+} m_weapon_fx;
+static_assert(sizeof(sWeaponFx) == 0xE0);
+
 class AimingInfo;
 class CWeaponInfo : public CItemInfo
 {
@@ -135,7 +210,25 @@ public:
     float m_spin_time; //0x0148
     float m_spindown_time; //0x014C
     float m_alternate_wait_time; //0x0150
-    char pad_0154[296]; //0x0154
+    float m_bullet_bending_near_radius;                          //0x0154
+    float m_bullet_bending_far_radius;                           //0x0158
+    float m_bullet_bending_zoom_radius;                          //0x015C
+    float m_first_person_bullet_bending_near_radius;             //0x0160
+    float m_first_person_bullet_bending_far_radius;              //0x0164
+    float m_first_person_bullet_bending_zoom_radius;             //0x0168
+    char pad_016C[4];
+    sWeaponFx m_weapon_fx;                    //0x0170
+    int32_t m_initial_rumble_duration;        //0x0250
+    float m_initial_rumble_intensity;         //0x0254
+    float m_initial_rumble_intensity_trigger; //0x0258
+    int32_t m_rumble_duration;                //0x025C
+    float m_rumble_intensity;                 //0x0260
+    float m_rumble_intensity_trigger;         //0x0264
+    float m_rumble_damage_intensity;          //0x0268
+    int32_t m_initial_rumble_duration_fps;    //0x026C
+    float m_initial_rumble_intensity_fps;     //0x0270
+    int32_t m_rumble_duration_fps;            //0x0274
+    float m_rumble_intensity_fps;             //0x0278
     float m_network_player_damage_modifier; //0x027C
     float m_network_ped_damage_modifier; //0x0280
     float m_network_headshot_modifier; //0x0284
@@ -145,8 +238,10 @@ public:
     float m_ai_potential_blast_event_range; //0x0294
     float m_damage_fall_off_range_min; //0x0298
     float m_damage_fall_off_range_max; //0x029C
-    float m_damage_fall_off_modifier; //0x02A0
-    uint32_t m_vehicle_weapon_hash; //0x02A4
+    char pad_02A0[8];
+    float m_damage_fall_off_modifier; //0x02A8
+    char pad_02AC[8];
+    uint32_t m_vehicle_weapon_hash; //0x02B4
     uint32_t m_default_camera_hash; //0x02B8
     uint32_t m_aim_camera_hash; //0x02BC
     uint32_t m_fire_camera_hash; //0x02C0
@@ -154,21 +249,107 @@ public:
     uint32_t m_cover_ready_to_fire_hash; //0x02C8
     uint32_t m_run_and_gun_camera_hash; //0x02CC
     uint32_t m_cinematic_shooting_camera_hash; //0x02D0
-    uint32_t m_alt_or_scoped_camera_hash; //0x002D4
+    uint32_t m_alt_or_scoped_camera_hash; //0x02D4
     uint32_t m_run_and_gun_alt_or_scoped_camera_hash; //0x02D8
-    uint32_t m_cinematic_shooting_alt_or_scoped_camera_hash; //0x2DC
-    uint32_t m_pov_turret_camera_hash; //0x2E0
+    uint32_t m_cinematic_shooting_alt_or_scoped_camera_hash; //0x02DC
+    uint32_t m_pov_turret_camera_hash; //0x02E0
     uint32_t m_recoil_shake_hash; //0x02E4
     uint32_t m_recoil_shake_hash_first_person; //0x02E8
-    float m_min_time_between_recoil_shakes; //0x02EC
-    float m_recoil_shake_amplitude; //0x02F0
-    float m_explosion_shake_amplitude; //0x02F4
+    uint32_t m_accuracy_offset_shake_hash;                   //0x02EC
+    float m_min_time_between_recoil_shakes; //0x02F0
+    float m_recoil_shake_amplitude; //0x02F4
+    float m_explosion_shake_amplitude; //0x02F8
     float m_camera_fov; //0x02FC
     float m_first_person_aim_fov_min; //0x0300
-    float m_first_person_aim_fov_max; //0x0300
+    float m_first_person_aim_fov_max; //0x0304
     float m_first_person_scope_fov; //0x0308
     float m_first_person_scope_attachment_fov; //0x030C
-    char pad_00310[636]; //0x00310
+    rage::fvector3 m_first_person_driveby_ik_offset; //0x0310
+    char pad_031C[4];
+    rage::fvector3 m_first_person_rng_offset; //0x0320
+    char pad_032C[4];
+    rage::fvector3 m_first_person_rng_rotation_offset; //0x0330
+    char pad_033C[4];
+    rage::fvector3 m_first_person_lt_offset; //0x0340
+    char pad_034C[4];
+    rage::fvector3 m_first_person_lt_rotation_offset; //0x0350
+    char pad_035C[4];
+    rage::fvector3 m_first_person_scope_offset; //0x0360
+    char pad_036C[4];
+    rage::fvector3 m_first_person_scope_attachment_offset; //0x0370
+    char pad_037C[4];
+    rage::fvector3 m_first_person_scope_rotation_offset; //0x0380
+    char pad_038C[4];
+    rage::fvector3 m_first_person_scope_attachment_rotation_offset; //0x0390
+    char pad_039C[4];
+    rage::fvector3 m_first_person_as_third_person_idle_offset; //0x03A0
+    char pad_03AC[4];
+    rage::fvector3 m_first_person_as_third_person_rng_offset; //0x03B0
+    char pad_03BC[4];
+    rage::fvector3 m_first_person_as_third_person_lt_offset; //0x03C0
+    char pad_03CC[4];
+    rage::fvector3 m_first_person_as_third_person_scope_offset; //0x03D0
+    char pad_03DC[4];
+    rage::fvector3 m_first_person_as_third_person_weapon_blocked_offset; //0x03E0
+    char pad_03EC[4];
+    float m_first_person_dof_subject_magnification_power_factor_near; //0x03F0
+    float m_first_person_dof_max_near_in_focus_distance;              //0x03F4
+    float m_first_person_dof_max_near_in_focus_distance_blend_level;  //0x03F8
+    char pad_03FC[4];
+    char m_first_person_scope_attachment_data[16]; //0x0400
+    float m_zoom_factor_for_accurate_mode;         //0x0410
+    char pad_0414[12];
+    rage::fvector3 m_aim_offset_min; //0x0420
+    char pad_042C[4];
+    rage::fvector3 m_aim_offset_max; //0x0430
+    char pad_043C[4];
+    rage::fvector2 m_torso_aim_offset;          //0x0440
+    rage::fvector2 m_torso_crouched_aim_offset; //0x0448
+    float m_aim_probe_length_min;               //0x0450
+    float m_aim_probe_length_max;               //0x0454
+    char pad_0458[8];
+    rage::fvector3 m_aim_offset_min_fps_idle; //0x0460
+    char pad_046C[4];
+    rage::fvector3 m_aim_offset_med_fps_idle; //0x0470
+    char pad_047C[4];
+    rage::fvector3 m_aim_offset_max_fps_idle; //0x0480
+    char pad_048C[4];
+    rage::fvector3 m_aim_offset_min_fps_lt; //0x0490
+    char pad_049C[4];
+    rage::fvector3 m_aim_offset_max_fps_lt; //0x04A0
+    char pad_04AC[4];
+    rage::fvector3 m_aim_offset_min_fps_rng; //0x04B0
+    char pad_04BC[4];
+    rage::fvector3 m_aim_offset_max_fps_rng; //0x04C0
+    char pad_04CC[4];
+    rage::fvector3 m_aim_offset_min_fps_scope; //0x04D0
+    char pad_04DC[4];
+    rage::fvector3 m_aim_offset_max_fps_scope; //0x04E0
+    char pad_04EC[4];
+    rage::fvector3 m_aim_offset_end_pos_min_fps_idle; //0x04F0
+    char pad_04FC[4];
+    rage::fvector3 m_aim_offset_end_pos_med_fps_idle; //0x0500
+    char pad_050C[4];
+    rage::fvector3 m_aim_offset_end_pos_max_fps_idle; //0x0510
+    char pad_051C[4];
+    rage::fvector3 m_aim_offset_end_pos_min_fps_lt; //0x0520
+    char pad_052C[4];
+    rage::fvector3 m_aim_offset_end_pos_med_fps_lt; //0x0530
+    char pad_053C[4];
+    rage::fvector3 m_aim_offset_end_pos_max_fps_lt; //0x0540
+    char pad_054C[4];
+    float m_probe_radius_override_fps_idle;         // 0x0550
+    float m_probe_radius_override_fps_idle_stealth; // 0x0554
+    float m_probe_radius_override_fps_lt;           // 0x0558
+    float m_probe_radius_override_fps_rng;          // 0x055C
+    float m_probe_radius_override_fps_scope;        // 0x0560
+    char pad_0564[12];
+    rage::fvector3 m_left_hand_ik_offset; //0x0570
+    char pad_057C[4];
+    float m_ik_recoil_displacement;                    //0x0580
+    float m_ik_recoil_displacement_scope;              //0x0584
+    float m_ik_recoil_displacement_scale_backward;     //0x0588
+    float m_ik_recoil_displacement_scale_vertical;     //0x058C
     rage::fvector2 m_reticule_hud_position; //0x0590
     rage::fvector2 m_reticule_hud_position_pov_turret; //0x0598
     float m_reticule_min_size_standing; //0x05A0
@@ -186,7 +367,8 @@ public:
     int8_t m_hud_speed; //0x05CA
     int8_t m_hud_capacity; //0x05CB
     int8_t m_hud_accuracy; //0x05CC
-    float m_hud_range; //0x05CD
+    int8_t m_hud_range; //0x05CD
+    char pad_05CE[2];
     float m_aiming_breathing_additive_weight; //0x05D0
     float m_firing_breathing_additive_weight; //0x05D4
     float m_stealth_aiming_breathing_additive_weight; //0x5D8
@@ -196,5 +378,25 @@ public:
     float m_stealth_aiming_lean_additive_weight; //0x05E8
     float m_stealth_firing_lean_additive_weight; //0x05EC
     char m_stat_name[8]; //0x05F0
-}; //Size: 0x05E8
-static_assert(sizeof(CWeaponInfo) == 0x5E8);
+    int32_t m_knockdown_count;                        //0x05F8
+    float m_killshot_impulse_scale;                   //0x05FC
+    uint32_t m_nm_shot_tuning_set_hash;               //0x0600
+    char pad_0604[764];
+    uint64_t m_weapon_flags_bitset[3];                 //0x0900
+    char m_tint_spec_values[8];                        //0x0918
+    char m_firing_pattern_aliases[8];                  //0x0920
+    char m_reload_upper_body_fixup_expression_data[8]; //0x0928
+    uint32_t m_target_sequence_group_hash;             //0x0930
+    float m_bullet_direction_offset_in_degrees;        //0x0934
+    float m_bullet_direction_pitch_offset;             //0x0938
+    float m_bullet_direction_pitch_homing_offset;      //0x093C
+    float pad_0940[5];
+    float m_expand_ped_capsule_radius; //0x0954
+    float m_vehicle_attack_angle;      //0x0958
+    float m_torso_ik_angle_limit;      //0x095C
+    float pad_0960;
+    float m_melee_right_fist_target_health_damage_scaler; //0x0964
+    float m_airborne_aircraft_lock_on_multiplier;         //0x0968
+    float m_armoured_vehicle_glass_damage_override;       //0x096C
+};
+static_assert(sizeof(CWeaponInfo) == 0x0970);
