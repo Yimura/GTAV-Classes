@@ -27,4 +27,10 @@ namespace rage
         virtual ~pgBaseMetaDataDebugNameType() = default;
         char pad_0000[64];
     }; //Size: 0x0072
+
+    class pgBaseRefCounted : public pgBase
+    {
+    public:
+        virtual ~pgBaseRefCounted() = default;
+    }; //Size: 0x0008
 }
