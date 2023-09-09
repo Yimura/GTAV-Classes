@@ -2,10 +2,13 @@
 
 #include "CAmmoInfo.hpp"
 #include "CItemInfo.hpp"
+#include "CWeaponBoneId.hpp"
 #include "../rage/vector.hpp"
+#include "../rage/atArray.hpp"
 #include "../enums/eExplosionTag.hpp"
 
 #include <cstdint>
+#include <bitset>
 
 enum class eDamageType : int32_t
 {
@@ -49,6 +52,16 @@ enum class eWeaponWheelSlot : int32_t
     ThrowableSpecial
 };
 
+class CAimingInfo
+{
+public:
+    uint32_t m_name_hash;//0x00
+    float m_heading_limit;//0x04
+    float m_sweep_pitch_min;//0x08
+    float m_sweep_pitch_max;//0x0C
+};
+static_assert(sizeof(CAimingInfo) == 0x10);
+
 class sWeaponFx
 {
 public:
@@ -58,19 +71,19 @@ public:
         MeleeWood,
         MeleeMetal,
         MeleeSharp,
-        _0x260647E1,
+        MeleeGeneric,
         PistolSmall,
-        PistalLarge,
-        _0x2491FC7D,
-        _0xA5EDC328,
+        PistolLarge,
+        PistolSilenced,
+        Rubber,
         SMG,
         ShotGun,
-        RifleAssualt,
+        RifleAssault,
         RifleSniper,
         Rocket,
         Grenade,
         Molotov,
-        _0x85D962A7,
+        Fire,
         Explosion,
         Laser,
         Stungun,
@@ -100,9 +113,8 @@ public:
     float m_flash_fx_chance_mp;             //0x64
     float m_flash_fx_alt_chance;            //0x68
     float m_flash_fx_scale;                 //0x6C
-    uint8_t m_flash_fx_light_enabled;       //0x70
-    uint8_t m_flash_fx_light_casts_shadows; //0x71
-    char pad_72[2];
+    bool m_flash_fx_light_enabled;       //0x70
+    bool m_flash_fx_light_casts_shadows; //0x71
     float m_flash_fx_light_offset_dist; //0x74
     char pad_78[8];
     rage::fvector3 m_flash_fx_light_rgba_min; //0x80
@@ -112,8 +124,7 @@ public:
     rage::fvector2 m_flash_fx_light_intensity_minmax; //0xA0
     rage::fvector2 m_flash_fx_light_range_minmax;     //0xA8
     rage::fvector2 m_flash_fx_light_falloff_minmax;   //0xB0
-    uint8_t m_ground_disturb_fx_enabled;              // 0xB8
-    char pad_B9[3];
+    bool m_ground_disturb_fx_enabled;              // 0xB8
     float m_ground_disturb_fx_dist;                 //0xBC
     uint32_t m_ground_disturb_fx_name_default_hash; //0xC0
     uint32_t m_ground_disturb_fx_name_sand_hash;    //0xC4
@@ -121,10 +132,89 @@ public:
     uint32_t m_ground_disturb_fx_name_water_hash;   //0xCC
     uint32_t m_ground_disturb_fx_name_foliage_hash; //0xD0
     char pad_D4[12];
-} m_weapon_fx;
+};
 static_assert(sizeof(sWeaponFx) == 0xE0);
 
-class AimingInfo;
+class CWeaponComponentPoint
+{
+public:
+    uint32_t m_attach_bone_hash; //0x00
+    char pad_04[4];
+    class sComponent
+    {
+    public:
+        uint32_t m_name_hash;
+        bool m_default;
+    } m_components[12]; // 0x08
+    static_assert(sizeof(sComponent) == 8);
+    int32_t m_component_count; // 0x68
+};
+static_assert(sizeof(CWeaponComponentPoint) == 0x6c);
+
+class CWeaponSpecValue
+{
+public:
+    float m_spec_fresnel;//0x00
+    float m_spec_falloff_mult;//0x04
+    float m_spec_int_mult;//0x08
+    float m_spec2_factor;//0x0c
+    float m_spec2_color_int;//0x10
+    uint32_t m_spec2_color;//0x14
+};
+static_assert(sizeof(CWeaponSpecValue) == 0x18);
+
+class CWeaponTintSpecValues
+{
+public:
+    uint32_t m_name_hash; //0x00
+    rage::atArray<CWeaponSpecValue> m_tints; //0x08
+};
+static_assert(sizeof(CWeaponTintSpecValues) == 0x18);
+
+class CFiringPatternAlias
+{
+public:
+    uint32_t m_firing_pattern_hash;//0x00
+    uint32_t m_alias_hash;//0x04
+};
+static_assert(sizeof(CFiringPatternAlias) == 0x8);
+
+class CWeaponFiringPatternAliases
+{
+public:
+    uint32_t m_name_hash; //0x00
+    rage::atArray<CFiringPatternAlias> m_aliases; //0x08
+};
+static_assert(sizeof(CWeaponFiringPatternAliases) == 0x18);
+
+class CWeaponUpperBodyFixupExpressionData
+{
+public:
+    uint32_t m_name_hash; //0x00
+    class sData
+    {
+    public:
+        float m_idle;//0x00
+        float m_walk;//0x04
+        float m_run;//0x08
+    } m_data[4];//0x04
+};
+static_assert(sizeof(CWeaponUpperBodyFixupExpressionData) == 0x34);
+
+class CCamoDiffuseTexIdxs
+{
+public:
+    uint32_t m_key_hash; //0x00
+    class sKeyValue
+    {
+    public:
+        uint32_t m_key;//0x0
+        uint32_t m_value;//0x4
+    };
+    alignas(0x10) rage::atArray<sKeyValue> m_items; //0x10
+};
+static_assert(sizeof(CCamoDiffuseTexIdxs) == 0x20);
+
 class CWeaponInfo : public CItemInfo
 {
 public:
@@ -154,8 +244,8 @@ public:
     eFireType m_fire_type; //0x0054
     eWeaponWheelSlot m_wheel_slot; //0x0058
     uint32_t m_group; //0x005C
-    class CAmmoInfo *m_ammo_info; //0x0060
-    class CAimingInfo *m_aiming_info; //0x0068
+    CAmmoInfo *m_ammo_info; //0x0060
+    CAimingInfo *m_aiming_info; //0x0068
     uint32_t m_clip_size; //0x0070
     float m_accuracy_spread; //0x0074
     float m_accurate_mode_accuracy_modifier; //0x0078
@@ -176,7 +266,7 @@ public:
     float m_damage_time; //0x00B4
     float m_damage_time_in_vehicle; //0x00B8
     float m_damage_time_in_vehicle_headshot; //0x00BC
-    float N000008F9; //0x00C0
+    float m_endurance_damage; //0x00C0
     uint32_t N00000898; //0x00C4
     float m_hit_limbs_damage_modifier; //0x00C8
     float m_network_hit_limbs_damage_modifier; //0x00CC
@@ -186,7 +276,15 @@ public:
     float m_force_on_ped; //0x00DC
     float m_force_on_vehicle; //0x00E0
     float m_force_on_heli; //0x00E4
-    char pad_00E8[16]; //0x00E8
+    class sBoneForce
+    {
+    public:
+        int32_t m_bone_tag; //0x00
+        float m_force_front;//0x04
+        float m_force_back;//0x08
+    };
+    static_assert(sizeof(sBoneForce) == 0xc);
+    rage::atArray<sBoneForce> m_override_forces; //0x00E8
     float m_force_max_strength_mult; //0x00F8
     float m_force_falloff_range_start; //0x00FC
     float m_force_falloff_range_end; //0x0100
@@ -296,7 +394,16 @@ public:
     float m_first_person_dof_max_near_in_focus_distance;              //0x03F4
     float m_first_person_dof_max_near_in_focus_distance_blend_level;  //0x03F8
     char pad_03FC[4];
-    char m_first_person_scope_attachment_data[16]; //0x0400
+    class sFirstPersonScopeAttachmentData
+    {
+    public:
+        uint32_t m_name_hash; //0x00
+        float m_first_person_scope_attachment_fov; //0x04
+        alignas(0x10) rage::fvector3 m_first_person_scope_attachment_offset; //0x10
+        alignas(0x10) rage::fvector3 m_first_person_scope_attachment_rotation_offset; //0x20
+    };
+    static_assert(sizeof(sFirstPersonScopeAttachmentData) == 0x30);
+    rage::atArray<sFirstPersonScopeAttachmentData> m_first_person_scope_attachment_data; //0x0400
     float m_zoom_factor_for_accurate_mode;         //0x0410
     char pad_0414[12];
     rage::fvector3 m_aim_offset_min; //0x0420
@@ -338,11 +445,11 @@ public:
     char pad_053C[4];
     rage::fvector3 m_aim_offset_end_pos_max_fps_lt; //0x0540
     char pad_054C[4];
-    float m_probe_radius_override_fps_idle;         // 0x0550
-    float m_probe_radius_override_fps_idle_stealth; // 0x0554
-    float m_probe_radius_override_fps_lt;           // 0x0558
-    float m_probe_radius_override_fps_rng;          // 0x055C
-    float m_probe_radius_override_fps_scope;        // 0x0560
+    float m_aim_probe_radius_override_fps_idle;         // 0x0550
+    float m_aim_probe_radius_override_fps_idle_stealth; // 0x0554
+    float m_aim_probe_radius_override_fps_lt;           // 0x0558
+    float m_aim_probe_radius_override_fps_rng;          // 0x055C
+    float m_aim_probe_radius_override_fps_scope;        // 0x0560
     char pad_0564[12];
     rage::fvector3 m_left_hand_ik_offset; //0x0570
     char pad_057C[4];
@@ -368,7 +475,6 @@ public:
     int8_t m_hud_capacity; //0x05CB
     int8_t m_hud_accuracy; //0x05CC
     int8_t m_hud_range; //0x05CD
-    char pad_05CE[2];
     float m_aiming_breathing_additive_weight; //0x05D0
     float m_firing_breathing_additive_weight; //0x05D4
     float m_stealth_aiming_breathing_additive_weight; //0x5D8
@@ -377,26 +483,32 @@ public:
     float m_firing_lean_additive_weight; //0x05E4
     float m_stealth_aiming_lean_additive_weight; //0x05E8
     float m_stealth_firing_lean_additive_weight; //0x05EC
-    char m_stat_name[8]; //0x05F0
+    char* m_stat_name;                                //0x05F0
     int32_t m_knockdown_count;                        //0x05F8
     float m_killshot_impulse_scale;                   //0x05FC
     uint32_t m_nm_shot_tuning_set_hash;               //0x0600
-    char pad_0604[764];
-    uint64_t m_weapon_flags_bitset[3];                 //0x0900
-    char m_tint_spec_values[8];                        //0x0918
-    char m_firing_pattern_aliases[8];                  //0x0920
-    char m_reload_upper_body_fixup_expression_data[8]; //0x0928
+    CWeaponComponentPoint m_attach_points[7];   //0x0604
+    int32_t m_attach_point_count;                     //0x08f8
+    CWeaponBoneId m_gun_feed_bone;              //0x08fc
+    std::bitset<192> m_weapon_flags;            //0x0900
+    CWeaponTintSpecValues *m_tint_spec_values;   //0x0918
+    CWeaponFiringPatternAliases *m_firing_pattern_aliases; //0x0920
+    CWeaponUpperBodyFixupExpressionData *m_reload_upper_body_fixup_expression_data; //0x0928
     uint32_t m_target_sequence_group_hash;             //0x0930
     float m_bullet_direction_offset_in_degrees;        //0x0934
     float m_bullet_direction_pitch_offset;             //0x0938
     float m_bullet_direction_pitch_homing_offset;      //0x093C
-    float pad_0940[5];
+    char pad_0940[20];
     float m_expand_ped_capsule_radius; //0x0954
     float m_vehicle_attack_angle;      //0x0958
     float m_torso_ik_angle_limit;      //0x095C
-    float pad_0960;
+    float m_melee_damage_multiplier;   //0x0960
     float m_melee_right_fist_target_health_damage_scaler; //0x0964
     float m_airborne_aircraft_lock_on_multiplier;         //0x0968
     float m_armoured_vehicle_glass_damage_override;       //0x096C
+    char pad_0970[8];
+    rage::atArray<CCamoDiffuseTexIdxs> m_camo_diffuse_tex_idxs;//0x0978
+    CWeaponBoneId m_rotate_barrel_bone;//0x988
+    CWeaponBoneId m_rotate_barrel_bone2;//0x98A
 };
-static_assert(sizeof(CWeaponInfo) == 0x0970);
+static_assert(sizeof(CWeaponInfo) == 0x0990);

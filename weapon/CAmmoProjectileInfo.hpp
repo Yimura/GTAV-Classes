@@ -53,10 +53,12 @@ public:
     float m_disturb_fx_scale; //0x00D0
     float m_ground_fx_probe_distance; //0x00D4
     bool m_fx_alt_tint_colour; //0x00D8
-    bool m_light_only_active_when_stuck; //0x00D9
-    bool m_light_flickers; //0x00DA
-    bool m_light_speeds_up; //0x00DB
-    class CWeaponBoneId m_light_bone; //0x00DC
+    bool pad_00D9;
+    bool m_light_only_active_when_stuck; //0x00DA
+    bool m_light_flickers; //0x00DB
+    bool m_light_speeds_up; //0x00DC
+    bool pad_00DD;
+    class CWeaponBoneId m_light_bone; //0x00DE
     rage::fvector4 m_light_colour; //0x00E0
     float m_light_intensity; //0x00F0
     float m_light_range; //0x00F4
@@ -101,7 +103,7 @@ public:
         CanBeDestroyedByDamage,
         CanBounce,
         DoubleDamping,
-        _0x08B0D0C23,
+        StickToPeds,
         _0x02E3F9CBA,
         ThrustUnderwater,
         ApplyDamageOnImpact,
@@ -113,9 +115,10 @@ public:
         AlignWithTrajectoryYAxis,
         HomingAttractor,
         Cluster,
-        _0x0E792E56F,
+        PreventMaxProjectileHelpText,
         _0x08A7D429C,
-        UseGravityOutOfWater
+        UseGravityOutOfWater,
+        MissionThrowable
     } m_projectile_flags; //0x0168
     char pad_016C[4]; //0x016C
 };
