@@ -16,6 +16,7 @@
 #include "base/phBound.hpp"
 #include "base/phBoundCapsule.hpp"
 #include "base/phBoundComposite.hpp"
+#include "base/pgDictionary.hpp"
 #include "camera/CCameraAngles.hpp"
 #include "camera/CCameraManagerAngles.hpp"
 #include "camera/CGameCameraAngles.hpp"
