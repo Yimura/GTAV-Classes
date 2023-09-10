@@ -5,6 +5,7 @@
 namespace rage
 {
 	class datBitBuffer;
+	class netSyncTree;
 
 #pragma pack(push, 8)
 	class netSyncNodeBase
@@ -23,7 +24,7 @@ namespace rage
 
 		netSyncNodeBase* m_next_sibling; //0x0008
 		netSyncNodeBase* m_prev_sibling; //0x0010
-		netSyncNodeBase* m_root; //0x0018
+		netSyncTree* m_root; //0x0018
 		netSyncNodeBase* m_parent; //0x0020
 
 		uint32_t m_flags1; //0x0028
