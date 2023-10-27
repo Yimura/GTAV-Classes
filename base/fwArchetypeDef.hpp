@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "../rage/vector.hpp"
+#include "fwExtensionDef.hpp"
 
 namespace rage {
 #pragma pack(push,8)
@@ -34,7 +34,7 @@ namespace rage {
             ASSET_TYPE_ASSETLESS = 4,
         } m_asset_type; //0x006C
         uint32_t m_asset_name_hash; //0x0070
-        uint64_t *m_extensions; //0x0078
+        fwExtensionDef *m_extensions; //0x0078
         uint16_t unk_0080; //0x0080
         char pad_0082[12]; //0x0082
     }; //Size: 0x0090
