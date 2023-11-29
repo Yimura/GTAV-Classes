@@ -72,7 +72,7 @@ struct game_skeleton
     uint32_t m_unk2; //0x0C
     uint32_t m_unk3; // 0x10
     uint32_t m_unk4; // 0x14
-    atArray<skeleton_data*> m_sys_data; // 0x18
+    atArray<skeleton_data> m_sys_data; // 0x18
     uint32_t m_unk5; // 0x28
     void* m_unk6[32]; // 0x30
     game_skeleton_mode* m_init_modes; // 0x130
