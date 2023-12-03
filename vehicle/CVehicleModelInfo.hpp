@@ -113,7 +113,7 @@ public:
     uint32_t m_is_jetski; //0x0580
     char pad_0584[7]; //0x0584
     uint16_t m_ability_flag; // 0x058B
-    char pad_058D[26]; // 0x058D
-}; //Size: 0x05A7
-static_assert(sizeof(CVehicleModelInfo) == 0x5A7);
+    char pad_058D[19]; // 0x058D
+}; //Size: 0x05A0
+static_assert(sizeof(CVehicleModelInfo) == 0x5A0);
 #pragma pack(pop)
