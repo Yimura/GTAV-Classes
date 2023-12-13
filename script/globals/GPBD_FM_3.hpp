@@ -110,7 +110,7 @@ struct MC_STYLE
 	SCR_BOOL                      Enabled;
 	SCR_INT                       BossOutfitType;
 	SCR_INT                       GoonOutfitType;
-	SCR_ARRAY<uint64_t, 7>        GoonOutfitIndices; // one outfit for each goon, size is 7 instead of 8 for some reason
+	SCR_ARRAY<uint64_t, 7>        GoonOutfitIndices; // one outfit for each goon
 	SCR_ARRAY<uint64_t, 7>        GoonOutfitIndicesOverride;
 	SCR_INT                       PAD_0019;
 	SCR_BOOL                      HeadgearEnabled;

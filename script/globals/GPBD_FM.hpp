@@ -434,7 +434,7 @@ struct FIXER_HQ_DATA
 };
 static_assert(sizeof(FIXER_HQ_DATA) == 3 * 8);
 
-// eclipse blvd garage (currently unreleased)
+// eclipse blvd garage
 struct MULTI_STOREY_GARAGE_DATA
 {
 	SCR_INT                           Index; // always one for obvious reasons
@@ -444,9 +444,21 @@ struct MULTI_STOREY_GARAGE_DATA
 };
 static_assert(sizeof(MULTI_STOREY_GARAGE_DATA) == 6 * 8);
 
+struct SALVAGE_YARD_DATA
+{
+	SCR_INT                           Index;
+	SCR_INT                           PAD_0001;
+	SCR_INT                           AppearanceBitset;
+	SCR_INT                           TowTruckColor;
+	SCR_INT                           TowTruckType; // TODO
+	SCR_INT                           VehicleRobVehicleIndex;
+	SCR_INT                           TotalEarnings;
+};
+static_assert(sizeof(SALVAGE_YARD_DATA) == 7 * 8);
+
 struct PROPERTY_DATA
 {
-	SCR_ARRAY<uint64_t, 30>           PropertyIds;
+	SCR_ARRAY<uint64_t, 31>           PropertyIds; // size 30 -> 31 b3095
 	SCR_BITSET<ePropertyInteriorFlags>Flags; // I really don't want to indent everything again
 	SCR_INT                           RingingPlayers; // bitset of players requesting entry into property
 	SCR_INT                           Index; // the value you pass to the send to apartment TSE
@@ -455,7 +467,7 @@ struct PROPERTY_DATA
 	PLAYER_INDEX                      ExteriorOwner;
 	SCR_ARRAY<uint64_t, 32>           RingingPlayersState; // 0 = ringing, 1 = accepted, 2 = denied
 	GAMER_HANDLE                      OwnerHandle; // can be used to bypass RID spoofing when player is inside interior
-	SCR_ARRAY<uint64_t, 30>           EclipseTheme; // not sure why this is an array of 30 yet
+	SCR_ARRAY<uint64_t, 31>           EclipseTheme; // size 30 -> 31 b3095
 	SCR_INT                           ApartmentType; // normal vs stilt vs eclipse
 	SCR_INT                           OwnerInstance; // same as Instance in most cases
 	SCR_ARRAY<EXEC_WAREHOUSE_INFO, 5> ExecutiveWarehouseInfos;
@@ -519,6 +531,7 @@ struct PROPERTY_DATA
 	SCR_INT                           PAD_0478; // TODO
 	SUBMARINE_DATA                    SubmarineData;
 	AUTOSHOP_DATA                     AutoShopData;
+	SALVAGE_YARD_DATA                 SalvageYardData;
 	SCR_ARRAY<uint64_t, 2>            AutoShopArcadeMachineSlots;
 	CAR_CLUB_DATA                     CarClubData;
 	FIXER_HQ_DATA                     FixerHQData;
@@ -528,7 +541,7 @@ struct PROPERTY_DATA
 	MULTI_STOREY_GARAGE_DATA          MultiStoreyGarageData; // @507 as of 1.67
 	SCR_INT                           FreakshopBits; // 0: has weapon workshop, 1: radio enabled
 };
-static_assert(sizeof(PROPERTY_DATA) == 514 * 8);
+static_assert(sizeof(PROPERTY_DATA) == 523 * 8);
 
 struct BIKER_CONTRACTS
 {
@@ -603,7 +616,7 @@ struct GPBD_FM_Entry
 	PLAYER_STATS                      PlayerStats;
 	SCR_INT                           PAD_265;
 	SCR_INT                           Mood;
-	PROPERTY_DATA                     PropertyData;
+	PROPERTY_DATA                     PropertyData; // @267 as of b3095
 	uint64_t                          PAD_0779[4]; // TODO
 	uint64_t                          PAD_0783[12]; // no clue what it does but it looks rather interesting
 	SCR_INT                           AssistedKillFlags;
@@ -615,7 +628,7 @@ struct GPBD_FM_Entry
 	SCR_INT                           ActivePVSlot;
 	PLAYER_INDEX                      SpectatingPlayer;
 	SCR_INT                           PAD_0803;
-	SCR_ARRAY<uint64_t, 2>            ActiveAmbientWeaponPickups;
+	SCR_ARRAY<uint64_t, 3>            ActiveAmbientWeaponPickups; // size 2 -> 3 b3095
 	SCR_ARRAY<uint64_t, 6>            OfficeMapMarkers;
 	SCR_INT                           OfficeLargestMoneyThresholdIndex;
 	SCR_ARRAY<uint64_t, 2>            EnabledOfficeCashPiles;
@@ -637,10 +650,10 @@ struct GPBD_FM_Entry
 	SCR_INT                           ApartmentEnterFlags;
 	SCR_VEC3                          AvengerMissionStartPosition;
 };
-static_assert(sizeof(GPBD_FM_Entry) == 867 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 877 * 8);
 
 struct GPBD_FM
 {
 	SCR_ARRAY<GPBD_FM_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM) == 27745 * 8);
+static_assert(sizeof(GPBD_FM) == 28065 * 8);
