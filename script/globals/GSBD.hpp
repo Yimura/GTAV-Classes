@@ -25,8 +25,9 @@ struct CEO_COLORS
 	SCR_ARRAY<CEO_COLOR, 10>            CeoColors;
 	SCR_INT                             PAD_0065;
 	uint64_t                            PAD_0066[19];
+	SCR_INT                             PAD_0085; // added b3095 ("Press ~INPUT_CONTEXT~ to contact Jamal and begin stealing bolt cutters for The Cargo Ship Robbery" mission variation)
 };
-static_assert(sizeof(CEO_COLORS) == 85 * 8);
+static_assert(sizeof(CEO_COLORS) == 86 * 8);
 
 struct SMPL_INTERIOR_DATA_SERVER
 {
@@ -90,4 +91,4 @@ struct GSBD
 	uint64_t                            PAD_1399[97];
 	SCR_INT                             CayoPericoStrandedAnimalChoice;
 };
-static_assert(sizeof(GSBD) == 1497 * 8);
+static_assert(sizeof(GSBD) == 1498 * 8);
