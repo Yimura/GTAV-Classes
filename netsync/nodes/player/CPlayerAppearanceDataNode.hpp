@@ -6,7 +6,7 @@
 class CPlayerAppearanceDataNode : CSyncDataNodeInfrequent
 {
 public:
-	uint32_t unk_0xC0[56]; //0xC0
+	uint32_t unk_0xC0[60]; //0xC0
 	class CPedComponents components; //0x1A0
 	char pad_0x268[8]; //0x268
 	uint32_t unk_0x270[6]; //0x270
@@ -89,5 +89,5 @@ public:
 	uint32_t unk_0x452; //0x452
 	uint32_t unk_0x456; //0x456
 };
-static_assert(sizeof(CPlayerAppearanceDataNode) == 0x45C);
+static_assert(sizeof(CPlayerAppearanceDataNode) == 0x46C);
 #pragma pack(pop)
