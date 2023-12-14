@@ -2,21 +2,19 @@
 
 namespace rage
 {
-    template <typename T>
-    struct atSingleton
+    template<typename T>
+    class atSingleton
     {
-    private:
-        T* m_basePtr{};
-
     public:
-        bool isValid() const
-        {
-            return m_basePtr != nullptr;
+        static T& getInstance() {
+            static T m_instance;
+            return m_instance;
         }
 
-        T* getInstance()
-        {
-            return m_basePtr;
-        }
+        atSingleton(const atSingleton&) = delete;
+        atSingleton& operator=(const atSingleton&) = delete;
+    private:
+        atSingleton() = default;
+        ~atSingleton() = default;
     };
 }
