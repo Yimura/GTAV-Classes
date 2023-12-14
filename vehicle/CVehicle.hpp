@@ -20,9 +20,9 @@ public:
 	char pad_0308[152]; //0x0308
 	float m_jump_boost_charge; //0x03A0
 	bool m_can_boost_jump; //0x03A4
-	char pad_03A5[1051]; //0x03A5
-	rage::fvector3 m_velocity; //0x07C0
-	char pad_07CC[100]; //0x07CC
+	char pad_03A5[1083]; //0x03A5
+	rage::fvector3 m_velocity; //0x07E0
+	char pad_07EC[68]; //0x07EC
 	float m_body_health; //0x0830
 	float m_petrol_tank_health; //0x0834
 	char pad_0838[72]; //0x0838
