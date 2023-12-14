@@ -30,5 +30,5 @@ public:
 	uint32_t unk_B944; //0xB944
 	uint16_t unk_B948; //0xB948
 }; //Size: 0xB94A
-static_assert(sizeof(CNetworkPlayerMgr) == 0xD152);
+static_assert(sizeof(CNetworkPlayerMgr) == 0xD552);
 #pragma pack(pop)
