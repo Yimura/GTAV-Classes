@@ -11,6 +11,7 @@
 #include <cstdint>
 
 #pragma pack(push, 8)
+// WARNING: most fields are out of date
 class CNetGamePlayer : public rage::netPlayer
 {
 public:
@@ -40,6 +41,7 @@ public:
     char pad_01AB[5]; //0x01AB
     rage::rlSessionInfo m_transition_session_info; //0x01A3
     char pad_022D[16]; //0x022D
+    void* m_unk2;
     uint64_t unk_0230; //0x0230
     uint64_t unk_0238; //0x0238
     uint32_t m_mute_count; //0x0240
@@ -60,5 +62,5 @@ public:
     uint32_t m_account_id; //0x02B4
     uint32_t m_unk_02BC; //0x02BC
 }; //Size: 0x02C0
-static_assert(sizeof(CNetGamePlayer) == 0x328);
+static_assert(sizeof(CNetGamePlayer) == 0x330);
 #pragma pack(pop)
