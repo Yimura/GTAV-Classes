@@ -14,6 +14,7 @@
 class CNetGamePlayer : public rage::netPlayer
 {
 public:
+    void* m_unk;
     CPlayerInfo* m_player_info; //0x00A0
     uint32_t m_matchmaking_group; //0x0008
     bool m_is_spectating; //0x000C
@@ -59,5 +60,5 @@ public:
     uint32_t m_account_id; //0x02B4
     uint32_t m_unk_02BC; //0x02BC
 }; //Size: 0x02C0
-static_assert(sizeof(CNetGamePlayer) == 0x320);
+static_assert(sizeof(CNetGamePlayer) == 0x328);
 #pragma pack(pop)
