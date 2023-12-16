@@ -115,6 +115,8 @@ public:
     uint16_t unk_01AC; //0x01AC
     uint16_t unk_01AE; //0x01AE
     uint16_t unk_01B0; //0x01B0
+    bool new_01B2;
+    bool new_01B3;
     bool pad_01B2; //0x01B2
     bool unk_01B3; //0x01B3
     bool m_no_collision; //0x01B4
@@ -130,7 +132,7 @@ public:
     float m_melee_weapon_damage_modifier;  //0x01C8 Divisor: 0x3F800000
     float unk_01CC; //0x01CC
     bool unk_01D0; //0x01D0
-    char pad_01D1[15]; //0x01D1
+    char pad_01D1[11]; //0x01D1
     float unk_01E0; //0x01E0
     float unk_01E4; //0x01E4
     float unk_01E8; //0x01E8
