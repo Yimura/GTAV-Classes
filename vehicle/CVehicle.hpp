@@ -20,9 +20,7 @@ public:
 	char pad_0308[152]; //0x0308
 	float m_jump_boost_charge; //0x03A0
 	bool m_can_boost_jump; //0x03A4
-	char pad_03A5[1051]; //0x03A5
-	rage::fvector3 m_velocity; //0x07C0
-	char pad_07CC[100]; //0x07CC
+	char pad_03A5[1163]; //0x03A5
 	float m_body_health; //0x0830
 	float m_petrol_tank_health; //0x0834
 	char pad_0838[72]; //0x0838
@@ -60,7 +58,6 @@ public:
 	uint32_t m_door_lock_status; //0x13C0
 	char pad_13C4[2356]; //0x13C4
 
-	float get_speed() { return sqrt(m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z); }
 }; //Size: 0x1CF8
 static_assert(sizeof(CVehicle) == 0x1CF8);
 #pragma pack(pop)
