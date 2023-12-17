@@ -25,7 +25,7 @@ namespace rage
         std::uint32_t m_stack_pointer;       // 0x14
         float m_timer_a;                     // 0x18
         float m_timer_b;                     // 0x1C
-        float m_timer_c;                     // 0x20
+        float m_wait_timer;                  // 0x20
         char m_padding1[0x2C];               // 0x24
         std::uint32_t m_stack_size;          // 0x50
         char m_padding2[0x54];               // 0x54
