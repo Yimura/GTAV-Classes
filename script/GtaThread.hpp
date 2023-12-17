@@ -19,6 +19,8 @@ public:
 	char m_padding6[0x02];                      // 0x14D
 	bool m_can_be_paused;                       // 0x14F
 	bool m_can_remove_blips_from_other_scripts; // 0x150
-	char m_padding7[0x0F];                      // 0x151
+	char m_padding7[0x2];                       // 0x151
+	std::uint8_t m_force_cleanup_state;         // 0x153
+	char m_padding8[0xC];                       // 0x154
 };
 static_assert(sizeof(GtaThread) == 0x160);
