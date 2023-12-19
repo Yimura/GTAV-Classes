@@ -1,4 +1,5 @@
 #include "../rage/atArray.hpp"
+#include "CDriveByAnimInfo.hpp"
 
 #pragma once
 
@@ -31,6 +32,6 @@ public:
 	float m_spine_additive_blend_out_duration; //0x005C
 	float m_min_unarmed_driveby_yaw_if_window_rolled_up; //0x0060
 	float m_max_unarmed_driveby_yaw_if_window_rolled_up; //0x0064
-	rage::atArray<const Hash*> m_drive_by_anim_infos; //0x0068
+	rage::atArray<CDriveByAnimInfo*> m_drive_by_anim_infos; //0x0068
 }; //Size: 0x0078
 #pragma pack(pop)
