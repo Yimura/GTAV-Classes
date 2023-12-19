@@ -44,7 +44,9 @@ public:
     float m_injured_health_threshold; //0x1518
     float m_dying_health_threshold; //0x151C
     float m_hurt_health_threshold; //0x1520
-    char pad_1524[240]; //0x1524
+    char pad_1524[12]; //0x1524
+    void* m_seat_info; //0x1530
+    char pad_1538[220]; //0x1538
     uint16_t m_cash; //0x1614
     char pad_1616[842]; //0x1616
     uint8_t fired_sticky_bombs; //0x1960 reverse from 1.66 2824 function E8 ? ? ? 48 8B F8 EB 5F add(1).rip(), function string: WM_MAX_STICKY
