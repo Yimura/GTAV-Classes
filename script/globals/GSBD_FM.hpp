@@ -24,12 +24,12 @@ struct WEAPON_PICKUPS
 	SCR_INT                               LastMeleeWeaponPickupTime;
 	SCR_INT                               LastProjectilePickupTime;
 	SCR_INT                               LastGunPickupTime;
-	SCR_ARRAY<uint64_t, 62>               Indices;
-	SCR_ARRAY<uint64_t, 62>               Owners;
+	SCR_ARRAY<uint64_t, 95>               Indices; // size increased in b3095 (62 -> 95)
+	SCR_ARRAY<uint64_t, 95>               Owners;
 	SCR_INT                               SpawnCounter;
 	SCR_INT                               AmmoCount;
 };
-static_assert(sizeof(WEAPON_PICKUPS) == 132 * 8);
+static_assert(sizeof(WEAPON_PICKUPS) == 198 * 8);
 
 struct BIKER_CONTRACTS_SERVER
 {
@@ -63,4 +63,4 @@ struct GSBD_FM
 	BIKER_CONTRACTS_SERVER                BikerContracts;
 	SCR_ARRAY<uint64_t, 32>               DoubleActionCacheLocationRevealed;
 };
-static_assert(sizeof(GSBD_FM) == 576 * 8);
+static_assert(sizeof(GSBD_FM) == 642 * 8);

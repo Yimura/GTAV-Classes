@@ -198,7 +198,7 @@ namespace rage
 
         bool contains(T comparator)
         {
-            for (auto iter_value : this)
+            for (auto iter_value : *this)
             {
                 if (iter_value == comparator)
                 {

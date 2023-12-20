@@ -208,7 +208,7 @@ public:
 	class NetworkGameFilter m_network_game_filter; //0xB098
 	char pad_B3DC[33]; //0xB3DC
 	bool m_was_invited; //0xB3FD
-	char pad_B3FE[10]; //0xB3FE
+	char pad_B3FE[26]; //0xB3FE TODO: the reclass file is broken
 	class rage::rlSessionInfo m_unk_session_info; //0xB408
 	char pad_B4D8[635]; //0xB4D8
 	bool m_need_host_change; //0xB753
@@ -284,5 +284,5 @@ public:
 	uint32_t m_follower_count; //0x49EE0
 	char pad_49EE4[628]; //0x49EE4
 }; //Size: 0x38650
-static_assert(sizeof(Network) == 0x4A158);
+static_assert(sizeof(Network) == 0x4A168);
 #pragma pack(pop)
