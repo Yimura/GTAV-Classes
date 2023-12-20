@@ -46,7 +46,7 @@ namespace rage
 		{
 			*reinterpret_cast<std::remove_cv_t<std::remove_reference_t<T>>*>(m_return_value) = std::forward<T>(value);
 		}
-	protected:
+
 		void* m_return_value;
 		std::uint32_t m_arg_count;
 		void* m_args;
