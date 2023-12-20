@@ -3,6 +3,7 @@
 
 #include "../base/pgBase.hpp"
 #include "../rage/scrValue.hpp"
+#include "scrNativeHandler.hpp"
 
 #pragma pack(push, 1)
 namespace rage
