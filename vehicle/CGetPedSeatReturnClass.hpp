@@ -1,3 +1,4 @@
+class CVehicleDriveByAnimInfo;
 
 #pragma pack(push, 1)
 class CGetPedSeatReturnClass
