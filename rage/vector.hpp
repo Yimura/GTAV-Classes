@@ -136,7 +136,7 @@ namespace rage
 		}
 
 		// This doesn't modify the vector inline.
-		vector3 multiple(const vector3 other) const
+		vector3 multiply(const vector3 other) const
 		{
 			return vector3(x * other.x, y * other.y, z * other.z);
 		}
