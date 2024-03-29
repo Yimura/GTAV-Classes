@@ -151,6 +151,9 @@ namespace rage
 		{
 			return (*this - rhs).Length();
 		}
+	};
+
+	template <typename T>
 	union vector4
 	{
 		T data[4];
