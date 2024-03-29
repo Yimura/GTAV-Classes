@@ -27,22 +27,130 @@ namespace rage
 		T data[3];
 		struct { T x, y, z; };
 
-		vector3(T x, T y, T z) :
-			x(x),
+		vector3(T x, T y, T z) noexcept : x(x),
 			y(y),
 			z(z)
 		{
 		}
 
-		vector3() :
-			x(),
+		vector3() noexcept : x(),
 			y(),
 			z()
 		{
 		}
-	};
 
-	template<typename T>
+		vector3 operator+(const vector3 &rhs) const
+		{
+			return vector3(x + rhs.x, y + rhs.y, z + rhs.z);
+		}
+
+		vector3 operator-(const vector3 &rhs) const
+		{
+			return vector3(x - rhs.x, y - rhs.y, z - rhs.z);
+		}
+
+		vector3 operator*(const vector3 &rhs) const
+		{
+			return vector3(x * rhs.x, y * rhs.y, z * rhs.z);
+		}
+
+		vector3 operator/(const vector3 &rhs) const
+		{
+			return vector3(x / rhs.x, y / rhs.y, z / rhs.z);
+		}
+
+		vector3 operator+(const float &rhs) const
+		{
+			return vector3(x + rhs, y + rhs, z + rhs);
+		}
+
+		vector3 operator-(const float &rhs) const
+		{
+			return vector3(x - rhs, y - rhs, z - rhs);
+		}
+
+		vector3 operator*(const float &rhs) const
+		{
+			return vector3(x * rhs, y * rhs, z * rhs);
+		}
+
+		vector3 operator/(const float &rhs) const
+		{
+			return vector3(x / rhs, y / rhs, z / rhs);
+		}
+
+		bool operator==(const vector3 &rhs) const
+		{
+			return x == rhs.x && y == rhs.y && z == rhs.z;
+		}
+
+		vector3 &operator+=(const vector3 &rhs)
+		{
+			return *this = *this + rhs;
+		}
+
+		vector3 &operator-=(const vector3 &rhs)
+		{
+			return *this = *this - rhs;
+		}
+
+		vector3 &operator*=(const vector3 &rhs)
+		{
+			return *this = *this * rhs;
+		}
+
+		vector3 &operator/=(const vector3 &rhs)
+		{
+			return *this = *this / rhs;
+		}
+
+		vector3 &operator+=(const float &rhs)
+		{
+			return *this = *this + rhs;
+		}
+
+		vector3 &operator-=(const float &rhs)
+		{
+			return *this = *this - rhs;
+		}
+
+		vector3 &operator*=(const float &rhs)
+		{
+			return *this = *this * rhs;
+		}
+
+		vector3 &operator/=(const float &rhs)
+		{
+			return *this = *this / rhs;
+		}
+
+		float length() const
+		{
+			return sqrt(x * x + y * y + z * z);
+		}
+
+		// This doesn't modify the vector inline.
+		vector3 normalize() const
+		{
+			return *this * (1 / length());
+		}
+
+		// This doesn't modify the vector inline.
+		vector3 multiple(const vector3 other) const
+		{
+			return vector3(x * other.x, y * other.y, z * other.z);
+		}
+
+		// This doesn't modify the vector inline.
+		vector3 invert() const
+		{
+			return *this * -1;
+		}
+
+		float distance(const vector3 &rhs) const
+		{
+			return (*this - rhs).Length();
+		}
 	union vector4
 	{
 		T data[4];
