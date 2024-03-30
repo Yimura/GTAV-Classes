@@ -168,6 +168,11 @@ namespace rage
 			return vector3(y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x);
 		}
 
+		float dot_product(const vector3 &rhs)
+		{
+			return x * rhs.x + y * rhs.y + z * rhs.z;
+		}
+
 		float distance(const vector3 &rhs) const
 		{
 			return (*this - rhs).length();
