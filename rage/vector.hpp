@@ -163,12 +163,12 @@ namespace rage
 		}
 
 		// This doesn't modify the vector inline.
-		vector3 cross_product(const vector3 &rhs)
+		vector3 cross_product(const vector3 &rhs) const
 		{
 			return vector3(y * rhs.z - z * rhs.y, z * rhs.x - x * rhs.z, x * rhs.y - y * rhs.x);
 		}
 
-		float dot_product(const vector3 &rhs)
+		float dot_product(const vector3 &rhs) const
 		{
 			return x * rhs.x + y * rhs.y + z * rhs.z;
 		}
