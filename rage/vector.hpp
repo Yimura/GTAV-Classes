@@ -149,7 +149,7 @@ namespace rage
 
 		float distance(const vector3 &rhs) const
 		{
-			return (*this - rhs).Length();
+			return (*this - rhs).length();
 		}
 	};
 
