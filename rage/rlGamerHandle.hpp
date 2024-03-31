@@ -16,13 +16,13 @@ namespace rage
     class rlGamerHandle
     {
     public:
-        uint64_t m_rockstar_id; //0x0000
+        int64_t m_rockstar_id; //0x0000
         uint8_t m_platform; //0x0008
         uint8_t m_padding; //0x0009
 
         inline rlGamerHandle() = default;
 
-        inline rlGamerHandle(uint64_t rockstar_id) :
+        inline rlGamerHandle(int64_t rockstar_id) :
             m_rockstar_id(rockstar_id),
             m_platform(rlPlatforms::PC),
             m_padding(0)
