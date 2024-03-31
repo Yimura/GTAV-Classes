@@ -10,5 +10,5 @@ private:
     char m_pad[8];
 
 public:
-    grcViewport viewport;
+    rage::grcViewport viewport;
 };
