@@ -51,9 +51,10 @@ namespace rage
 		std::uint32_t m_arg_count;
 		void* m_args;
 		std::int32_t m_data_count;
-		std::uint32_t m_data[48];
+		rage::scrValue* m_orig[4];
+		rage::fvector4 m_buffer[4];
 	};
-	static_assert(sizeof(scrNativeCallContext) == 0xE0);
+	static_assert(sizeof(scrNativeCallContext) == 0x80);
 
 	using scrNativeHash = std::uint64_t;
 	using scrNativePair = std::pair<scrNativeHash, scrNativeHash>;
