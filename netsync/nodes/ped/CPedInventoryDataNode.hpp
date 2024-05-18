@@ -12,8 +12,8 @@ public:
     uint32_t m_ammos[65];
     uint32_t m_ammo_quantities[65];
     uint32_t m_num_ammos;
-    uint8_t unk_1680[105];
-    uint8_t unk_16E9[105];
+    uint8_t m_item_slot_tint[105];
+    uint8_t m_item_slot_num_components[105];
     char pad_1680[1260];
     bool m_infinite_ammos[65];
     bool m_ammo_all_infinite;

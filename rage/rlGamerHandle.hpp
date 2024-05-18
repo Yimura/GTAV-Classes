@@ -4,20 +4,28 @@
 
 namespace rage
 {
+    enum rlPlatforms : uint8_t
+    {
+        UNK0,
+        XBOX,
+        PLAYSTATION,
+        PC,
+    };
+
 #pragma pack(push,8)
     class rlGamerHandle
     {
     public:
-        uint64_t m_rockstar_id; //0x0000
+        int64_t m_rockstar_id; //0x0000
         uint8_t m_platform; //0x0008
-        uint8_t unk_0009; //0x0009
+        uint8_t m_padding; //0x0009
 
         inline rlGamerHandle() = default;
 
-        inline rlGamerHandle(uint64_t rockstar_id) :
+        inline rlGamerHandle(int64_t rockstar_id) :
             m_rockstar_id(rockstar_id),
-            m_platform(3),
-            unk_0009(0)
+            m_platform(rlPlatforms::PC),
+            m_padding(0)
         {
         }
     }; //Size: 0x0010

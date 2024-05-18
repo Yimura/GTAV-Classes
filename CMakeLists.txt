@@ -20,7 +20,7 @@ add_library(GTAV-Classes MODULE "${SRC_MAIN}")
 add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
 message(STATUS "")
-
+ 
 target_include_directories(GTAV-Classes PRIVATE 
     "${SRC_DIR}"
 )

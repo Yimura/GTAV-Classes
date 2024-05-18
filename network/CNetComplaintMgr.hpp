@@ -1,4 +1,6 @@
 #pragma once
+#include "rage/rlGamerHandle.hpp"
+
 #include <cstdint>
 
 class CNetRemoteComplaint

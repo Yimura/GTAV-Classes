@@ -63,7 +63,7 @@ namespace rage
             auto value_array_size = value_array.size();
             auto old_capacity = m_count;
 
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
+            if ((value_array_size + m_count) > (std::numeric_limits<uint16_t>::max)())
                 return false;
 
             auto size = (uint16_t)value_array_size;
@@ -84,7 +84,7 @@ namespace rage
             auto value_array_size = value_array.size();
             auto old_capacity = m_count;
 
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
+            if ((value_array_size + m_count) > (std::numeric_limits<uint16_t>::max)())
                 return false;
 
             auto size = (uint16_t)value_array_size;
@@ -105,7 +105,7 @@ namespace rage
             auto value_array_size = value_array.size();
             auto old_capacity = m_count;
 
-            if ((value_array_size + m_count) > std::numeric_limits<uint16_t>::max())
+            if ((value_array_size + m_count) > (std::numeric_limits<uint16_t>::max)())
                 return false;
 
             auto size = (uint16_t)value_array_size;
@@ -198,7 +198,7 @@ namespace rage
 
         bool contains(T comparator)
         {
-            for (auto iter_value : this)
+            for (auto iter_value : *this)
             {
                 if (iter_value == comparator)
                 {

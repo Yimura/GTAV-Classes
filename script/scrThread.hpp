@@ -17,16 +17,15 @@ namespace rage
 
     public:
         scrThreadContext m_context;                 // 0x08
-        scrValue* m_stack;                              // 0xB0
+        scrValue* m_stack;                          // 0xB0
         char m_padding[0x4];                        // 0xB8
         uint32_t m_arg_size;                        // 0xBC
         uint32_t m_arg_loc;                         // 0xC0
         char m_padding2[0x4];                       // 0xC4
         const char* m_exit_message;                 // 0xC8
-        char m_pad[0x4];
+        char m_pad[0x4];                            // 0xD0
         char m_name[0x40];                          // 0xD4
-        scriptHandler* m_handler;                   // 0x114
-        scriptHandlerNetComponent* m_net_component; // 0x11C
-
+        scriptHandler* m_handler;                   // 0x118
+        scriptHandlerNetComponent* m_net_component; // 0x120
     };
 }

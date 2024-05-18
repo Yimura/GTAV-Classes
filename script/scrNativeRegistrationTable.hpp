@@ -8,6 +8,7 @@ namespace rage
 {
     class scrNativeRegistrationTable
     {
+    public:
         scrNativeRegistration *m_entries[0xFF];
         std::uint32_t m_unk;
         bool m_initialized;
