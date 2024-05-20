@@ -133,10 +133,10 @@ public:
     float m_MeleeUnarmedDamageModifier; //0x01CC
     bool m_bHasScriptedWeaponFirePos; //0x01D0
     char pad_01D1[11]; //0x01D1
-    float m_ScriptedWeaponFirePos.xyzw.m128_i32[0]; //0x01E0
-    float m_ScriptedWeaponFirePos.xyzw.m128_i32[1]; //0x01E4
-    float m_ScriptedWeaponFirePos.xyzw.m128_i32[2]; //0x01E8
-    uint32_t m_ScriptedWeaponFirePos.xyzw.m128_i32[3]; //0x01EC
+    float m_ScriptedWeaponFirePosX; //0x01E0
+    float m_ScriptedWeaponFirePosY; //0x01E4
+    float m_ScriptedWeaponFirePosZ; //0x01E8
+    uint32_t m_ScriptedWeaponFirePosW; //0x01EC
     uint8_t m_arcadeTeamInt; //0x01F0
     uint8_t m_arcadeRoleInt; //0x01F1
     bool m_arcadeCNCVOffender; //0x01F2
