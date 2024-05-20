@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <utility>
 
+#include "rage/scrValue.hpp"
+#include "rage/vector.hpp"
+
 namespace rage
 {
 	class scrNativeCallContext
