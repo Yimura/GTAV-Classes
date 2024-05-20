@@ -26,9 +26,9 @@ public:
     bool m_has_microphone; //0x00D4
     bool m_is_invincible; //0x00D5
     bool m_HasMaxHealth; //0x00D6
-    bool m_myVehicleIsMyInteresting//0x00D7
+    bool m_myVehicleIsMyInteresting;//0x00D7
     bool m_seatbelt; //0x00D8
-    bool m_helmet_has_been_shot//0x00D9
+    bool m_helmet_has_been_shot;//0x00D9
     bool m_bullet_proof; //0x00DA
     bool m_fire_proof; //0x00DB
     bool m_explosion_proof; //0x00DC
