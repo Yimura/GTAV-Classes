@@ -3,7 +3,7 @@
 #include <cstddef>
 
 #pragma pack(push, 1)
-struct MatchmakingId
+class MatchmakingId
 {
 public:
 	char m_data1[0x26];
