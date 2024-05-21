@@ -119,6 +119,8 @@
 #include "network/CNetGamePlayer.hpp"
 #include "network/CNetGamePlayerDataMsg.hpp"
 #include "network/CNetworkPlayerMgr.hpp"
+#include "network/MatchmakingAttributes.hpp"
+#include "network/MatchmakingId.hpp"
 #include "network/netObject.hpp"
 #include "network/netPeerAddress.hpp"
 #include "network/netPlayer.hpp"
