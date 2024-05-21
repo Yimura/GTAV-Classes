@@ -18,6 +18,7 @@ static_assert(sizeof(MetricSessionMigrated) == 0x348);
 
 class NetworkBaseConfig
 {
+public:
 	virtual ~NetworkBaseConfig() = default;
 	virtual void Reset() {};
 
@@ -37,9 +38,6 @@ static_assert(sizeof(NetworkBaseConfig) == 0x30);
 class NetworkGameConfig : public NetworkBaseConfig
 {
 public:
-	virtual ~NetworkGameConfig() override = default;
-	virtual void Reset() override {};
-
 	uint32_t m_public_slots; //0x0030
 	uint32_t m_private_slots; //0x0034
 	MatchmakingAttributes m_matchmaking_attributes; //0x0038
@@ -83,9 +81,6 @@ static_assert(sizeof(NetworkGameFilterMatchmakingComponent) == 0x314);
 class NetworkGameFilter : public NetworkBaseConfig
 {
 public:
-	virtual ~NetworkGameFilter() override = default;
-	virtual void Reset() override {};
-
 	class NetworkGameFilterMatchmakingComponent m_matchmaking_component; //0x0030
 }; //Size: 0x0344
 static_assert(sizeof(NetworkGameFilter) == 0x344);
