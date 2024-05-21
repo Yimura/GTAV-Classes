@@ -2,6 +2,7 @@
 
 #include "../rage/rlGamerInfo.hpp"
 #include "../rage/rlSessionInfo.hpp"
+#include "MatchmakingAttributes.hpp"
 
 #pragma pack(push, 1)
 namespace rage
@@ -50,33 +51,46 @@ namespace rage
 		virtual ~rlSession() = default;
 	}; //Size: 0x0770
 	static_assert(sizeof(rage::rlSession) == 0x770);
+	
+	class rlSessionConfig
+	{
+	public:
+		char m_pad[0x4];                                // 0x00
+		int m_public_slots;                             // 0x04
+		int m_private_slots;                            // 0x08
+		MatchmakingAttributes m_matchmaking_attributes; // 0x0C
+		char m_pad2[0x18];                              // 0x10C
+	};
+	static_assert(sizeof(rage::rlSessionConfig) == 0x130);
 
 	class rlSessionDetail
 	{
 	public:
-		class rage::rlGamerInfoBase m_base_gamer_info;
-		char pad_0060[8]; //0x0060
-		class rage::rlSessionInfo m_session_info; //0x0068
-		char pad_00D8[14]; //0x00D8
-		uint16_t m_session_type; //0x00E6
-		char pad_00E8[324]; //0x00E8
-		uint32_t m_player_count; //0x022C
-		uint32_t m_unk_player_count; //0x0230
-		char pad_0234[2]; //0x0234
-		int16_t m_unk_pos_x; //0x0236
-		int16_t m_unk_pos_y; //0x0238
-		int16_t m_unk_pos_z; //0x023A
-		uint8_t m_matchmaking_property_ids[32]; //0x023C
-		char pad_025C[2]; //0x025C
-		uint16_t m_rank; //0x025E
-		char pad_0260[1]; //0x0260
-		uint8_t m_mental_state; //0x0261
-		char pad_0262[21]; //0x0262
-		uint8_t m_population_density; //0x0277
-		char pad_0278[320]; //0x0278
+		class rage::rlGamerInfoBase m_base_gamer_info; // 0x00
+		std::uint64_t m_host_token;                    // 0xC0
+		class rage::rlSessionInfo m_session_info;      // 0xC8
+		class rage::rlSessionConfig m_session_config;  // 0x198
+		rage::rlGamerHandle m_handle;                  // 0x2C8
+		char m_name[0x14];                             // 0x2D8
+		uint32_t m_player_count;                       // 0x2EC
+		uint32_t m_spectator_count;                    // 0x2F0
+		uint16_t m_session_data_struct_size;           // 0x2F4
+		char m_session_data_struct[0x100];             // 0x2F6 likely a union of two structs, sizes 0x44 and 0x28
+		uint16_t m_matchmaking_data_struct_size;       // 0x3F6
+		char m_matchmaking_data_struct[0x80];          // 0x3F8 stores matchmaking tunable data?
 	}; //Size: 0x03CA
 	static_assert(sizeof(rlSessionDetail) == 0x478);
 
+	class rlSessionDetailMsg
+	{
+	public:
+		int m_status;
+		int m_required_version;
+		int m_request_token;
+		int m_unk;
+		rlSessionDetail m_detail;
+	};
+	static_assert(sizeof(rlSessionDetailMsg) == 0x488);
 
 	class rlMatchmakingFindResult
 	{
