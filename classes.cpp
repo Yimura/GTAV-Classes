@@ -127,6 +127,7 @@
 #include "network/netPlayerMgrBase.hpp"
 #include "network/netTime.hpp"
 #include "network/Network.hpp"
+#include "network/P2pSecurity.hpp"
 #include "network/RemoteGamerInfoMsg.hpp"
 #include "network/snConnectToPeerTask.hpp"
 #include "network/snSession.hpp"
