@@ -4,7 +4,7 @@
 #include "../netsync/netSyncTree.hpp"
 #include "../base/atRTTI.hpp"
 
-#pragma push(pack, 4)
+#pragma pack(push, 4)
 class CObject;
 namespace rage
 {
@@ -132,6 +132,6 @@ namespace rage
         virtual void m_320() = 0;
         virtual void UpdatePendingVisibilityChanges() = 0;
     }; //Size: 0x0050
-    static_assert(sizeof(netObject) == 0x90); // incorrect, but will do for now
+    static_assert(sizeof(netObject) == 0x8C); // incorrect, but will do for now
 }
 #pragma pack(pop)
