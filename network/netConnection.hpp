@@ -54,40 +54,58 @@ namespace rage
 		uint64_t m_count;
 	};
 
+#pragma pack(push, 8)
+	class netEvent
+	{
+	public:
+		enum class Type
+		{
+			ConnectionRequested = 0, // seems to be identical to rage::netConnection::InFrame
+			ConnectionError = 2,
+			ConnectionClosed = 3,
+			FrameReceived = 4, // rage::netConnection::InFrame
+			BandwidthExceeded = 6,
+			OutOfMemory = 7
+		};
+
+		virtual ~netEvent() = default;
+
+		virtual void destroy() = 0;
+		virtual Type get_event_type() = 0;
+		virtual uint32_t _0x18() = 0;
+
+		std::uint32_t m_timestamp;             // 0x0008
+		char pad_0008[52];                     // 0x000C
+		std::uint32_t m_msg_id;                // 0x0040
+		std::uint32_t m_connection_identifier; // 0x0044
+		rage::netEvent* m_this;                // 0x0048
+		uint32_t m_peer_id;                    // 0x0050
+	};
+	static_assert(sizeof(rage::netEvent) == 0x58);
+
+	class netEventConnectionError : rage::netEvent
+	{
+		std::uint64_t m_unk;  // 0x0058 (always 2)
+		char m_data[0x80];    // 0x0060
+		std::uint32_t m_size; // 0x00E0
+	};
+	static_assert(sizeof(rage::netEventConnectionError) == 0xE8);
+#pragma pack(pop)
+
 	class netConnection
 	{
 	public:
-		class InFrame
+#pragma pack(push, 8)
+		class InFrame : rage::netEvent
 		{
 		public:
-			enum class EventType
-			{
-				ConnectionClosed = 3,
-				FrameReceived = 4,
-				BandwidthExceeded = 6,
-				OutOfMemory = 7
-			};
-
-			virtual ~InFrame() = default;
-
-			virtual void destroy() = 0;
-			virtual EventType get_event_type() = 0;
-			virtual uint32_t _0x18() = 0;
-
-			uint32_t m_timestamp;             //0x0008
-			char pad_0008[52];                //0x000C
-			uint32_t m_msg_id;                //0x0040
-			uint32_t m_connection_identifier; //0x0044
-			InFrame* m_this;                  //0x0048
-			uint32_t m_peer_id;               //0x0050
-			char pad_0050[4];                 //0x0050
-			int m_security_id;                //0x0054
-			char pad_0058[36];                //0x0058
-			uint32_t m_length;                //0x0080
-			char pad_007C[4];                 //0x0084
-			void* m_data;                     //0x0088
+			int m_security_id;                   // 0x0058
+			rage::netPeerAddress m_peer_address; // 0x0060
+			std::uint32_t m_length;              // 0x0080
+			void* m_data;                        // 0x0088
 		};
 		static_assert(sizeof(rage::netConnection::InFrame) == 0x90);
+#pragma pack(pop)
 
 		char gap0[8];
 		rage::netConnectionPeer* m_connection_peer;
