@@ -85,6 +85,7 @@ namespace rage
 
 	class netEventConnectionError : public rage::netEvent
 	{
+	public:
 		std::uint64_t m_unk;  // 0x0058 (always 2)
 		char m_data[0x80];    // 0x0060
 		std::uint32_t m_size; // 0x00E0
