@@ -83,7 +83,7 @@ namespace rage
 	};
 	static_assert(sizeof(rage::netEvent) == 0x58);
 
-	class netEventConnectionError : rage::netEvent
+	class netEventConnectionError : public rage::netEvent
 	{
 		std::uint64_t m_unk;  // 0x0058 (always 2)
 		char m_data[0x80];    // 0x0060
@@ -96,7 +96,7 @@ namespace rage
 	{
 	public:
 #pragma pack(push, 8)
-		class InFrame : rage::netEvent
+		class InFrame : public rage::netEvent
 		{
 		public:
 			int m_security_id;                   // 0x0058
