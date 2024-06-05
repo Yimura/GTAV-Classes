@@ -123,6 +123,7 @@
 #include "network/MatchmakingAttributes.hpp"
 #include "network/MatchmakingId.hpp"
 #include "network/netObject.hpp"
+#include "network/netObjectIds.hpp"
 #include "network/netPeerAddress.hpp"
 #include "network/netPlayer.hpp"
 #include "network/netPlayerMgrBase.hpp"
