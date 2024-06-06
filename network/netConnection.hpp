@@ -100,10 +100,10 @@ namespace rage
 		class InFrame : public rage::netEvent
 		{
 		public:
-			int m_security_id;                              // 0x0058
-			alignas(8) rage::netPeerAddress m_peer_address; // 0x0060
-			std::uint32_t m_length;                         // 0x0080
-			void* m_data;                                   // 0x0088
+			alignas(8) int m_security_id;        // 0x0058
+			rage::netPeerAddress m_peer_address; // 0x0060
+			std::uint32_t m_length;              // 0x0080
+			void* m_data;                        // 0x0088
 		};
 		static_assert(sizeof(rage::netConnection::InFrame) == 0x90);
 #pragma pack(pop)
