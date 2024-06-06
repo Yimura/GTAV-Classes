@@ -4,6 +4,7 @@
 #include "../netsync/netSyncTree.hpp"
 #include "../base/atRTTI.hpp"
 
+#pragma pack(push, 4)
 class CObject;
 namespace rage
 {
@@ -20,6 +21,8 @@ namespace rage
         bool m_wants_to_delete; //0x004D
         char pad_004E[1]; //0x004E
         bool m_should_not_be_delete; //0x004F
+        char pad_0050[0x38]; //0x0050
+        int m_ownership_token; //0x0088
 
         DEFINE_RAGE_RTTI(rage::netObject)
 
@@ -129,5 +132,6 @@ namespace rage
         virtual void m_320() = 0;
         virtual void UpdatePendingVisibilityChanges() = 0;
     }; //Size: 0x0050
-    static_assert(sizeof(netObject) == 0x50);
+    static_assert(sizeof(netObject) == 0x8C); // incorrect, but will do for now
 }
+#pragma pack(pop)

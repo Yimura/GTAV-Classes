@@ -4,16 +4,16 @@
 
 class datBitBuffer;
 
-#pragma pack(push,8)
+#pragma pack(push, 8)
 namespace rage {
     class playerDataMsg
     {
     public:
-        virtual ~playerDataMsg() = 0;
-        virtual int GetBufferSize() = 0;
-        virtual void Log() = 0;
-        virtual bool Serialize(datBitBuffer* buffer) = 0;
-        virtual bool Deserialize(datBitBuffer* buffer) = 0;
+        virtual ~playerDataMsg() = default;
+        virtual int GetBufferSize() { return 0; };
+        virtual void Log() {};
+        virtual bool Serialize(datBitBuffer* buffer) { return true; };
+        virtual bool Deserialize(datBitBuffer* buffer) { return true; };
 
         uint32_t m_game_version; //0x0008
         uint32_t m_nat_type; //0x000C

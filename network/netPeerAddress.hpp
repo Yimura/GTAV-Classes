@@ -14,7 +14,7 @@ static_assert(sizeof(netAddress) == 0x04);
 
 namespace rage
 {
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 	class netPeerAddress
 	{
 	public:
