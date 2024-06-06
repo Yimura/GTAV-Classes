@@ -2,7 +2,7 @@
 #include "security/ObfVar.hpp"
 #include <array>
 
-#pragma pack(push, 4)
+#pragma pack(push, 8)
 class GameDataHash
 {
 public:

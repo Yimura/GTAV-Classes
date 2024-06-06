@@ -114,6 +114,7 @@
 #include "network/ChatData.hpp"
 #include "network/CJoinRequestContext.hpp"
 #include "network/ClanData.hpp"
+#include "network/CMsgJoinRequest.hpp"
 #include "network/CMsgJoinResponse.hpp"
 #include "network/CMsgTextMessage.hpp"
 #include "network/CNetComplaintMgr.hpp"
