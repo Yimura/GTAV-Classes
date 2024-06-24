@@ -13,7 +13,7 @@ struct CScriptParticipant
 	char gap20[8];
 };
 
-class CGameScriptHandlerNetComponent : rage::scriptHandlerNetComponent
+class CGameScriptHandlerNetComponent : public rage::scriptHandlerNetComponent
 {
 public:
 	virtual ~CGameScriptHandlerNetComponent() override = default;
