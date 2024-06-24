@@ -55,7 +55,7 @@ namespace rage
         bool m_initialized;                            // 0x30
         bool m_initialized2;                           // 0x31
         char m_padding2[0x0E];                         // 0x32
-        netLoggingInterface *m_logger;           // 0x40
+        netLoggingInterface *m_logger;                 // 0x40
     };
 }
 #pragma pack(pop)

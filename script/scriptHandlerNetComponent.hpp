@@ -1,6 +1,6 @@
 #pragma once
 
-#pragma pack(push, 1)
+#pragma pack(push, 8)
 namespace rage
 {
     class scriptHandler;
@@ -12,5 +12,6 @@ namespace rage
     public:
         scriptHandler *m_script_handler; // 0x08
     };
+    static_assert(sizeof(scriptHandlerNetComponent) == 0x10);
 }
 #pragma pack(pop)
