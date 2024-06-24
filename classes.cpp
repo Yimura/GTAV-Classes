@@ -172,6 +172,8 @@
 #include "script/globals/GSBD_Kicking.hpp"
 #include "script/globals/GSBD_PropertyInstances.hpp"
 #include "script/globals/g_AMC_playerBD.hpp"
+#include "script/CGameScriptHandler.hpp"
+#include "script/CGameScriptHandlerNetComponent.hpp"
 #include "script/CGameScriptObjInfo.hpp"
 #include "script/GtaThread.hpp"
 #include "script/HudColor.hpp"
