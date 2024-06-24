@@ -1,3 +1,4 @@
+#include <cstdint>
 #include "scriptHandlerNetComponent.hpp"
 
 #pragma pack(push, 8)
@@ -6,8 +7,8 @@ struct CScriptParticipant
 	CScriptParticipant* m_next;
 	CScriptParticipant* m_prev;
 	CNetGamePlayer* m_net_game_player;
-	uint16_t m_participant_id;
-	uint16_t m_participant_index; // or "slot number"
+	std::uint16_t m_participant_id;
+	std::uint16_t m_participant_index; // or "slot number"
 	int m_join_time;
 	char gap20[8];
 };
@@ -92,7 +93,7 @@ public:
 	CScriptParticipant* m_first_participant;
 	char gap20[16];
 	CScriptParticipant* m_host;
-	__int16 m_local_participant_index;
+	std::int16_t m_local_participant_index;
 	char pad_003A[6];
 	unsigned int m_participant_bitset;
 	uint16_t m_host_token;
@@ -111,7 +112,7 @@ public:
 	uint8_t m_host_array_count;
 	uint8_t m_player_array_count;
 	uint8_t m_host_migration_state;
-	unsigned __int8 m_flags;
+	std::uint8_t m_flags;
 	char pad_0193[13];
 	char m_script_status_queried;
 
