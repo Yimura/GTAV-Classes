@@ -479,6 +479,7 @@ struct SMPL_INTERIOR_DATA
 	SCR_INT                       Flags5;
 	SCR_INT                       Flags6;
 	SCR_INT                       Flags7;
+	SCR_INT                       Flags8; // added b3258
 	alignas(8) eSimpleInteriorIndex Index;
 	SCR_INT                       InstanceId;
 	SCR_INT                       AllowedGoons;
@@ -496,7 +497,7 @@ struct SMPL_INTERIOR_DATA
 	SCR_INT                       MissionSpawnSimpleInteriorIndex;
 	SCR_INT                       InteriorSubtype; // nightclub vs nightclub garage etc
 };
-static_assert(sizeof(SMPL_INTERIOR_DATA) == 29 * 8);
+static_assert(sizeof(SMPL_INTERIOR_DATA) == 30 * 8);
 
 // yes there's a struct for leaving your clubhouse
 struct LEAVE_CLUBHOUSE
@@ -546,6 +547,7 @@ struct GlobalPlayerBDEntry
 	NETWORK_INDEX                 DeliveryMechanicNetId4; // another one...
 	NETWORK_INDEX                 AcidLabNetId;
 	NETWORK_INDEX                 DeliveryBikeNetId;
+	NETWORK_INDEX                 BountyTransporterNetId; // added b3258
 	SCR_BOOL                      PAD_0057;
 	uint64_t                      PAD_0058[15]; // confirmed these are not used by PC scripts
 	PLAYER_BLIP                   PlayerBlip;
@@ -660,10 +662,10 @@ struct GlobalPlayerBDEntry
 	SCR_BOOL                      CanSpawnGunVan;
 };
 
-static_assert(sizeof(GlobalPlayerBDEntry) == 463 * 8);
+static_assert(sizeof(GlobalPlayerBDEntry) == 465 * 8);
 
 struct GlobalPlayerBD
 {
 	SCR_ARRAY<GlobalPlayerBDEntry, 32> Entries;
 };
-static_assert(sizeof(GlobalPlayerBD) == 14817 * 8);
+static_assert(sizeof(GlobalPlayerBD) == 14881 * 8);
