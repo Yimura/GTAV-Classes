@@ -29,6 +29,7 @@ public:
 	uint16_t m_mount_id; //0x0142
 	uint16_t m_custodian_id; //0x0144
 	uint16_t unk_0146; // 0x0146
+	uint8_t new_014C; 
 	bool m_tint_index; //0x0148
 	char pad_0149; //0x0149
 	uint8_t unk_014A; // 0x014A
