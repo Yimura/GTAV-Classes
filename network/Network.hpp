@@ -178,6 +178,8 @@ static_assert(sizeof(InvitedGamers) == 0xC88);
 class Network
 {
 public:
+	bool m_unk;
+	char pad_0001[0x7];
 	rage::rlSessionInfo m_steam_unk_session; //0x0000
 	rage::Obf32 m_num_dinput8_instances; //0x0070
 	rage::Obf32 m_last_time_dinput8_checked; //0x0080
@@ -280,5 +282,5 @@ public:
 	uint32_t m_follower_count; //0x49EE0
 	char pad_49EE4[628]; //0x49EE4
 }; //Size: 0x38650
-static_assert(sizeof(Network) == 0x4A168);
+static_assert(sizeof(Network) == 0x4A170);
 #pragma pack(pop)
