@@ -99,9 +99,9 @@ class MatchmakingSessionResult
 {
 public:
 	class rage::rlSessionDetail m_detail;
-	char pad_03B8[24]; //0x03B8
+	char pad_03B8[88]; //0x03B8
 }; //Size: 0x03D0
-static_assert(sizeof(MatchmakingSessionResult) == 0x490);
+static_assert(sizeof(MatchmakingSessionResult) == 0x4D0);
 
 class PlayerNameMapNode
 {
@@ -208,7 +208,7 @@ public:
 	bool m_was_invited; //0xB3FD
 	char pad_B3FE[26]; //0xB3FE TODO: the reclass file is broken
 	class rage::rlSessionInfo m_unk_session_info; //0xB408
-	char pad_B4D8[635]; //0xB4D8
+	char pad_B4D8[643]; //0xB4D8
 	bool m_need_host_change; //0xB753
 	char pad_B754[74316]; //0xB754
 	class rage::rlSessionDetail m_joining_session_detail; //0x1D9A0
@@ -240,6 +240,9 @@ public:
 	class rage::rlGamerHandle m_inviter_handle; //0x2DCE0
 	class CNetComplaintMgr m_game_complaint_mgr; //0x2DCF0
 	class CNetComplaintMgr m_transition_complaint_mgr; //0x2EB88
+
+	// fields beyond this point are likely outdated!
+
 	char pad_2FA20[32]; //0x2FA20
 	class JoiningPlayerNameMap m_unused_joining_player_name_map; //0x2FA40
 	char pad_31048[8]; //0x31048
@@ -282,5 +285,5 @@ public:
 	uint32_t m_follower_count; //0x49EE0
 	char pad_49EE4[628]; //0x49EE4
 }; //Size: 0x38650
-static_assert(sizeof(Network) == 0x4A170);
+static_assert(sizeof(Network) == 0x4A678);
 #pragma pack(pop)
