@@ -63,4 +63,4 @@ struct GSBD_FM
 	BIKER_CONTRACTS_SERVER                BikerContracts;
 	SCR_ARRAY<uint64_t, 32>               DoubleActionCacheLocationRevealed;
 };
-static_assert(sizeof(GSBD_FM) == 642 * 8);
+static_assert(sizeof(GSBD_FM) == 643 * 8);

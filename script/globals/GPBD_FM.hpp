@@ -456,9 +456,16 @@ struct SALVAGE_YARD_DATA
 };
 static_assert(sizeof(SALVAGE_YARD_DATA) == 7 * 8);
 
+struct BAIL_SHOP_DATA
+{
+	SCR_INT                           Index;
+	uint64_t                          PAD_0001[12];
+};
+static_assert(sizeof(BAIL_SHOP_DATA) == 13 * 8);
+
 struct PROPERTY_DATA
 {
-	SCR_ARRAY<uint64_t, 31>           PropertyIds; // size 30 -> 31 b3095
+	SCR_ARRAY<uint64_t, 32>           PropertyIds; // size 30 -> 31 b3095, size 31 -> 32 b3258
 	SCR_BITSET<ePropertyInteriorFlags>Flags; // I really don't want to indent everything again
 	SCR_INT                           RingingPlayers; // bitset of players requesting entry into property
 	SCR_INT                           Index; // the value you pass to the send to apartment TSE
@@ -467,7 +474,7 @@ struct PROPERTY_DATA
 	PLAYER_INDEX                      ExteriorOwner;
 	SCR_ARRAY<uint64_t, 32>           RingingPlayersState; // 0 = ringing, 1 = accepted, 2 = denied
 	GAMER_HANDLE                      OwnerHandle; // can be used to bypass RID spoofing when player is inside interior
-	SCR_ARRAY<uint64_t, 31>           EclipseTheme; // size 30 -> 31 b3095
+	SCR_ARRAY<uint64_t, 32>           EclipseTheme; // size 30 -> 31 b3095, size 31 -> 32 b3258
 	SCR_INT                           ApartmentType; // normal vs stilt vs eclipse
 	SCR_INT                           OwnerInstance; // same as Instance in most cases
 	SCR_ARRAY<EXEC_WAREHOUSE_INFO, 5> ExecutiveWarehouseInfos;
@@ -540,8 +547,9 @@ struct PROPERTY_DATA
 	VEHICLE_INDEX                     CurrentlyModdingVehicleFixerHQ;
 	MULTI_STOREY_GARAGE_DATA          MultiStoreyGarageData; // @507 as of 1.67
 	SCR_INT                           FreakshopBits; // 0: has weapon workshop, 1: radio enabled
+	BAIL_SHOP_DATA                    BailShopData;
 };
-static_assert(sizeof(PROPERTY_DATA) == 523 * 8);
+static_assert(sizeof(PROPERTY_DATA) == 538 * 8);
 
 struct BIKER_CONTRACTS
 {
@@ -585,6 +593,7 @@ struct GPBD_FM_Entry
 	TEXT_LABEL_63                     JobName;
 	SCR_ARRAY<uint64_t, 2>            ActiveGunRange; // this should have really been an enum lol
 	MP_SCRIPT_DATA                    MissionScriptData;
+	SCR_BOOL                          PAD_0057; // added b3258, some mission thing
 	JOB_SETTINGS                      JobSettings;
 	SCR_INT                           FMMCLauncherState;
 	VEHICLE_SELECTION                 VehicleSelection;
@@ -643,17 +652,17 @@ struct GPBD_FM_Entry
 	SCR_INT                           PAD_0837; // some more aircraft flags
 	SCR_BOOL                          RespawningToPreviousCheckpoint;
 	NIGHTCLUB_SALE                    NightclubSale;
-	uint64_t                          PAD_844[11]; // unused, all of them
+	uint64_t                          PAD_844;
 	SCR_INT                           SeatingIndex;
 	ARENA_WAR_DATA                    ArenaWarData;           // @858 as of 1.67
 	uint64_t                          PAD_0861[2];
 	SCR_INT                           ApartmentEnterFlags;
 	SCR_VEC3                          AvengerMissionStartPosition;
 };
-static_assert(sizeof(GPBD_FM_Entry) == 877 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 883 * 8);
 
 struct GPBD_FM
 {
 	SCR_ARRAY<GPBD_FM_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM) == 28065 * 8);
+static_assert(sizeof(GPBD_FM) == 28257 * 8);

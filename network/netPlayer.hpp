@@ -19,10 +19,11 @@ namespace rage
         virtual void reset();
         virtual bool is_valid();
         virtual const char* get_name();
-        virtual void _0x50();
+        virtual std::uint64_t get_host_token();
+        virtual void _0x58();
         virtual bool is_host();
         virtual rage::rlGamerInfo* get_net_data();
-        virtual void _0x68();
+        virtual void _0x70();
 
         char pad_0008[8]; //0x0008
         CNonPhysicalPlayerData* m_non_physical_player; //0x0010
