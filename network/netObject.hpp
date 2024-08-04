@@ -30,7 +30,7 @@ namespace rage
         virtual void mov2() = 0;                                               // 0x40
 
         virtual void m_8() = 0;                                                // 0x48
-        virtual void m_10() = 0;                                               // 0x50
+        virtual class netSyncData* GetSyncData() = 0;                          // 0x50
         virtual void m_18() = 0;                                               // 0x58
         virtual void* m_20() = 0;                                              // 0x60
         virtual void m_28() = 0;                                               // 0x68
