@@ -7,11 +7,10 @@ namespace rage
 {
     enum class eThreadState : std::uint32_t
     {
-        idle,
         running,
+        idle,
         killed,
-        unk_3,
-        unk_4,
+        paused
     };
 
     class scrThreadContext
