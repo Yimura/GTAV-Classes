@@ -12,17 +12,18 @@ namespace rage
     {
     public:
         int16_t m_object_type; //0x0008
-        int16_t m_object_id; //0x000A
-        char pad_000C[61]; //0x000C
+        int32_t m_object_id; //0x000A
+        char pad_000E[50]; //0x000E
+        int8_t m_bubble; //0x0040
+        char pad_0041[8]; //0x0041
         int8_t m_owner_id; //0x0049
-        int8_t m_control_id; //0x004A
-        int8_t m_next_owner_id; //0x004B
-        bool m_is_remote; //0x004C
-        bool m_wants_to_delete; //0x004D
-        char pad_004E[1]; //0x004E
-        bool m_should_not_be_delete; //0x004F
-        char pad_0050[0x38]; //0x0050
-        int m_ownership_token; //0x0088
+        int8_t m_wants_to_be_owner; //0x004A
+        bool m_is_remote; //0x004B
+        uint16_t m_flags_one; //0x004C
+        uint16_t m_flags_two; //0x004E
+        class CObject* m_game_object; //0x0050
+        char pad_0058[48]; //0x0058
+        uint32_t m_ownership_token; //0x0088
 
         DEFINE_RAGE_RTTI(rage::netObject)
 
@@ -131,7 +132,7 @@ namespace rage
         virtual void m_318() = 0;
         virtual void m_320() = 0;
         virtual void UpdatePendingVisibilityChanges() = 0;
-    }; //Size: 0x0050
-    static_assert(sizeof(netObject) == 0x8C); // incorrect, but will do for now
+    }; //Size: 0x008C
+    static_assert(sizeof(netObject) == 0x90);
 }
 #pragma pack(pop)
