@@ -12,8 +12,8 @@ namespace rage
     {
     public:
         int16_t m_object_type; //0x0008
-        int32_t m_object_id; //0x000A
-        char pad_000E[50]; //0x000E
+        int16_t m_object_id; //0x000A
+        char pad_000C[52]; //0x000C
         int8_t m_bubble; //0x0040
         char pad_0041[8]; //0x0041
         int8_t m_owner_id; //0x0049
@@ -133,6 +133,6 @@ namespace rage
         virtual void m_320() = 0;
         virtual void UpdatePendingVisibilityChanges() = 0;
     }; //Size: 0x008C
-    static_assert(sizeof(netObject) == 0x90);
+    static_assert(sizeof(netObject) == 0x8C);
 }
 #pragma pack(pop)
