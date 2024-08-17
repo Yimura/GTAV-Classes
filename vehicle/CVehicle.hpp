@@ -7,6 +7,26 @@
 #include <cmath>
 
 #pragma pack(push, 1)
+class CDeformation
+{
+public:
+	char pad_0000[732]; //0x0000
+}; //Size: 0x02DC
+static_assert(sizeof(CDeformation) == 0x2DC);
+
+class CVehicleDamage
+{
+public:
+	char pad_0000[16]; //0x0000
+	class CDeformation m_deformation; //0x0010
+	char pad_02EC[284]; //0x02EC
+	class CVehicle* m_vehicle; //0x0408
+	float m_body_health; //0x0410
+	float m_petrol_tank_health; //0x0414
+}; //Size: 0x0418
+static_assert(sizeof(CVehicleDamage) == 0x418);
+
+
 class CVehicle : public rage::CPhysical
 {
 public:
@@ -20,9 +40,8 @@ public:
 	char pad_0308[152]; //0x0308
 	float m_jump_boost_charge; //0x03A0
 	bool m_can_boost_jump; //0x03A4
-	char pad_03A5[1163]; //0x03A5
-	float m_body_health; //0x0830
-	float m_petrol_tank_health; //0x0834
+	char pad_03A5[123]; //0x03A5
+	class CVehicleDamage m_vehicle_damage; //0x0420
 	char pad_0838[72]; //0x0838
 	int16_t m_next_gear; //0x0880
 	int16_t m_current_gear; //0x0882
@@ -57,7 +76,6 @@ public:
 	char pad_0D20[1696]; //0x0D20
 	uint32_t m_door_lock_status; //0x13C0
 	char pad_13C4[2356]; //0x13C4
-
 }; //Size: 0x1CF8
 static_assert(sizeof(CVehicle) == 0x1CF8);
 #pragma pack(pop)
