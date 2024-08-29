@@ -35,6 +35,7 @@
 #include "game_files/CGameConfig.hpp"
 #include "game_files/GameDataHash.hpp"
 #include "misc/CTunables.hpp"
+#include "misc/InputMethodEditor.hpp"
 #include "misc/vfx/TimecycleKeyframeData.hpp"
 #include "netsync/CProjectBaseSyncDataNode.hpp"
 #include "netsync/CProjectSyncTree.hpp"
