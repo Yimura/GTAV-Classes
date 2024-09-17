@@ -7,7 +7,7 @@ class GameDataHash
 {
 public:
 	bool m_is_japanese_version;
-	std::array<rage::Obf32, 15> m_data;
+	std::array<rage::Obf32, 16> m_data;
 };
-static_assert(sizeof(GameDataHash) == 0xF4);
+static_assert(sizeof(GameDataHash) == 0x104);
 #pragma pack(pop)
