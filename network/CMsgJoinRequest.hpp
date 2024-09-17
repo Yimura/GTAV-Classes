@@ -21,5 +21,5 @@ public:
 	rage::rlGamerHandle m_gamer_handle;
 	CNetGamePlayerDataMsg m_player_data_msg;
 };
-static_assert(sizeof(CMsgJoinRequest) == 0x168);
+static_assert(sizeof(CMsgJoinRequest) == 0x178);
 #pragma pack(pop)
