@@ -126,26 +126,28 @@ namespace rage
 		char gap4C[4];
 		rage::netMessageQueue m_reliables_resend_queue;
 		rage::netMessageQueue m_normal_message_queue;
-		rage::netQueuedMessage* m_unacked_reliable_message_list;
-		int m_unacked_reliable_message_count;
-		char gap8C[36];
-		netConnectionManager* m_net_connection_mgr;
-		char gapB8[8];
-		uint32_t dwordC0;
-		int16_t m_msg_counter;
-		int16_t wordC6;
-		char gapC8[2];
-		int16_t m_last_reliable_msg_counter;
-		char m_flags;
-		char gapCD[3];
-		int m_failed_allocation_size;
-		int32_t m_failed_allocations;
-		rage::netConnection* m_next;
-		char gapE0[208];
-		int m_flags2;
-		char gap1B4[69];
+		rage::netQueuedMessage* m_unacked_reliable_message_list; //0x0080
+		int m_unacked_reliable_message_count; //0x0088
+		char gap8C[36]; //0x008C
+		char new_00B0[24]; //0x00B0 added b3323
+		netConnectionManager* m_net_connection_mgr; //0x00C8
+		char gapD0[8]; //0x00D0
+		uint32_t dwordD8; //0x00D8
+		int16_t m_msg_counter; //0x00DC
+		int16_t wordDE; //0x00DE
+		char gapE0[2];
+		int16_t m_last_reliable_msg_counter; //0x00E2
+		char new_00E4[8]; //0x00E4 added b3323
+		char m_flags; //0x00EC
+		char gapED[3];
+		int m_failed_allocation_size; //0x00F0
+		int32_t m_failed_allocations; //0x00F4
+		rage::netConnection* m_next; //0x00F8
+		char gap100[208];
+		int m_flags2; //0x01D0
+		char gap1D4[69];
 	};
-	static_assert(sizeof(netConnection) == 0x1F9);
+	static_assert(sizeof(netConnection) == 0x219);
 
 	class netConnectionQueue
 	{
